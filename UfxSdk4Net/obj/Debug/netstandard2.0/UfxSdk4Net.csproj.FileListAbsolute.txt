@@ -1,3 +1,0 @@
-D:\hetao\github\ufxfuncs\UfxSdk4Net\obj\Debug\netstandard2.0\UfxSdk4Net.csprojAssemblyReference.cache
-D:\hetao\github\ufxfuncs\UfxSdk4Net\obj\Debug\netstandard2.0\UfxSdk4Net.AssemblyInfoInputs.cache
-D:\hetao\github\ufxfuncs\UfxSdk4Net\obj\Debug\netstandard2.0\UfxSdk4Net.AssemblyInfo.cs
