@@ -1,0 +1,69 @@
+﻿<#@ template language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+
+<#+
+    public class UfxFunctionArg
+    {
+        public string Name;
+        public string Type;
+        public string Description;
+        public bool Required;
+        public string Remark;
+        public override string ToString()
+        {
+            return $"{Name},{Type},{Remark}";
+        }
+    }
+
+    public class UfxFunction
+    {
+        public int Code;
+        public char MsgType;
+        public int OldCode;
+        public string UpdateDate;
+        public string Name;
+        public string FunctionName;
+        public string Version;
+        public bool HasDataSet;
+        public string BusinessScope;
+        public string InterfaceScope;
+        public string RequestType;
+        public string Status;
+        public string Description;
+        public readonly List<UfxFunctionArg> InArgs = new List<UfxFunctionArg>();
+        public readonly List<UfxFunctionArg> OutArgs = new List<UfxFunctionArg>();
+        public string BusinessDescription;
+        public override string ToString()
+        {
+            if (Code == 0)
+            {
+                return $"消息推送:{MsgType},{Name},{Description}";
+            }
+            return $"功能接口:{Code},{Name},{FunctionName},{Description}";
+        }
+    }
+
+    public class DataDictItem
+    {
+        public string Value;
+        public string Description;
+    }
+
+    public class UfxDataDict
+    {
+        public string Key;
+        public string Description;
+        public string Name;
+        public List<DataDictItem> Items = new List<DataDictItem>();
+    }
+
+    public class UfxErrorInfo
+    {
+        public int Code;
+        public string Message;
+        public string Remark;
+    }
+#>

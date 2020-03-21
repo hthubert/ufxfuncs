@@ -1,0 +1,20 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)ttlib\netstandard.dll" #>
+<#@ assembly name="$(TargetDir)Newtonsoft.Json.dll" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Newtonsoft.Json"#>
+<#@ import namespace="System.IO" #>
+<#@ include file="Classes.tt"#>
+<#
+    const string jsonPath = @"d:\hetao\github\ufxfuncs\XlsxToJson\bin\Debug\netcoreapp3.1";
+    var functionPath = Path.Combine(jsonPath,"functions.json");
+    var dictPath = Path.Combine(jsonPath,"dict.json");
+    var errorPath = Path.Combine(jsonPath,"error.json");
+    var functions = JsonConvert.DeserializeObject<List<UfxFunction>>(File.ReadAllText(functionPath));
+    var dict = JsonConvert.DeserializeObject<List<UfxDataDict>>(File.ReadAllText(functionPath));
+    var errors = JsonConvert.DeserializeObject<List<UfxErrorInfo>>(File.ReadAllText(functionPath));
+#>

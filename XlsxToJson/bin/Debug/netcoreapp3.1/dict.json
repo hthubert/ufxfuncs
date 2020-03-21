@@ -1,0 +1,1558 @@
+[
+  {
+    "Key": "1",
+    "Description": "账户类型",
+    "Name": "account_type",
+    "Items": [
+      {
+        "Value": "'1'",
+        "Description": "封闭式基金"
+      },
+      {
+        "Value": "'2'",
+        "Description": "开放式基金"
+      },
+      {
+        "Value": "'3'",
+        "Description": "社保基金"
+      },
+      {
+        "Value": "'5'",
+        "Description": "年金产品"
+      },
+      {
+        "Value": "'6'",
+        "Description": "专户产品"
+      },
+      {
+        "Value": "'8'",
+        "Description": "年金"
+      },
+      {
+        "Value": "'9'",
+        "Description": "专户理财"
+      },
+      {
+        "Value": "'10'",
+        "Description": "保险"
+      },
+      {
+        "Value": "'11'",
+        "Description": "一对多专户"
+      },
+      {
+        "Value": "'12'",
+        "Description": "定向理财"
+      },
+      {
+        "Value": "'13'",
+        "Description": "集合理财"
+      },
+      {
+        "Value": "'14'",
+        "Description": "自营"
+      },
+      {
+        "Value": "'15'",
+        "Description": "信托"
+      },
+      {
+        "Value": "'16'",
+        "Description": "私募"
+      },
+      {
+        "Value": "'17'",
+        "Description": "委托资产"
+      }
+    ]
+  },
+  {
+    "Key": "3",
+    "Description": "委托状态",
+    "Name": "entrust_state",
+    "Items": [
+      {
+        "Value": "'1'",
+        "Description": "未报"
+      },
+      {
+        "Value": "'2'",
+        "Description": "待报"
+      },
+      {
+        "Value": "'3'",
+        "Description": "正报"
+      },
+      {
+        "Value": "'4'",
+        "Description": "已报"
+      },
+      {
+        "Value": "'5'",
+        "Description": "废单"
+      },
+      {
+        "Value": "'6'",
+        "Description": "部成"
+      },
+      {
+        "Value": "'7'",
+        "Description": "已成"
+      },
+      {
+        "Value": "'8'",
+        "Description": "部撤"
+      },
+      {
+        "Value": "'9'",
+        "Description": "已撤"
+      },
+      {
+        "Value": "'a'",
+        "Description": "待撤"
+      },
+      {
+        "Value": "'b'",
+        "Description": "未审批"
+      },
+      {
+        "Value": "'c'",
+        "Description": "审批拒绝"
+      },
+      {
+        "Value": "'d'",
+        "Description": "未审批即撤销"
+      },
+      {
+        "Value": "'A'",
+        "Description": "未撤(撤单委托)"
+      },
+      {
+        "Value": "'B'",
+        "Description": "待撤(撤单委托)"
+      },
+      {
+        "Value": "'C'",
+        "Description": "正撤(撤单委托)"
+      },
+      {
+        "Value": "'D'",
+        "Description": "撤认(撤单委托)"
+      },
+      {
+        "Value": "'E'",
+        "Description": "撤废(撤单委托)"
+      },
+      {
+        "Value": "'F'",
+        "Description": "已撤(撤单委托)"
+      }
+    ]
+  },
+  {
+    "Key": "4",
+    "Description": "交易市场",
+    "Name": "market_no",
+    "Items": [
+      {
+        "Value": "\"1\"",
+        "Description": "上交所"
+      },
+      {
+        "Value": "\"2\"",
+        "Description": "深交所"
+      },
+      {
+        "Value": "\"3\"",
+        "Description": "上期所"
+      },
+      {
+        "Value": "\"4\"",
+        "Description": "郑商所"
+      },
+      {
+        "Value": "\"6\"",
+        "Description": "场外"
+      },
+      {
+        "Value": "\"7\"",
+        "Description": "中金所"
+      },
+      {
+        "Value": "\"9\"",
+        "Description": "大商所"
+      },
+      {
+        "Value": "\"k\"",
+        "Description": "能源期货交易所"
+      },
+      {
+        "Value": "\"10\"",
+        "Description": "股转市场"
+      },
+      {
+        "Value": "\"35\"",
+        "Description": "港股通（沪）"
+      },
+      {
+        "Value": "\"o\"",
+        "Description": "港股通（深）"
+      }
+    ]
+  },
+  {
+    "Key": "5",
+    "Description": "投资类型",
+    "Name": "invest_type",
+    "Items": [
+      {
+        "Value": "'0'",
+        "Description": "不区分(期货)"
+      },
+      {
+        "Value": "'1'",
+        "Description": "可交易"
+      },
+      {
+        "Value": "'2'",
+        "Description": "持有到期"
+      },
+      {
+        "Value": "'3'",
+        "Description": "可供出售"
+      },
+      {
+        "Value": "'4'",
+        "Description": "贷款和应收款项"
+      },
+      {
+        "Value": "'a'",
+        "Description": "投机(期货)"
+      },
+      {
+        "Value": "'b'",
+        "Description": "套保(期货)"
+      },
+      {
+        "Value": "'c'",
+        "Description": "套利(期货)"
+      }
+    ]
+  },
+  {
+    "Key": "6",
+    "Description": "委托方向",
+    "Name": "entrust_direction",
+    "Items": [
+      {
+        "Value": "'1'",
+        "Description": "买入"
+      },
+      {
+        "Value": "'2'",
+        "Description": "卖出"
+      },
+      {
+        "Value": "'3'",
+        "Description": "债券买入"
+      },
+      {
+        "Value": "'4'",
+        "Description": "债券卖出"
+      },
+      {
+        "Value": "'5'",
+        "Description": "融资(正)回购"
+      },
+      {
+        "Value": "'6'",
+        "Description": "融券(逆)回购"
+      },
+      {
+        "Value": "'9'",
+        "Description": "配股（配债）认购"
+      },
+      {
+        "Value": "'10'",
+        "Description": "债转股"
+      },
+      {
+        "Value": "'11'",
+        "Description": "债回售"
+      },
+      {
+        "Value": "'12'",
+        "Description": "申购"
+      },
+      {
+        "Value": "'13'",
+        "Description": "基金认购"
+      },
+      {
+        "Value": "'17'",
+        "Description": "转托管"
+      },
+      {
+        "Value": "'26'",
+        "Description": "ETF申购"
+      },
+      {
+        "Value": "'27'",
+        "Description": "ETF赎回"
+      },
+      {
+        "Value": "'28'",
+        "Description": "行权认购"
+      },
+      {
+        "Value": "'29'",
+        "Description": "行权认沽"
+      },
+      {
+        "Value": "'30'",
+        "Description": "提交质押"
+      },
+      {
+        "Value": "'31'",
+        "Description": "转回质押"
+      },
+      {
+        "Value": "'32'",
+        "Description": "沪深交易所融资融券展期"
+      },
+      {
+        "Value": "'46'",
+        "Description": "权利对冲设置"
+      },
+      {
+        "Value": "'47'",
+        "Description": "权利对冲取消"
+      },
+      {
+        "Value": "'48'",
+        "Description": "义务期货对冲设置"
+      },
+      {
+        "Value": "'49'",
+        "Description": "义务期货对冲取消"
+      },
+      {
+        "Value": "'50'",
+        "Description": "基金分拆"
+      },
+      {
+        "Value": "'51'",
+        "Description": "基金合并"
+      },
+      {
+        "Value": "'53'",
+        "Description": "开基申购"
+      },
+      {
+        "Value": "'54'",
+        "Description": "开基赎回"
+      },
+      {
+        "Value": "'55'",
+        "Description": "债券认购"
+      },
+      {
+        "Value": "'63'",
+        "Description": "保证券锁定（股票期权）,担保品交存（融资融券）"
+      },
+      {
+        "Value": "'64'",
+        "Description": "保证券解锁（股票期权）,担保品提取（融资融券）"
+      },
+      {
+        "Value": "'67'",
+        "Description": "融券卖出"
+      },
+      {
+        "Value": "'68'",
+        "Description": "买券还券"
+      },
+      {
+        "Value": "'69'",
+        "Description": "直接还款"
+      },
+      {
+        "Value": "'70'",
+        "Description": "直接还券"
+      },
+      {
+        "Value": "'71'",
+        "Description": "合并行权"
+      },
+      {
+        "Value": "'75'",
+        "Description": "融资买入"
+      },
+      {
+        "Value": "'76'",
+        "Description": "卖券还款"
+      },
+      {
+        "Value": "'83'",
+        "Description": "放弃行权（郑商所、大商所商品期权）"
+      },
+      {
+        "Value": "'84'",
+        "Description": "询价（上交所期权询价）"
+      }
+    ]
+  },
+  {
+    "Key": "7",
+    "Description": "价格类型",
+    "Name": "price_type",
+    "Items": [
+      {
+        "Value": "'0'",
+        "Description": "限价"
+      },
+      {
+        "Value": "'1'",
+        "Description": "任意价(期货,不支持中金所、上期所和能源期货交易所)"
+      },
+      {
+        "Value": "'2'",
+        "Description": "市价剩余转限价（上交所股票期权）"
+      },
+      {
+        "Value": "'3'",
+        "Description": "市价剩余撤消（上交所股票期权）"
+      },
+      {
+        "Value": "'4'",
+        "Description": "FOK限价（上交所股票期权）"
+      },
+      {
+        "Value": "'5'",
+        "Description": "FOK市价（上交所股票期权）"
+      },
+      {
+        "Value": "'a'",
+        "Description": "五档即成剩撤（上交所市价）"
+      },
+      {
+        "Value": "'b'",
+        "Description": "五档即成剩转（上交所市价）"
+      },
+      {
+        "Value": "'c'",
+        "Description": "限价盘（零股）(港股通)"
+      },
+      {
+        "Value": "'e'",
+        "Description": "竞价限价盘(港股通)"
+      },
+      {
+        "Value": "'g'",
+        "Description": "增强限价盘(港股通)"
+      },
+      {
+        "Value": "'i'",
+        "Description": "竞价限价盘FOK(港股通)"
+      },
+      {
+        "Value": "'j'",
+        "Description": "增强限价盘FOK(港股通)（郑商所期货，期权，大商所期货FAK市价）"
+      },
+      {
+        "Value": "'k'",
+        "Description": "定价申报(股转市场)（郑商所期权，大商所期货FOK市价）"
+      },
+      {
+        "Value": "'l'",
+        "Description": "协议转让成交确认申报(股转市场)"
+      },
+      {
+        "Value": "'m'",
+        "Description": "协议转让互报成交确认申报(股转市场)"
+      },
+      {
+        "Value": "'A'",
+        "Description": "五档即成剩撤（深交所市价）"
+      },
+      {
+        "Value": "'C'",
+        "Description": "即成剩撤（深交所市价）"
+      },
+      {
+        "Value": "'D'",
+        "Description": "对手方最优（深交所市价）"
+      },
+      {
+        "Value": "'E'",
+        "Description": "本方最优（深交所市价）"
+      },
+      {
+        "Value": "'F'",
+        "Description": "全额成或撤（FOK市价）（深交所市价）"
+      },
+      {
+        "Value": "'G'",
+        "Description": "全额成或撤(FOK限价)（上期所、中金所、深交所、能源交易所）（郑商所期权，大商所期货、期权FOK限价）"
+      },
+      {
+        "Value": "'K'",
+        "Description": "即成剩撤（FAK）（上期所、郑商所、中金所、能源交易所）（大商所期货、期权即成剩撤(FAK)）"
+      },
+      {
+        "Value": "'L'",
+        "Description": "五档即成剩撤（中金所五档市价）"
+      },
+      {
+        "Value": "'M'",
+        "Description": "五档即成剩转（中金所五档市价转限价）"
+      },
+      {
+        "Value": "'N'",
+        "Description": "最优一档即成剩撤（中金所最优价）"
+      },
+      {
+        "Value": "'O'",
+        "Description": "最优一档即成剩转（中金所最优价）"
+      }
+    ]
+  },
+  {
+    "Key": "8",
+    "Description": "多空标志",
+    "Name": "position_flag",
+    "Items": [
+      {
+        "Value": "'1'",
+        "Description": "多头持仓"
+      },
+      {
+        "Value": "'2'",
+        "Description": "空头持仓"
+      },
+      {
+        "Value": "'b'",
+        "Description": "备兑空头持仓（股票期权）"
+      }
+    ]
+  },
+  {
+    "Key": "9",
+    "Description": "交易实例类型",
+    "Name": "instance_type",
+    "Items": [
+      {
+        "Value": "'A'",
+        "Description": "股指期货期现套利"
+      },
+      {
+        "Value": "'B'",
+        "Description": "股指期货跨期套利"
+      },
+      {
+        "Value": "'C'",
+        "Description": "ETF套利"
+      },
+      {
+        "Value": "'D'",
+        "Description": "国债期货期现套利"
+      },
+      {
+        "Value": "'E'",
+        "Description": "国债期货跨期套利"
+      },
+      {
+        "Value": "'F'",
+        "Description": "股票期权套利"
+      },
+      {
+        "Value": "'Z'",
+        "Description": "自定义"
+      }
+    ]
+  },
+  {
+    "Key": "10",
+    "Description": "币种",
+    "Name": "currency_code",
+    "Items": [
+      {
+        "Value": "\"CNY\"",
+        "Description": "人民币"
+      },
+      {
+        "Value": "\"USD\"",
+        "Description": "美元"
+      },
+      {
+        "Value": "\"HKD\"",
+        "Description": "港币(未开通深港通)"
+      },
+      {
+        "Value": "\"HK1\"",
+        "Description": "港币(沪港通)(开通深港通)"
+      },
+      {
+        "Value": "\"HK2\"",
+        "Description": "港币(深港通)(开通深港通)"
+      }
+    ]
+  },
+  {
+    "Key": "11",
+    "Description": "资产账户类型",
+    "Name": "account_category",
+    "Items": [
+      {
+        "Value": "\"1\"",
+        "Description": "沪深A股"
+      },
+      {
+        "Value": "\"2\"",
+        "Description": "期货"
+      },
+      {
+        "Value": "\"3\"",
+        "Description": "期权"
+      }
+    ]
+  },
+  {
+    "Key": "12",
+    "Description": "账户来源",
+    "Name": "origin_type",
+    "Items": [
+      {
+        "Value": "\"1\"",
+        "Description": "O32"
+      }
+    ]
+  },
+  {
+    "Key": "13",
+    "Description": "现金替代标志",
+    "Name": "replace_flag",
+    "Items": [
+      {
+        "Value": "\"0\"",
+        "Description": "不可替代"
+      },
+      {
+        "Value": "\"1\"",
+        "Description": "可以替代"
+      },
+      {
+        "Value": "\"2\"",
+        "Description": "必须替代"
+      },
+      {
+        "Value": "\"3\"",
+        "Description": "深市退补现金替代"
+      },
+      {
+        "Value": "\"4\"",
+        "Description": "深市必须现金替代"
+      },
+      {
+        "Value": "\"5\"",
+        "Description": "非沪深市场退补现金替代"
+      },
+      {
+        "Value": "\"6\"",
+        "Description": "非沪深市场必须现金替代"
+      }
+    ]
+  },
+  {
+    "Key": "14",
+    "Description": "业务类别",
+    "Name": "ambusiness_type_limits",
+    "Items": [
+      {
+        "Value": "'1'",
+        "Description": "交易所业务"
+      },
+      {
+        "Value": "'4'",
+        "Description": "期货业务"
+      },
+      {
+        "Value": "'6'",
+        "Description": "ETF一级市场业务"
+      }
+    ]
+  },
+  {
+    "Key": "15",
+    "Description": "风控类别",
+    "Name": "risk_type",
+    "Items": [
+      {
+        "Value": "'A'",
+        "Description": "证券持仓数量控制"
+      },
+      {
+        "Value": "'B'",
+        "Description": "证券持仓成本控制"
+      },
+      {
+        "Value": "'C'",
+        "Description": "证券持仓市值控制"
+      },
+      {
+        "Value": "'D'",
+        "Description": "证券市值按行业控制（社保）"
+      },
+      {
+        "Value": "'E'",
+        "Description": "资产类别市值控制"
+      },
+      {
+        "Value": "'F'",
+        "Description": "交易额控制"
+      },
+      {
+        "Value": "'G'",
+        "Description": "当日交易量控制"
+      },
+      {
+        "Value": "'H'",
+        "Description": "执行价格控制"
+      },
+      {
+        "Value": "'I'",
+        "Description": "证券买卖控制"
+      },
+      {
+        "Value": "'J'",
+        "Description": "同向反向控制"
+      },
+      {
+        "Value": "'K'",
+        "Description": "剩余天数控制"
+      },
+      {
+        "Value": "'L'",
+        "Description": "到期回购资产控制"
+      },
+      {
+        "Value": "'M'",
+        "Description": "交易对手授信额度控制"
+      },
+      {
+        "Value": "'N'",
+        "Description": "存款控制"
+      },
+      {
+        "Value": "'P'",
+        "Description": "回购质押券额度控制"
+      },
+      {
+        "Value": "'Q'",
+        "Description": "交易频率控制"
+      },
+      {
+        "Value": "'R'",
+        "Description": "期货占用保证金控制"
+      },
+      {
+        "Value": "'S'",
+        "Description": "合同投资控制"
+      },
+      {
+        "Value": "'T'",
+        "Description": "资产数值控制"
+      }
+    ]
+  },
+  {
+    "Key": "16",
+    "Description": "风控触警操作",
+    "Name": "risk_operation",
+    "Items": [
+      {
+        "Value": "'0'",
+        "Description": "无"
+      },
+      {
+        "Value": "'1'",
+        "Description": "预警"
+      },
+      {
+        "Value": "'2'",
+        "Description": "禁止 "
+      },
+      {
+        "Value": "'3'",
+        "Description": "申请指令审批"
+      },
+      {
+        "Value": "'4'",
+        "Description": "申请风险阀值"
+      },
+      {
+        "Value": "'5'",
+        "Description": "不提示"
+      }
+    ]
+  },
+  {
+    "Key": "17",
+    "Description": "委托失败代码",
+    "Name": "entrust_fail_code",
+    "Items": [
+      {
+        "Value": "'0'",
+        "Description": "成功"
+      },
+      {
+        "Value": "'1'",
+        "Description": "风控禁止"
+      },
+      {
+        "Value": "'2'",
+        "Description": "可用不足"
+      },
+      {
+        "Value": "'3'",
+        "Description": "其他"
+      },
+      {
+        "Value": "'99'",
+        "Description": "因为其他委托导致此笔委托失败"
+      }
+    ]
+  },
+  {
+    "Key": "18",
+    "Description": "期权类型",
+    "Name": "option_type",
+    "Items": [
+      {
+        "Value": "'C'",
+        "Description": "认购期权"
+      },
+      {
+        "Value": "'P'",
+        "Description": "认沽期权"
+      }
+    ]
+  },
+  {
+    "Key": "19",
+    "Description": "申赎方式",
+    "Name": "purchase_way",
+    "Items": [
+      {
+        "Value": "'0'",
+        "Description": "普通申赎"
+      },
+      {
+        "Value": "'1'",
+        "Description": "现金申赎"
+      },
+      {
+        "Value": "'2'",
+        "Description": "实物申赎"
+      }
+    ]
+  },
+  {
+    "Key": "20",
+    "Description": "资金调整类型",
+    "Name": "adjust_mode",
+    "Items": [
+      {
+        "Value": "'1'",
+        "Description": "资金调增"
+      },
+      {
+        "Value": "'2'",
+        "Description": "资金调减"
+      },
+      {
+        "Value": "'3'",
+        "Description": "保证金调增"
+      },
+      {
+        "Value": "'4'",
+        "Description": "保证金调减"
+      },
+      {
+        "Value": "'5'",
+        "Description": "资金投入（同步增加份额）"
+      },
+      {
+        "Value": "'6'",
+        "Description": "资金支取（同步减少份额）"
+      },
+      {
+        "Value": "'a'",
+        "Description": "资金拆入"
+      },
+      {
+        "Value": "'b'",
+        "Description": "拆入到期"
+      },
+      {
+        "Value": "'c'",
+        "Description": "资金拆出"
+      },
+      {
+        "Value": "'d'",
+        "Description": "拆出到期"
+      }
+    ]
+  },
+  {
+    "Key": "21",
+    "Description": "证券类别权限",
+    "Name": "stock_type_limits",
+    "Items": [
+      {
+        "Value": "'1'",
+        "Description": "股票"
+      },
+      {
+        "Value": "'v'",
+        "Description": "商品期货"
+      },
+      {
+        "Value": "'R'",
+        "Description": "股指期货"
+      },
+      {
+        "Value": "'W'",
+        "Description": "国债期货"
+      }
+    ]
+  },
+  {
+    "Key": "22",
+    "Description": "业务操作类型",
+    "Name": "business_op_flag",
+    "Items": [
+      {
+        "Value": "'101'",
+        "Description": "资金调增"
+      },
+      {
+        "Value": "'102'",
+        "Description": "资金调减"
+      },
+      {
+        "Value": "'108'",
+        "Description": "保证金调增"
+      },
+      {
+        "Value": "'109'",
+        "Description": "保证金调减"
+      },
+      {
+        "Value": "'121'",
+        "Description": "资金投入"
+      },
+      {
+        "Value": "'122'",
+        "Description": "资金支取"
+      }
+    ]
+  },
+  {
+    "Key": "23",
+    "Description": "期货品种序号",
+    "Name": "future_kind_id",
+    "Items": [
+      {
+        "Value": "'1'",
+        "Description": "股指期货"
+      },
+      {
+        "Value": "'6'",
+        "Description": "铝"
+      },
+      {
+        "Value": "'7'",
+        "Description": "锌"
+      },
+      {
+        "Value": "'8'",
+        "Description": "铅"
+      },
+      {
+        "Value": "'9'",
+        "Description": "黄金"
+      },
+      {
+        "Value": "'10'",
+        "Description": "螺纹钢"
+      },
+      {
+        "Value": "'11'",
+        "Description": "线材"
+      },
+      {
+        "Value": "'12'",
+        "Description": "燃料油"
+      },
+      {
+        "Value": "'13'",
+        "Description": "天然橡胶"
+      },
+      {
+        "Value": "'14'",
+        "Description": "铜"
+      },
+      {
+        "Value": "'15'",
+        "Description": "硬麦"
+      },
+      {
+        "Value": "'16'",
+        "Description": "棉花"
+      },
+      {
+        "Value": "'17'",
+        "Description": "白糖"
+      },
+      {
+        "Value": "'18'",
+        "Description": "PTA"
+      },
+      {
+        "Value": "'19'",
+        "Description": "菜籽油"
+      },
+      {
+        "Value": "'20'",
+        "Description": "早籼稻"
+      },
+      {
+        "Value": "'21'",
+        "Description": "甲醇"
+      },
+      {
+        "Value": "'22'",
+        "Description": "强麦"
+      },
+      {
+        "Value": "'23'",
+        "Description": "豆一号"
+      },
+      {
+        "Value": "'24'",
+        "Description": "豆二号"
+      },
+      {
+        "Value": "'25'",
+        "Description": "豆粕"
+      },
+      {
+        "Value": "'26'",
+        "Description": "豆油"
+      },
+      {
+        "Value": "'27'",
+        "Description": "棕榈油"
+      },
+      {
+        "Value": "'28'",
+        "Description": "聚乙烯"
+      },
+      {
+        "Value": "'29'",
+        "Description": "聚氯乙烯"
+      },
+      {
+        "Value": "'30'",
+        "Description": "焦炭"
+      },
+      {
+        "Value": "'31'",
+        "Description": "玉米"
+      },
+      {
+        "Value": "'32'",
+        "Description": "五年期国债期货"
+      },
+      {
+        "Value": "'33'",
+        "Description": "白银"
+      },
+      {
+        "Value": "'34'",
+        "Description": "玻璃"
+      },
+      {
+        "Value": "'35'",
+        "Description": "菜籽"
+      },
+      {
+        "Value": "'36'",
+        "Description": "菜粕"
+      },
+      {
+        "Value": "'37'",
+        "Description": "强麦"
+      },
+      {
+        "Value": "'38'",
+        "Description": "菜籽油"
+      },
+      {
+        "Value": "'39'",
+        "Description": "早籼稻"
+      },
+      {
+        "Value": "'40'",
+        "Description": "普麦"
+      },
+      {
+        "Value": "'41'",
+        "Description": "焦煤"
+      },
+      {
+        "Value": "'42'",
+        "Description": "石油沥青"
+      },
+      {
+        "Value": "'43'",
+        "Description": "动力煤"
+      },
+      {
+        "Value": "'44'",
+        "Description": "铁矿石"
+      },
+      {
+        "Value": "'45'",
+        "Description": "鸡蛋"
+      },
+      {
+        "Value": "'46'",
+        "Description": "粳稻"
+      },
+      {
+        "Value": "'48'",
+        "Description": "纤维板"
+      },
+      {
+        "Value": "'49'",
+        "Description": "胶合板"
+      },
+      {
+        "Value": "'50'",
+        "Description": "原油期货"
+      },
+      {
+        "Value": "'51'",
+        "Description": "聚丙烯"
+      },
+      {
+        "Value": "'52'",
+        "Description": "上证50股指期货"
+      },
+      {
+        "Value": "'53'",
+        "Description": "中证500股指期货"
+      },
+      {
+        "Value": "'54'",
+        "Description": "热轧卷板"
+      },
+      {
+        "Value": "'56'",
+        "Description": "甲醇N"
+      },
+      {
+        "Value": "'57'",
+        "Description": "晚籼稻谷"
+      },
+      {
+        "Value": "'58'",
+        "Description": "硅铁"
+      },
+      {
+        "Value": "'59'",
+        "Description": "锰硅"
+      },
+      {
+        "Value": "'60'",
+        "Description": "三年期国债期货"
+      },
+      {
+        "Value": "'61'",
+        "Description": "十年期国债期货"
+      },
+      {
+        "Value": "'62'",
+        "Description": "玉米淀粉"
+      },
+      {
+        "Value": "'63'",
+        "Description": "镍"
+      },
+      {
+        "Value": "'64'",
+        "Description": "锡"
+      },
+      {
+        "Value": "'65'",
+        "Description": "动力煤N"
+      }
+    ]
+  },
+  {
+    "Key": "24",
+    "Description": "股东指定状态",
+    "Name": "bind_status",
+    "Items": [
+      {
+        "Value": "0",
+        "Description": "指定"
+      },
+      {
+        "Value": "1",
+        "Description": "上交所未指定"
+      },
+      {
+        "Value": "2",
+        "Description": "上交所指定"
+      },
+      {
+        "Value": "3",
+        "Description": "上交所当日可卖空"
+      },
+      {
+        "Value": "4",
+        "Description": "上交所回购登记"
+      },
+      {
+        "Value": "5",
+        "Description": "深交所托管"
+      },
+      {
+        "Value": "6",
+        "Description": "深交所指定"
+      }
+    ]
+  },
+  {
+    "Key": "25",
+    "Description": "证券类型",
+    "Name": "stock_type",
+    "Items": [
+      {
+        "Value": "'01'",
+        "Description": "股票"
+      },
+      {
+        "Value": "'02'",
+        "Description": "封闭式基金"
+      },
+      {
+        "Value": "'03'",
+        "Description": "国债"
+      },
+      {
+        "Value": "'04'",
+        "Description": "企债"
+      },
+      {
+        "Value": "'05'",
+        "Description": "可转债"
+      },
+      {
+        "Value": "'06'",
+        "Description": "政策性金融债"
+      },
+      {
+        "Value": "'08'",
+        "Description": "债券回购"
+      },
+      {
+        "Value": "'09'",
+        "Description": "股票回购"
+      },
+      {
+        "Value": "'0a'",
+        "Description": "申购"
+      },
+      {
+        "Value": "'0A'",
+        "Description": "企债标准券"
+      },
+      {
+        "Value": "'0b'",
+        "Description": "申购款"
+      },
+      {
+        "Value": "'0B'",
+        "Description": "债转股"
+      },
+      {
+        "Value": "'0c'",
+        "Description": "配号"
+      },
+      {
+        "Value": "'0C'",
+        "Description": "配债"
+      },
+      {
+        "Value": "'0D'",
+        "Description": "央行票据"
+      },
+      {
+        "Value": "'0d'",
+        "Description": "增发"
+      },
+      {
+        "Value": "'0e'",
+        "Description": "增发款"
+      },
+      {
+        "Value": "'0E'",
+        "Description": "存款"
+      },
+      {
+        "Value": "'0f'",
+        "Description": "配售"
+      },
+      {
+        "Value": "'0F'",
+        "Description": "开放式基金"
+      },
+      {
+        "Value": "'0g'",
+        "Description": "关联配售"
+      },
+      {
+        "Value": "'0G'",
+        "Description": "非政策性金融债"
+      },
+      {
+        "Value": "'0h'",
+        "Description": "配股"
+      },
+      {
+        "Value": "'0H'",
+        "Description": "通用配售权证"
+      },
+      {
+        "Value": "'0i'",
+        "Description": "关联配股"
+      },
+      {
+        "Value": "'0I'",
+        "Description": "买断式回购"
+      },
+      {
+        "Value": "'0J'",
+        "Description": "投票"
+      },
+      {
+        "Value": "'0j'",
+        "Description": "债券承销"
+      },
+      {
+        "Value": "'0k'",
+        "Description": "债券申购"
+      },
+      {
+        "Value": "'0K'",
+        "Description": "次级债"
+      },
+      {
+        "Value": "'0l'",
+        "Description": "债券申购款"
+      },
+      {
+        "Value": "'0L'",
+        "Description": "次级债务"
+      },
+      {
+        "Value": "'0M'",
+        "Description": "认购权证"
+      },
+      {
+        "Value": "'0m'",
+        "Description": "类信托"
+      },
+      {
+        "Value": "'0N'",
+        "Description": "认沽权证"
+      },
+      {
+        "Value": "'0n'",
+        "Description": "债券增发"
+      },
+      {
+        "Value": "'0o'",
+        "Description": "债券增发款"
+      },
+      {
+        "Value": "'0O'",
+        "Description": "认购行权"
+      },
+      {
+        "Value": "'0P'",
+        "Description": "认沽行权"
+      },
+      {
+        "Value": "'0p'",
+        "Description": "指定登记"
+      },
+      {
+        "Value": "'0q'",
+        "Description": "撤销指定"
+      },
+      {
+        "Value": "'0Q'",
+        "Description": "债券质押"
+      },
+      {
+        "Value": "'0r'",
+        "Description": "回购登记"
+      },
+      {
+        "Value": "'0R'",
+        "Description": "股指期货"
+      },
+      {
+        "Value": "'0S'",
+        "Description": "公司债"
+      },
+      {
+        "Value": "'0s'",
+        "Description": "回购撤销"
+      },
+      {
+        "Value": "'0T'",
+        "Description": "地方债"
+      },
+      {
+        "Value": "'0t'",
+        "Description": "利率互换"
+      },
+      {
+        "Value": "'0U'",
+        "Description": "理财产品"
+      },
+      {
+        "Value": "'0V'",
+        "Description": "存托凭证"
+      },
+      {
+        "Value": "'0v'",
+        "Description": "商品期货"
+      },
+      {
+        "Value": "'0W'",
+        "Description": "国债期货"
+      },
+      {
+        "Value": "'0w'",
+        "Description": "指数"
+      },
+      {
+        "Value": "'0x'",
+        "Description": "国债标准券"
+      },
+      {
+        "Value": "'0X'",
+        "Description": "项目投资"
+      },
+      {
+        "Value": "'0Y'",
+        "Description": "现金"
+      },
+      {
+        "Value": "'0y'",
+        "Description": "债回售"
+      },
+      {
+        "Value": "'0Z'",
+        "Description": "债券认购"
+      },
+      {
+        "Value": "'0z'",
+        "Description": "信用拆借"
+      },
+      {
+        "Value": "'0?'",
+        "Description": "债券ETF质押"
+      },
+      {
+        "Value": "'0='",
+        "Description": "占用"
+      },
+      {
+        "Value": "'0|'",
+        "Description": "占用"
+      },
+      {
+        "Value": "'0～'",
+        "Description": "占用"
+      },
+      {
+        "Value": "'0['",
+        "Description": "信托计划"
+      },
+      {
+        "Value": "'0]'",
+        "Description": "债券预发行"
+      },
+      {
+        "Value": "'0('",
+        "Description": "认购期权"
+      },
+      {
+        "Value": "'0)'",
+        "Description": "认沽期权"
+      },
+      {
+        "Value": "'0{'",
+        "Description": "优先股"
+      },
+      {
+        "Value": "'0}'",
+        "Description": "优先股回售"
+      },
+      {
+        "Value": "'0<'",
+        "Description": "优先股转股"
+      },
+      {
+        "Value": "'11'",
+        "Description": "供股权"
+      },
+      {
+        "Value": "'12'",
+        "Description": "配售权"
+      },
+      {
+        "Value": "'13'",
+        "Description": "股票红利选择权"
+      },
+      {
+        "Value": "'14'",
+        "Description": "公司收购"
+      },
+      {
+        "Value": "'15'",
+        "Description": "供股权益"
+      },
+      {
+        "Value": "'16'",
+        "Description": "配售权益"
+      },
+      {
+        "Value": "'!'",
+        "Description": "其他"
+      },
+      {
+        "Value": "'+'",
+        "Description": "债券借贷"
+      }
+    ]
+  }
+]

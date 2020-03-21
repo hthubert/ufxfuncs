@@ -1,0 +1,222 @@
+[
+  {
+    "Code": 0,
+    "Message": "成功",
+    "Remark": ""
+  },
+  {
+    "Code": 99,
+    "Message": "未捕获异常",
+    "Remark": ""
+  },
+  {
+    "Code": 100,
+    "Message": "session未初始化",
+    "Remark": ""
+  },
+  {
+    "Code": 1000,
+    "Message": "未登陆或登陆失效",
+    "Remark": "用户未登陆或token失效。"
+  },
+  {
+    "Code": 1001,
+    "Message": "参数错误",
+    "Remark": "传入参数错误，包括参数长度超标错误、必传参数未传等。"
+  },
+  {
+    "Code": 1003,
+    "Message": "缺少字段",
+    "Remark": ""
+  },
+  {
+    "Code": 1004,
+    "Message": "缺少功能号对应配置项",
+    "Remark": ""
+  },
+  {
+    "Code": 1005,
+    "Message": "字段值不允许为空",
+    "Remark": ""
+  },
+  {
+    "Code": 1006,
+    "Message": "字段值不在值域范围内",
+    "Remark": ""
+  },
+  {
+    "Code": 1007,
+    "Message": "传入字段重复",
+    "Remark": ""
+  },
+  {
+    "Code": 1008,
+    "Message": "UFT系统资产单元委托时，委托批号必须大于5000000",
+    "Remark": ""
+  },
+  {
+    "Code": 1009,
+    "Message": "O3系统资产单元委托时，委托批号不能大于5000000",
+    "Remark": "此错误只针对开启极速参数的情况"
+  },
+  {
+    "Code": 1010,
+    "Message": "字段值不匹配或不能确定唯一交易账号信息",
+    "Remark": ""
+  },
+  {
+    "Code": 1011,
+    "Message": "该账户不允许通过UFX下单",
+    "Remark": ""
+  },
+  {
+    "Code": 1012,
+    "Message": "该功能号已被禁止调用",
+    "Remark": ""
+  },
+  {
+    "Code": 1013,
+    "Message": "密码不能与操作员编号相同",
+    "Remark": ""
+  },
+  {
+    "Code": 1500,
+    "Message": "没有相应权限",
+    "Remark": ""
+  },
+  {
+    "Code": 1503,
+    "Message": "资产单元不匹配",
+    "Remark": ""
+  },
+  {
+    "Code": 1504,
+    "Message": "账户不匹配",
+    "Remark": ""
+  },
+  {
+    "Code": 1505,
+    "Message": "投资组合不匹配",
+    "Remark": ""
+  },
+  {
+    "Code": 1506,
+    "Message": "账户组不匹配",
+    "Remark": ""
+  },
+  {
+    "Code": 1507,
+    "Message": "实例不匹配",
+    "Remark": ""
+  },
+  {
+    "Code": 1508,
+    "Message": "操作员不匹配",
+    "Remark": ""
+  },
+  {
+    "Code": 2001,
+    "Message": "调用服务超时",
+    "Remark": "该错误需要特别注意，由于网络或交易系统本身问题，无法确认操作是否成功，需要告警并进行人工排查。"
+  },
+  {
+    "Code": 2002,
+    "Message": "UFX系统错误",
+    "Remark": "该错误需要特别注意，由于网络或交易系统本身问题，无法确认操作是否成功，需要告警并进行人工排查。"
+  },
+  {
+    "Code": 2005,
+    "Message": "账户编号错误",
+    "Remark": ""
+  },
+  {
+    "Code": 2006,
+    "Message": "实例编号错误",
+    "Remark": ""
+  },
+  {
+    "Code": 3000,
+    "Message": "业务错误",
+    "Remark": ""
+  },
+  {
+    "Code": 3001,
+    "Message": "风控禁止",
+    "Remark": "触发风控信息。"
+  },
+  {
+    "Code": 3002,
+    "Message": "可用不足",
+    "Remark": ""
+  },
+  {
+    "Code": 4001,
+    "Message": "需要授权",
+    "Remark": ""
+  },
+  {
+    "Code": 4002,
+    "Message": "流量超限",
+    "Remark": ""
+  },
+  {
+    "Code": 4003,
+    "Message": "没有调用权限",
+    "Remark": ""
+  },
+  {
+    "Code": 9000,
+    "Message": "批量委托部分失败",
+    "Remark": ""
+  },
+  {
+    "Code": 9006,
+    "Message": "SQL解析失败",
+    "Remark": ""
+  },
+  {
+    "Code": 9007,
+    "Message": "传入的operator_no与user_token对应operator不匹配",
+    "Remark": ""
+  },
+  {
+    "Code": 9008,
+    "Message": "不存在",
+    "Remark": ""
+  },
+  {
+    "Code": 9009,
+    "Message": "SQL执行失败",
+    "Remark": ""
+  },
+  {
+    "Code": 10009,
+    "Message": "关联Context未初始化",
+    "Remark": "该错误需要特别注意，需要告警并进行人工排查。"
+  },
+  {
+    "Code": 20001,
+    "Message": "系统错误消息（AR不能转发，AS不能处理）",
+    "Remark": "改错误需要现场实施排查配置是否完好和网络环境是否正常"
+  },
+  {
+    "Code": 20002,
+    "Message": "服务返回业务包为空",
+    "Remark": "请联系本组开发，进行排查，并保留当前所有日志"
+  },
+  {
+    "Code": 20004,
+    "Message": "调用服务失败",
+    "Remark": ""
+  },
+  {
+    "Code": 90003,
+    "Message": "参数解析错误",
+    "Remark": "后台服务传给UFX的数据包出错"
+  },
+  {
+    "Code": 90004,
+    "Message": "类型未定义",
+    "Remark": ""
+  }
+]

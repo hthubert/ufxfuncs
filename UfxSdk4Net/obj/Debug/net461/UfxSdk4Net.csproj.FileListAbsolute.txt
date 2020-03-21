@@ -1,0 +1,3 @@
+D:\hetao\github\ufxfuncs\UfxSdk4Net\obj\Debug\net461\UfxSdk4Net.csprojAssemblyReference.cache
+D:\hetao\github\ufxfuncs\UfxSdk4Net\obj\Debug\net461\UfxSdk4Net.AssemblyInfoInputs.cache
+D:\hetao\github\ufxfuncs\UfxSdk4Net\obj\Debug\net461\UfxSdk4Net.AssemblyInfo.cs
