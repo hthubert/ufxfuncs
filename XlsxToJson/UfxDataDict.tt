@@ -1,0 +1,99 @@
+﻿<#@ template debug="true" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)ttlib\netstandard.dll" #>
+<#@ assembly name="$(SolutionDir)ttlib\Newtonsoft.Json.dll" #>
+<#@ assembly name="$(SolutionDir)ttlib\Humanizer.dll" #>
+<#@ include file="Classes.ttinc"#>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Newtonsoft.Json"#>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="Humanizer" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#
+    const string jsonPath = @"d:\hetao\github\ufxfuncs\XlsxToJson\bin\Debug\netcoreapp3.1";
+    
+    var functionPath = Path.Combine(jsonPath,"functions.json");
+    var dictPath = Path.Combine(jsonPath,"dict.json");
+    var errorPath = Path.Combine(jsonPath,"error.json");
+    var functions = JsonConvert.DeserializeObject<List<UfxFunction>>(File.ReadAllText(functionPath));
+    var dict = JsonConvert.DeserializeObject<List<UfxDataDict>>(File.ReadAllText(dictPath));
+    var errors = JsonConvert.DeserializeObject<List<UfxErrorInfo>>(File.ReadAllText(errorPath));
+    functions.ForEach(n=>
+    {
+        n.InArgs.ForEach(arg =>
+        {
+            arg.TypeInfo = GetTypeInfo(arg.Type);
+            ScanDictType(arg, dict);
+        });
+        n.OutArgs.ForEach(arg =>
+        {
+            arg.TypeInfo = GetTypeInfo(arg.Type);
+            ScanDictType(arg, dict);
+        });
+    });
+#>
+namespace QuantBox.XApi
+{
+<#
+    foreach (var dataDict in dict.Where(n=>n.TypeInfo!=null))
+    {
+        var className = dataDict.Name.Pascalize();
+#>
+    /// <summary>
+    /// <#=dataDict.Description#>
+    /// </summary>
+    public static class <#=className#>
+    {
+    <#
+        var index = 0;
+        foreach (var item in dataDict.Items)
+        {
+            var value = item.Value
+                .Replace("'", string.Empty)
+                .Replace("\"",string.Empty);
+            switch (dataDict.TypeInfo.CSharpType)
+            {
+                case "string":
+                    value = $"\"{value}\"";
+                    break;
+                case "sbyte":
+                    value = $"(sbyte)'{value}'";
+                    break;
+            }
+#>
+        /// <summary>
+        /// <#=item.Description#>
+        /// </summary>
+        public const <#=dataDict.TypeInfo.CSharpType#> V<#=++index#> = <#=value#>;
+    <#    
+        }
+    #>
+       
+    }
+<#    
+    }
+#>
+}
+<#+
+    private static void ScanDictType(UfxFunctionArg arg, List<UfxDataDict> dict)
+    {
+        if (string.IsNullOrEmpty(arg.Remark))
+        {
+            return;
+        }
+        var match = Regex.Match(arg.Remark, @"数据字典(\d+)");
+        if (match.Success)
+        {
+            dict.ForEach(n=>
+            {
+                if (n.Key == match.Groups[1].Value)
+                {
+                    n.TypeInfo = arg.TypeInfo;
+                }
+            });
+        }
+    }
+#>

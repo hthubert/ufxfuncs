@@ -3,12 +3,20 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-
 <#+
+    public class TypeInfo
+    {
+        public string CSharpType;
+        public string FieldType;
+        public int Len;
+        public int DecimalPartLen;
+    }
+
     public class UfxFunctionArg
     {
         public string Name;
         public string Type;
+        public TypeInfo TypeInfo;
         public string Description;
         public bool Required;
         public string Remark;
@@ -55,6 +63,7 @@
     public class UfxDataDict
     {
         public string Key;
+        public TypeInfo TypeInfo;
         public string Description;
         public string Name;
         public List<DataDictItem> Items = new List<DataDictItem>();
@@ -65,5 +74,34 @@
         public int Code;
         public string Message;
         public string Remark;
+    }
+
+    private TypeInfo GetTypeInfo(string type)
+    {
+        var match = Regex.Match(type, @"([CN])(\d+)(\.(\d+))?");
+        if (match.Success)
+        {
+            var len = int.Parse(match.Groups[2].Value);
+            switch (match.Groups[1].Value)
+            {
+                case "C":
+                    return len == 1 ? 
+                        new TypeInfo { CSharpType = "sbyte", FieldType = "(sbyte)'C'", Len = len } : 
+                        new TypeInfo { CSharpType = "string", FieldType = "(sbyte)'S'", Len = int.Parse(match.Groups[2].Value) };
+                case "N":
+                    if (match.Groups.Count > 2)
+                    {
+                        return new TypeInfo { CSharpType = "int", FieldType = "(sbyte)'I'", Len = len };
+                    }
+                    return new TypeInfo 
+                    { 
+                        CSharpType = "double", 
+                        Len = len, 
+                        FieldType = "(sbyte)'D'",
+                        DecimalPartLen = int.Parse(match.Groups[4].Value)
+                    };
+            }
+        }
+        return new TypeInfo { CSharpType = "string", FieldType = "(sbyte)'S'", Len = 256 };
     }
 #>

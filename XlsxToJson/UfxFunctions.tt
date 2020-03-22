@@ -1,0 +1,118 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)ttlib\netstandard.dll" #>
+<#@ assembly name="$(SolutionDir)ttlib\Newtonsoft.Json.dll" #>
+<#@ assembly name="$(SolutionDir)ttlib\Humanizer.dll" #>
+<#@ include file="Classes.ttinc"#>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Newtonsoft.Json"#>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="Humanizer" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#
+    const string jsonPath = @"d:\hetao\github\ufxfuncs\XlsxToJson\bin\Debug\netcoreapp3.1";
+
+    var functionPath = Path.Combine(jsonPath, "functions.json");
+    var functions = JsonConvert.DeserializeObject<List<UfxFunction>>(File.ReadAllText(functionPath));
+    functions.ForEach(n => n.InArgs.ForEach(arg => arg.TypeInfo = GetTypeInfo(arg.Type)));
+    functions.ForEach(n => n.BusinessScope = GetGroupName(n.BusinessScope));
+    var groups = functions
+        .Where(n=>n.Code > 0)
+        .GroupBy(n => n.BusinessScope)
+        .Select(n => (n.Key, n.ToArray()));
+#>
+using System;
+using hundsun.t2sdk;
+
+namespace QuantBox.XApi
+{
+    <#
+    foreach (var (name, items) in groups)
+    {
+#>
+    public static class <#=name#>Functions
+    {
+        <#
+        foreach (var item in items)
+        {
+            var className = $"Ufx{item.Code}";
+#>
+        /// <summary>
+        /// 功能号: <#=item.Code#>
+        /// 功能名称: <#=item.Description#>
+        /// </summary>
+        public static <#=className#> Make<#=item.Code#>()
+        {
+            return null;
+        }
+        <#
+        }
+        #>
+    }
+    <#
+    } 
+    #>
+}
+<#+
+    private static (string args, string summary, string init) GetFunctionInitInfo(UfxFunction function)
+    {
+        var summary = new StringBuilder();
+        summary.AppendLine("/// <summary>");
+        summary.AppendLine("/// </summary>");
+        var args = new StringBuilder();
+        var init = new StringBuilder();
+        foreach (var arg in function.InArgs)
+        {
+            if (arg.Required)
+            {
+                var name = arg.Name.Camelize();
+                summary.AppendLine($"/// <param name=\"{name}\">{arg.Description}</param>");
+                init.AppendLine($"{arg.Name.Pascalize()} = {arg.Name.Camelize()};");
+                if (args.Length > 0)
+                {
+                    args.Append(", ");
+                }
+                args.Append($"{arg.TypeInfo.CSharpType} {name}");
+            }
+        }
+        return (args.ToString(), summary.ToString(), init.ToString());
+    }
+
+    private static string GetPackerAdd(UfxFunctionArg arg)
+    {
+        var type = "Str";
+        switch (arg.TypeInfo.CSharpType)
+        {
+            case "sbyte":
+                type = "Char";
+                break;
+            case "int":
+                type = "Int";
+                break;
+            case "double":
+                type = "Double";
+                break;
+        }
+        return $"packer.Add{type}(_{arg.Name.Camelize()})";
+    }
+
+    private static string GetGroupName(string key)
+    {
+        switch (key)
+        {
+            case "证券":
+                return "Securities";
+            case "基金":
+                return "Fund";
+            case "期货":
+                return "Futures";
+            case "期权":
+                return "Options";
+            default:
+                return "Account";
+        }
+    }
+#>

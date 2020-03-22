@@ -69,7 +69,7 @@ namespace XlsxToJson
         public string Remark;
     }
 
-    class Program
+    sealed class Program
     {
         private const int B = 1;
         private const int C = 2;
@@ -139,7 +139,7 @@ namespace XlsxToJson
                         func.BusinessDescription = reader.GetString(C);
                         reader.Read();
                         break;
-                    case "修改记录":
+                    case "出错说明":
                         exit = true;
                         break;
                     default:
@@ -202,7 +202,7 @@ namespace XlsxToJson
             while (reader.Read())
             {
                 var flag = reader.GetString(functionFlagColumn);
-                if (string.IsNullOrEmpty(flag))
+                if (flag != "功能号" && flag != "消息类型")
                 {
                     continue;
                 }
