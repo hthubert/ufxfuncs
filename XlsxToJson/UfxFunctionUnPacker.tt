@@ -1,0 +1,128 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)ttlib\netstandard.dll" #>
+<#@ assembly name="$(SolutionDir)ttlib\Newtonsoft.Json.dll" #>
+<#@ assembly name="$(SolutionDir)ttlib\Humanizer.dll" #>
+<#@ include file="Classes.ttinc"#>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Newtonsoft.Json"#>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="Humanizer" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#
+    var jsonPath = Host.ResolveAssemblyReference("$(ProjectDir)") + @"\bin\Debug\netcoreapp3.1";
+    var functionPath = Path.Combine(jsonPath,"functions.json");
+    var functions = JsonConvert.DeserializeObject<List<UfxFunction>>(File.ReadAllText(functionPath));
+    functions.ForEach(n=>n.OutArgs.ForEach(arg=>arg.TypeInfo = GetTypeInfo(arg.Type)));
+#>
+using System;
+using System.Collections.Generic;
+using hundsun.t2sdk;
+
+namespace QuantBox.XApi
+{
+    internal static class UfxUnPackerExtension
+    {
+        public static int GetErrCode(this CT2UnPacker packer)
+        {
+            return packer.GetInt("ErrorCode");
+        }
+
+        public static string GetMsgDetail(this CT2UnPacker packer)
+        {
+            return packer.GetStr("MsgDetail");
+        }
+
+        public static string GetErrMsg(this CT2UnPacker packer)
+        {
+            return packer.GetStr("ErrorMsg");
+        }        
+    }
+<#
+    foreach (var function in functions.Where(n=> n.HasDataSet))
+    {
+        var className = function.Code > 0 ? $"Ufx{function.Code}Result" : $"Ufx{function.FunctionName}";
+        var functionNum = function.Code > 0 ? function.Code.ToString() : Convert.ToChar(function.MsgType).ToString();
+#>
+    /// <summary>
+    /// 功能标识: <#=functionNum#>
+    /// 功能名称: <#=function.Description#>
+    /// 业务范围: <#=function.BusinessScope#>
+    /// </summary>
+    public sealed class <#=className#> 
+    {
+<#
+        foreach (var arg in function.OutArgs)
+        {
+#>
+        /// <summary>
+        /// <#=GetDescription(arg)#>
+        /// </summary>
+        public <#=arg.TypeInfo.CSharpType#> <#=arg.Name.Pascalize()#> { get; private set; }
+<#
+        }
+#>
+        public static (<#=className#> data, int error, string errMsg) ReadOne(CT2UnPacker result, int datasetIndex = 0)
+        {
+            var (data, error, errMsg) = ReadAll(result, datasetIndex, true);
+            if (data != null && data.Length > 0)
+            {
+                return (data[0], error, errMsg);
+            }
+            return (null, error, errMsg);
+        }
+        public static (<#=className#>[] data, int error, string errMsg) ReadAll(CT2UnPacker result, int datasetIndex = 0, bool firstOnly = false)
+        {
+            var error = result.GetErrCode();
+            var errMsg = result.GetErrMsg();
+            if (error != 0)
+            {
+                return (Array.Empty<<#=className#>>(), error, errMsg);
+            }
+            var data = new List<<#=className#>>();
+            result.SetCurrentDatasetByIndex(datasetIndex);
+            while (result.IsEOF() == 0) {
+                var item = new <#=className#>();
+                data.Add(item);
+<#
+        foreach (var arg in function.OutArgs)
+        {
+#>
+                item.<#=arg.Name.Pascalize()#> = result.<#=GetPackReader(arg)#>;
+<#
+        }
+#>
+                if (firstOnly)
+                {
+                    break;
+                }
+            }
+            return (data.ToArray(), error, errMsg);
+        }
+    }
+<#
+    }
+#>
+}
+<#+
+    private static string GetPackReader(UfxFunctionArg arg)
+    {
+        var type = "Str";
+        switch (arg.TypeInfo.CSharpType)
+        {
+            case "sbyte":
+                type = "Char";
+                break;
+            case "int":
+                type = "Int";
+                break;
+            case "double":
+                type = "Double";
+                break;
+        }
+        return $"Get{type}(\"{arg.Name}\")";
+    }
+#>

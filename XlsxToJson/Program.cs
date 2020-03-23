@@ -23,7 +23,7 @@ namespace XlsxToJson
     public class UfxFunction
     {
         public int Code;
-        public char MsgType;
+        public sbyte MsgType;
         public int OldCode;
         public string UpdateDate;
         public string Name;
@@ -40,11 +40,7 @@ namespace XlsxToJson
         public string BusinessDescription;
         public override string ToString()
         {
-            if (Code == 0)
-            {
-                return $"消息推送:{MsgType},{Name},{Description}";
-            }
-            return $"功能接口:{Code},{Name},{FunctionName},{Description}";
+            return Code == 0 ? $"消息推送:{MsgType},{Name},{FunctionName},{Description}" : $"功能接口:{Code},{Name},{FunctionName},{Description}";
         }
     }
 
@@ -78,6 +74,34 @@ namespace XlsxToJson
         private const int F = 5;
         private const int G = 6;
 
+        private static string NameToEn(string name)
+        {
+            var map = new List<(string cn, string en)>
+            {
+                ("委托", "Entrust"),
+                ("下达", "Received"),
+                ("确认", "Confirmed"),
+                ("废单", "Rejected"),
+                ("撤单", "Cancel"),
+                ("撤成", "Cancelled"),
+                ("撤废", "CancelRejected"),
+                ("成交", "Trade"),
+                ("合笔", "Combi"),
+                ("股票期权组合保证金", "CombiOptions"),
+                ("股票期权组合", "CombiOptions"),
+                ("待审批", "Approving"),
+                ("审批", "Approving"),
+                ("商品期权组合单", "CombiFutureOptions"),
+                ("上交所合并行权", "ShCombiExercise")
+            };
+            map.Sort((x, y) => y.cn.Length.CompareTo(x.cn.Length));
+            foreach (var (cn, en) in map)
+            {
+                name = name.Replace(cn, en);
+            }
+            return name;
+        }
+
         private static UfxFunction ParseFunction(IExcelDataReader reader)
         {
             var func = new UfxFunction();
@@ -93,7 +117,7 @@ namespace XlsxToJson
             else
             {
                 //消息推送
-                func.MsgType = reader.GetValue(C).ToString()[0];
+                func.MsgType = (sbyte)reader.GetValue(C).ToString()[0];
             }
 
             func.UpdateDate = reader.GetValue(G).ToString();
@@ -105,6 +129,10 @@ namespace XlsxToJson
             //第3行
             reader.Read();
             func.FunctionName = reader.GetString(C);
+            if (func.MsgType > 0)
+            {
+                func.FunctionName = NameToEn(func.Name);
+            }
             func.RequestType = reader.GetString(G);
             //第4行
             reader.Read();
@@ -118,7 +146,7 @@ namespace XlsxToJson
             func.Status = reader.GetString(G);
             //第5行
             reader.Read();
-            func.Description = reader.GetString(C);
+            func.Description = ConvertToEn(reader.GetString(C));
             //输入输出参数
             reader.Read();
             var exit = false;
@@ -136,7 +164,7 @@ namespace XlsxToJson
                         break;
                     case "业务说明":
                         reader.Read();
-                        func.BusinessDescription = reader.GetString(C);
+                        func.BusinessDescription = ConvertToEn(reader.GetString(C));
                         reader.Read();
                         break;
                     case "出错说明":
@@ -180,6 +208,26 @@ namespace XlsxToJson
             }
         }
 
+        private static string ConvertToEn(string text)
+        {
+            if (text == null)
+            {
+                return string.Empty;
+            }
+            const string ch = "。；，？！、“”‘’（）—：";//中文字符
+            const string en = @".;,?!\""""''()-:";//英文字符
+            var c = text.ToCharArray();
+            for (var i = 0; i < c.Length; i++)
+            {
+                var n = ch.IndexOf(c[i]);
+                if (n != -1)
+                {
+                    c[i] = en[n];
+                }
+            }
+            return new string(c);
+        }
+
         private static UfxFunctionArg ReadArg(IExcelDataReader reader)
         {
             if (string.IsNullOrEmpty(reader.GetString(C)))
@@ -192,6 +240,14 @@ namespace XlsxToJson
             arg.Description = reader.GetString(E);
             arg.Required = reader.GetString(F) == "Y";
             arg.Remark = reader.GetString(G);
+            if (arg.Remark != null)
+            {
+                arg.Remark = arg.Remark
+                    .Replace('\n', ';')
+                    .Replace("\r", string.Empty)
+                    .Replace(" ", string.Empty);
+                arg.Remark = ConvertToEn(arg.Remark);
+            }
             return arg;
         }
 
@@ -228,7 +284,7 @@ namespace XlsxToJson
                     dict = new DataDict {
                         Key = flag,
                         Name = reader.GetString(C),
-                        Description = reader.GetString(D)
+                        Description = ConvertToEn(reader.GetString(D))
                     };
                     list.Add(dict);
                 }
@@ -238,7 +294,7 @@ namespace XlsxToJson
                     {
                         dict?.Items.Add(new DataDictItem {
                             Value = reader.GetString(C),
-                            Description = reader.GetString(D)
+                            Description = ConvertToEn(reader.GetString(D))
                         });
                     }
                 }

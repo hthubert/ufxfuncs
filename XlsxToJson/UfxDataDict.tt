@@ -1,4 +1,4 @@
-﻿<#@ template debug="true" hostspecific="false" language="C#" #>
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
 <#@ output extension=".cs" #>
 <#@ assembly name="System.Core" #>
 <#@ assembly name="$(SolutionDir)ttlib\netstandard.dll" #>
@@ -13,8 +13,7 @@
 <#@ import namespace="Humanizer" #>
 <#@ import namespace="System.Text.RegularExpressions" #>
 <#
-    const string jsonPath = @"d:\work\github\ufxfuncs\XlsxToJson\bin\Debug\netcoreapp3.1";
-    
+    var jsonPath = Host.ResolveAssemblyReference("$(ProjectDir)") + @"\bin\Debug\netcoreapp3.1";
     var functionPath = Path.Combine(jsonPath,"functions.json");
     var dictPath = Path.Combine(jsonPath,"dict.json");
     var errorPath = Path.Combine(jsonPath,"error.json");

@@ -4,3 +4,4 @@ obj
 /XlsxToJson/UfxDataDict.cs
 /XlsxToJson/UfxFunctionPacker.cs
 /XlsxToJson/UfxFunctions.cs
+/XlsxToJson/UfxFunctionUnPacker.cs

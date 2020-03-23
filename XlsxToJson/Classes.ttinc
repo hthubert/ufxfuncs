@@ -3,7 +3,7 @@
 <#@ import namespace="System.Linq" #>
 <#@ import namespace="System.Text" #>
 <#@ import namespace="System.Collections.Generic" #>
-<#+
+<#+        
     public class TypeInfo
     {
         public string CSharpType;
@@ -29,7 +29,7 @@
     public class UfxFunction
     {
         public int Code;
-        public char MsgType;
+        public sbyte MsgType;
         public int OldCode;
         public string UpdateDate;
         public string Name;
@@ -103,5 +103,24 @@
             }
         }
         return new TypeInfo { CSharpType = "string", FieldType = "(sbyte)'S'", Len = 256 };
+    }
+
+    private static string GetDescription(UfxFunctionArg arg)
+    {
+        var line = new StringBuilder();
+        line.Append(arg.Description);
+        if (arg.Remark != null)
+        {
+            if (arg.Remark.Contains("数据字典") || arg.Remark.Contains("数据词典"))
+            {
+                var name = arg.Name.Replace("futu_", string.Empty).Replace("_list", string.Empty);
+                line.Append($"(限定 <see cref=\"Ufx{name.Pascalize()}\"/> 中定义的常量)");
+            }
+            else
+            {
+                line.Append($"({arg.Remark})");
+            }
+        }
+        return line.ToString();
     }
 #>

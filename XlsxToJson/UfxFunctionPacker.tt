@@ -1,4 +1,4 @@
-﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
 <#@ output extension=".cs" #>
 <#@ assembly name="System.Core" #>
 <#@ assembly name="$(SolutionDir)ttlib\netstandard.dll" #>
@@ -13,8 +13,7 @@
 <#@ import namespace="Humanizer" #>
 <#@ import namespace="System.Text.RegularExpressions" #>
 <#
-    const string jsonPath = @"d:\work\github\ufxfuncs\XlsxToJson\bin\Debug\netcoreapp3.1";
-    
+    var jsonPath = Host.ResolveAssemblyReference("$(ProjectDir)") + @"\bin\Debug\netcoreapp3.1";
     var functionPath = Path.Combine(jsonPath,"functions.json");
     var functions = JsonConvert.DeserializeObject<List<UfxFunction>>(File.ReadAllText(functionPath));
     functions.ForEach(n=>n.InArgs.ForEach(arg=>arg.TypeInfo = GetTypeInfo(arg.Type)));
@@ -51,7 +50,7 @@ namespace QuantBox.XApi
         private <#=arg.TypeInfo.CSharpType#> _<#=arg.Name.Camelize()#>;
         private bool _<#=arg.Name.Camelize()#>Changed;
         /// <summary>
-        /// <#=arg.Description#>
+        /// <#=GetDescription(arg)#>
         /// </summary>
         public <#=arg.TypeInfo.CSharpType#> <#=arg.Name.Pascalize()#>
         {
@@ -119,7 +118,7 @@ namespace QuantBox.XApi
             if (arg.Required)
             {
                 var name = arg.Name.Camelize();
-                summary.AppendLine($"/// <param name=\"{name}\">{arg.Description}</param>");
+                summary.AppendLine($"/// <param name=\"{name}\">{GetDescription(arg)}</param>");
                 init.AppendLine($"{arg.Name.Pascalize()} = {arg.Name.Camelize()};");
                 if (args.Length > 0)
                 {
