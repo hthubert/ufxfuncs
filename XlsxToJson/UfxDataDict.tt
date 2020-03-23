@@ -13,7 +13,7 @@
 <#@ import namespace="Humanizer" #>
 <#@ import namespace="System.Text.RegularExpressions" #>
 <#
-    const string jsonPath = @"d:\hetao\github\ufxfuncs\XlsxToJson\bin\Debug\netcoreapp3.1";
+    const string jsonPath = @"d:\work\github\ufxfuncs\XlsxToJson\bin\Debug\netcoreapp3.1";
     
     var functionPath = Path.Combine(jsonPath,"functions.json");
     var dictPath = Path.Combine(jsonPath,"dict.json");
@@ -45,7 +45,7 @@ namespace QuantBox.XApi
     /// <summary>
     /// <#=dataDict.Description#>
     /// </summary>
-    public static class <#=className#>
+    public static class Ufx<#=className#>
     {
     <#
         var index = 0;

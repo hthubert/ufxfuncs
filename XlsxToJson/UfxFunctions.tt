@@ -13,7 +13,7 @@
 <#@ import namespace="Humanizer" #>
 <#@ import namespace="System.Text.RegularExpressions" #>
 <#
-    const string jsonPath = @"d:\hetao\github\ufxfuncs\XlsxToJson\bin\Debug\netcoreapp3.1";
+    const string jsonPath = @"d:\work\github\ufxfuncs\XlsxToJson\bin\Debug\netcoreapp3.1";
 
     var functionPath = Path.Combine(jsonPath, "functions.json");
     var functions = JsonConvert.DeserializeObject<List<UfxFunction>>(File.ReadAllText(functionPath));
@@ -33,20 +33,20 @@ namespace QuantBox.XApi
     foreach (var (name, items) in groups)
     {
 #>
-    public static class <#=name#>Functions
+    public static class Ufx<#=name#>Function
     {
         <#
         foreach (var item in items)
         {
-            var className = $"Ufx{item.Code}";
+            var className = $"UfxPacker{item.Code}";
+            var (args, summary, init) = GetFunctionInitInfo(item);
 #>
         /// <summary>
-        /// 功能号: <#=item.Code#>
         /// 功能名称: <#=item.Description#>
         /// </summary>
-        public static <#=className#> Make<#=item.Code#>()
+        <#=summary#>public static <#=className#> Make<#=item.Code#>(<#=args#>)
         {
-            return null;
+            return new <#=className#>(<#=init#>);
         }
         <#
         }
@@ -60,8 +60,6 @@ namespace QuantBox.XApi
     private static (string args, string summary, string init) GetFunctionInitInfo(UfxFunction function)
     {
         var summary = new StringBuilder();
-        summary.AppendLine("/// <summary>");
-        summary.AppendLine("/// </summary>");
         var args = new StringBuilder();
         var init = new StringBuilder();
         foreach (var arg in function.InArgs)
@@ -70,33 +68,16 @@ namespace QuantBox.XApi
             {
                 var name = arg.Name.Camelize();
                 summary.AppendLine($"/// <param name=\"{name}\">{arg.Description}</param>");
-                init.AppendLine($"{arg.Name.Pascalize()} = {arg.Name.Camelize()};");
                 if (args.Length > 0)
                 {
                     args.Append(", ");
+                    init.Append(", ");
                 }
                 args.Append($"{arg.TypeInfo.CSharpType} {name}");
+                init.Append($"{name}");
             }
         }
         return (args.ToString(), summary.ToString(), init.ToString());
-    }
-
-    private static string GetPackerAdd(UfxFunctionArg arg)
-    {
-        var type = "Str";
-        switch (arg.TypeInfo.CSharpType)
-        {
-            case "sbyte":
-                type = "Char";
-                break;
-            case "int":
-                type = "Int";
-                break;
-            case "double":
-                type = "Double";
-                break;
-        }
-        return $"packer.Add{type}(_{arg.Name.Camelize()})";
     }
 
     private static string GetGroupName(string key)

@@ -13,14 +13,10 @@
 <#@ import namespace="Humanizer" #>
 <#@ import namespace="System.Text.RegularExpressions" #>
 <#
-    const string jsonPath = @"d:\hetao\github\ufxfuncs\XlsxToJson\bin\Debug\netcoreapp3.1";
+    const string jsonPath = @"d:\work\github\ufxfuncs\XlsxToJson\bin\Debug\netcoreapp3.1";
     
     var functionPath = Path.Combine(jsonPath,"functions.json");
-    var dictPath = Path.Combine(jsonPath,"dict.json");
-    var errorPath = Path.Combine(jsonPath,"error.json");
     var functions = JsonConvert.DeserializeObject<List<UfxFunction>>(File.ReadAllText(functionPath));
-    var dict = JsonConvert.DeserializeObject<List<UfxDataDict>>(File.ReadAllText(dictPath));
-    var errors = JsonConvert.DeserializeObject<List<UfxErrorInfo>>(File.ReadAllText(errorPath));
     functions.ForEach(n=>n.InArgs.ForEach(arg=>arg.TypeInfo = GetTypeInfo(arg.Type)));
 #>
 using System;
@@ -31,8 +27,8 @@ namespace QuantBox.XApi
 <#
     foreach (var function in functions.Where(n=> n.Code > 0))
     {
-        var className = $"Ufx{function.Code}";
-        (string args, string summary, string init) = GetFunctionInitInfo(function);
+        var className = $"UfxPacker{function.Code}";
+        var (args, summary, init) = GetFunctionInitInfo(function);
 #>
     /// <summary>
     /// 功能号: <#=function.Code#>
@@ -41,6 +37,9 @@ namespace QuantBox.XApi
     /// </summary>
     public sealed class <#=className#> 
     {
+        /// <summary>
+        /// 包含必选项的构造函数
+        /// </summary>
         <#=summary#>public <#=className#>(<#=args#>)
         {
             <#=init#>}
@@ -113,8 +112,6 @@ namespace QuantBox.XApi
     private static (string args, string summary, string init) GetFunctionInitInfo(UfxFunction function)
     {
         var summary = new StringBuilder();
-        summary.AppendLine("/// <summary>");
-        summary.AppendLine("/// </summary>");
         var args = new StringBuilder();
         var init = new StringBuilder();
         foreach (var arg in function.InArgs)
