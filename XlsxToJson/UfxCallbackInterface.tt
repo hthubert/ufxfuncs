@@ -51,10 +51,24 @@ namespace QuantBox.XApi
 
         }
 
-        public override void OnReceivedBizEx(CT2Connection lpConnection, int hSend, CT2RespondData lpRetData, string lppStr,
-            CT2UnPacker lppUnPacker, int nResult)
+        public override void OnReceivedBizEx(CT2Connection lpConnection, int hSend, CT2RespondData lpRetData, string lppStr, CT2UnPacker lppUnPacker, int nResult)
         {
-            switch (lpRetData.functionID)
+
+        }
+
+        public override void OnReceivedBizMsg(CT2Connection lpConnection, int hSend, CT2BizMessage lpMsg)
+        {
+            
+        }
+
+        public virtual void OnError(int errCode, string errMsg)
+        {
+
+        }
+
+        public virtual void OnCallback(CT2Connection lpConnection, int hSend, int functionId, CT2UnPacker unPacker, int dataIndex = 0)
+        {
+            switch (functionId)
             {
 <#
     foreach (var function in functions.Where(n => n.HasDataSet && n.Code > 0))
@@ -63,16 +77,12 @@ namespace QuantBox.XApi
         var name = $"{function.Code}";
 #>
                 case <#=name#>:                    
-                    OnReceived<#=name#>(lpConnection, hSend, lpRetData, lppStr, <#=className#>.ReadAll(lppUnPacker), nResult);
+                    OnReceived<#=name#>(lpConnection, hSend, <#=className#>.ReadAll(unPacker, dataIndex));
                     break;
 <#
    }
 #>
             }
-        }
-
-        public override void OnReceivedBizMsg(CT2Connection lpConnection, int hSend, CT2BizMessage lpMsg)
-        {
         }
 
 <#
@@ -85,7 +95,7 @@ namespace QuantBox.XApi
         /// 业务范围: <#=function.BusinessScope#>
         /// 功能名称: <#=function.Description#>
         /// </summary>
-        public virtual void OnReceived<#=name#>(CT2Connection lpConnection, int hSend, CT2RespondData lpRetData, string lppStr, <#=className#>[] data, int nResult)
+        protected virtual void OnReceived<#=name#>(CT2Connection lpConnection, int hSend, <#=className#>[] data)
         {
             
         }        

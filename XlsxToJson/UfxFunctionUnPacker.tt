@@ -24,23 +24,6 @@ using hundsun.t2sdk;
 
 namespace QuantBox.XApi
 {
-    internal static class UfxUnPackerExtension
-    {
-        public static int GetErrCode(this CT2UnPacker packer)
-        {
-            return packer.GetInt("ErrorCode");
-        }
-
-        public static string GetMsgDetail(this CT2UnPacker packer)
-        {
-            return packer.GetStr("MsgDetail");
-        }
-
-        public static string GetErrMsg(this CT2UnPacker packer)
-        {
-            return packer.GetStr("ErrorMsg");
-        }        
-    }
 <#
     foreach (var function in functions.Where(n=> n.HasDataSet))
     {
@@ -65,9 +48,9 @@ namespace QuantBox.XApi
 <#
         }
 #>
-        public static <#=className#> ReadOne(CT2UnPacker result, int datasetIndex = 0)
+        public static <#=className#> ReadOne(CT2UnPacker result, int dataIndex = 0)
         {
-            var data = ReadAll(result, datasetIndex, true);
+            var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
             {
                 return data[0];
@@ -75,10 +58,10 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static <#=className#>[] ReadAll(CT2UnPacker result, int datasetIndex = 0, bool firstOnly = false)
+        public static <#=className#>[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
         {
             var data = new List<<#=className#>>();
-            result.SetCurrentDatasetByIndex(datasetIndex);
+            result.SetCurrentDatasetByIndex(dataIndex);
             while (result.IsEOF() == 0) {
                 var item = new <#=className#>();
                 data.Add(item);

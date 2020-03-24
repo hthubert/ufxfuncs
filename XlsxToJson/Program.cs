@@ -24,14 +24,6 @@ namespace XlsxToJson
 
         }
     }
-
-    public class CB : UfxCallbackInterface
-    {
-        public override void OnReceived32016(CT2Connection lpConnection, int hSend, CT2RespondData lpRetData, string lppStr,
-            Ufx32016Result[] data, int nResult)
-        {
-        }
-    }
     
     public class UfxFunctionArg
     {

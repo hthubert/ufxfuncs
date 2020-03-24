@@ -34,10 +34,17 @@ namespace QuantBox.XApi
 
         public override unsafe void OnReceived(CT2SubscribeInterface lpSub, int subscribeIndex, void* lpData, int nLength, tagSubscribeRecvData lpRecData)
         {
-            var packer = new CT2UnPacker(lpData, (uint)nLength);
-            sbyte functionID = 0;
-            
-            switch (functionID)
+
+        }
+        
+        public virtual void OnError(int errCode, string errMsg)
+        {
+
+        }
+
+        public virtual void OnCallback(CT2SubscribeInterface lpSub, int subscribeIndex, sbyte msgType, CT2UnPacker unPacker, int dataIndex = 0)
+        {
+            switch (msgType)
             {
 <#
     foreach (var function in functions.Where(n => n.MsgType > 0))
@@ -47,7 +54,7 @@ namespace QuantBox.XApi
         var msg = $"(sbyte)'{Convert.ToChar(function.MsgType).ToString()}'";
 #>
                 case <#=msg#>:                    
-                    On<#=name#>(lpSub, subscribeIndex, lpRecData, <#=className#>.ReadAll(packer));
+                    On<#=name#>(lpSub, subscribeIndex, <#=className#>.ReadAll(unPacker, dataIndex));
                     break;
 <#
    }
@@ -64,7 +71,7 @@ namespace QuantBox.XApi
         /// 业务范围: <#=function.BusinessScope#>
         /// 功能名称: <#=function.Description#>
         /// </summary>
-        public virtual void On<#=function.FunctionName#>(CT2SubscribeInterface lpSub, int subscribeIndex, tagSubscribeRecvData lpRecData, <#=className#>[] data)
+        protected virtual void On<#=function.FunctionName#>(CT2SubscribeInterface lpSub, int subscribeIndex, <#=className#>[] data)
         {
             
         }        

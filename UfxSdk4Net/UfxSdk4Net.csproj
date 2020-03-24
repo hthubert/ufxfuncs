@@ -1,10 +1,31 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;net461</TargetFrameworks>
     <AssemblyName>QuantBox.UfxSdk</AssemblyName>
-    <RootNamespace>QuantBox</RootNamespace>
+    <RootNamespace>QuantBox.XApi</RootNamespace>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Version>1.0.2</Version>
+    <Authors>hetao</Authors>
+    <Product>QuantBox.UfxSdk for $(TargetFramework)</Product>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\XlsxToJson\UfxCallbackInterface.cs" Link="UfxCallbackInterface.cs" />
+    <Compile Include="..\XlsxToJson\UfxDataDict.cs" Link="UfxDataDict.cs" />
+    <Compile Include="..\XlsxToJson\UfxFunctionPacker.cs" Link="UfxFunctionPacker.cs" />
+    <Compile Include="..\XlsxToJson\UfxFunctions.cs" Link="UfxFunctions.cs" />
+    <Compile Include="..\XlsxToJson\UfxFunctionUnPacker.cs" Link="UfxFunctionUnPacker.cs" />
+    <Compile Include="..\XlsxToJson\UfxSubCallbackInterface.cs" Link="UfxSubCallbackInterface.cs" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net461'">
+    <PackageReference Include="System.ValueTuple" Version="4.5.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="HundSunT2Sdk_x64" Version="1.1.6688.27425" />
+  </ItemGroup>
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
