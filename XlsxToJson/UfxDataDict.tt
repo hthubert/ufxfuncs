@@ -36,6 +36,20 @@
 #>
 namespace QuantBox.XApi
 {
+    public static class UfxMessageType
+    {
+<#
+    foreach (var function in functions.Where(n => n.MsgType > 0))
+    {
+#>
+        /// <summary>
+        /// <#=function.Name#>(<#=function.Description#>)
+        /// </summary>
+        public const sbyte <#=function.FunctionName#> = (sbyte)'<#=Convert.ToChar(function.MsgType).ToString()#>';
+<#
+   }
+#>
+    }
 <#
     foreach (var dataDict in dict.Where(n=>n.TypeInfo!=null))
     {

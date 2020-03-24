@@ -27,7 +27,7 @@ using System;
 using hundsun.t2sdk;
 
 namespace QuantBox.XApi
-{
+{    
     <#
     foreach (var (name, items) in groups)
     {

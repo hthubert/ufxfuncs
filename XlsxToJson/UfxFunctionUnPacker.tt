@@ -65,23 +65,18 @@ namespace QuantBox.XApi
 <#
         }
 #>
-        public static (<#=className#> data, int error, string errMsg) ReadOne(CT2UnPacker result, int datasetIndex = 0)
+        public static <#=className#> ReadOne(CT2UnPacker result, int datasetIndex = 0)
         {
-            var (data, error, errMsg) = ReadAll(result, datasetIndex, true);
+            var data = ReadAll(result, datasetIndex, true);
             if (data != null && data.Length > 0)
             {
-                return (data[0], error, errMsg);
+                return data[0];
             }
-            return (null, error, errMsg);
+            return null;
         }
-        public static (<#=className#>[] data, int error, string errMsg) ReadAll(CT2UnPacker result, int datasetIndex = 0, bool firstOnly = false)
+
+        public static <#=className#>[] ReadAll(CT2UnPacker result, int datasetIndex = 0, bool firstOnly = false)
         {
-            var error = result.GetErrCode();
-            var errMsg = result.GetErrMsg();
-            if (error != 0)
-            {
-                return (Array.Empty<<#=className#>>(), error, errMsg);
-            }
             var data = new List<<#=className#>>();
             result.SetCurrentDatasetByIndex(datasetIndex);
             while (result.IsEOF() == 0) {
@@ -100,7 +95,7 @@ namespace QuantBox.XApi
                     break;
                 }
             }
-            return (data.ToArray(), error, errMsg);
+            return data.ToArray();
         }
     }
 <#

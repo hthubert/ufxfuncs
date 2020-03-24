@@ -1,0 +1,96 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Core" #>
+<#@ assembly name="$(SolutionDir)ttlib\netstandard.dll" #>
+<#@ assembly name="$(SolutionDir)ttlib\Newtonsoft.Json.dll" #>
+<#@ assembly name="$(SolutionDir)ttlib\Humanizer.dll" #>
+<#@ include file="Classes.ttinc"#>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="Newtonsoft.Json"#>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="Humanizer" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+<#
+    var jsonPath = Host.ResolveAssemblyReference("$(ProjectDir)") + @"\bin\Debug\netcoreapp3.1";
+    var functionPath = Path.Combine(jsonPath,"functions.json");
+    var functions = JsonConvert.DeserializeObject<List<UfxFunction>>(File.ReadAllText(functionPath));
+    functions.ForEach(n=>n.OutArgs.ForEach(arg=>arg.TypeInfo = GetTypeInfo(arg.Type)));
+#>
+using System;
+using System.Collections.Generic;
+using hundsun.t2sdk;
+
+namespace QuantBox.XApi
+{
+    public class UfxCallbackInterface : CT2CallbackInterface
+    {
+        public override void OnConnect(CT2Connection lpConnection)
+        {
+        }
+
+        public override void OnSafeConnect(CT2Connection lpConnection)
+        {
+        }
+
+        public override void OnRegister(CT2Connection lpConnection)
+        {
+        }
+
+        public override void OnClose(CT2Connection lpConnection)
+        {
+        }
+
+        public override unsafe void OnSent(CT2Connection lpConnection, int hSend, void* lpData, int nLength, int nQueuingData)
+        {
+        }
+
+        public override void OnReceivedBiz(CT2Connection lpConnection, int hSend, string lppStr, CT2UnPacker lppUnPacker, int nResult)
+        {
+
+        }
+
+        public override void OnReceivedBizEx(CT2Connection lpConnection, int hSend, CT2RespondData lpRetData, string lppStr,
+            CT2UnPacker lppUnPacker, int nResult)
+        {
+            switch (lpRetData.functionID)
+            {
+<#
+    foreach (var function in functions.Where(n => n.HasDataSet && n.Code > 0))
+    {
+        var className = $"Ufx{function.Code}Result";
+        var name = $"{function.Code}";
+#>
+                case <#=name#>:                    
+                    OnReceived<#=name#>(lpConnection, hSend, lpRetData, lppStr, <#=className#>.ReadAll(lppUnPacker), nResult);
+                    break;
+<#
+   }
+#>
+            }
+        }
+
+        public override void OnReceivedBizMsg(CT2Connection lpConnection, int hSend, CT2BizMessage lpMsg)
+        {
+        }
+
+<#
+    foreach (var function in functions.Where(n => n.HasDataSet && n.Code > 0))
+    {
+        var className = $"Ufx{function.Code}Result";
+        var name = $"{function.Code}";
+#>
+        /// <summary>
+        /// 业务范围: <#=function.BusinessScope#>
+        /// 功能名称: <#=function.Description#>
+        /// </summary>
+        public virtual void OnReceived<#=name#>(CT2Connection lpConnection, int hSend, CT2RespondData lpRetData, string lppStr, <#=className#>[] data, int nResult)
+        {
+            
+        }        
+<#
+   }
+#>
+    }
+}

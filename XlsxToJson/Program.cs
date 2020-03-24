@@ -1,12 +1,38 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Text;
 using ExcelDataReader;
+using hundsun.mcapi;
+using hundsun.t2sdk;
 using Newtonsoft.Json;
+using QuantBox.XApi;
 
 namespace XlsxToJson
 {
+    public class Cb2 : CT2SubCallbackInterface
+    {
+        public override unsafe void OnReceived(CT2SubscribeInterface lpSub, int subscribeIndex, void* lpData, int nLength,
+            tagSubscribeRecvData lpRecData)
+        {
+            var packer = new CT2UnPacker(lpData, (uint)nLength);
+        }
+
+        public override void OnRecvTickMsg(CT2SubscribeInterface lpSub, int subscribeIndex, string tickMsgInfo)
+        {
+
+        }
+    }
+
+    public class CB : UfxCallbackInterface
+    {
+        public override void OnReceived32016(CT2Connection lpConnection, int hSend, CT2RespondData lpRetData, string lppStr,
+            Ufx32016Result[] data, int nResult)
+        {
+        }
+    }
+    
     public class UfxFunctionArg
     {
         public string Name;

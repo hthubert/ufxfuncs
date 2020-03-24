@@ -5,3 +5,5 @@ obj
 /XlsxToJson/UfxFunctionPacker.cs
 /XlsxToJson/UfxFunctions.cs
 /XlsxToJson/UfxFunctionUnPacker.cs
+/XlsxToJson/UfxSubCallbackInterface.cs
+/XlsxToJson/UfxCallbackInterface.cs
