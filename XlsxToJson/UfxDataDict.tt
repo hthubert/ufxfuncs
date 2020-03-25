@@ -36,6 +36,43 @@
 #>
 namespace QuantBox.XApi
 {
+    public static class UfxNames
+    {
+        public static string GetFunctionName(int functionId)
+        {
+            switch(functionId)
+            {
+<#
+    foreach (var function in functions.Where(n => n.Code > 0))
+    {
+#>
+                case <#=function.Code#>:
+                    return "<#=function.Name#>";
+<#  }
+    #>
+                default:
+                    return "未知功能号";
+            }              
+        }
+
+        public static string GetMessageName(sbyte msgType)
+        {
+            switch(msgType)
+            {
+<#
+    foreach (var function in functions.Where(n => n.MsgType > 0))
+    {
+#>
+                case (sbyte)'<#=Convert.ToChar(function.MsgType).ToString()#>':
+                    return "<#=function.Name#>";
+<#  }
+    #>
+                default:
+                    return "未知消息";
+            }            
+        }
+    }
+
     public static class UfxMessageType
     {
 <#
@@ -84,9 +121,8 @@ namespace QuantBox.XApi
     <#    
         }
     #>
-       
     }
-<#    
+<#
     }
 #>
 }

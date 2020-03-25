@@ -11,17 +11,48 @@ using QuantBox.XApi;
 
 namespace XlsxToJson
 {
-    public class Cb2 : CT2SubCallbackInterface
+    public class Cb2 : CT2CallbackInterface
     {
-        public override unsafe void OnReceived(CT2SubscribeInterface lpSub, int subscribeIndex, void* lpData, int nLength,
-            tagSubscribeRecvData lpRecData)
+        public override void OnConnect(CT2Connection lpConnection)
         {
-            var packer = new CT2UnPacker(lpData, (uint)nLength);
+            throw new NotImplementedException();
         }
 
-        public override void OnRecvTickMsg(CT2SubscribeInterface lpSub, int subscribeIndex, string tickMsgInfo)
+        public override void OnSafeConnect(CT2Connection lpConnection)
         {
+            throw new NotImplementedException();
+        }
 
+        public override void OnRegister(CT2Connection lpConnection)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void OnClose(CT2Connection lpConnection)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override unsafe void OnSent(CT2Connection lpConnection, int hSend, void* lpData, int nLength, int nQueuingData)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void OnReceivedBiz(CT2Connection lpConnection, int hSend, string lppStr, CT2UnPacker lppUnPacker, int nResult)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override void OnReceivedBizEx(CT2Connection lpConnection, int hSend, CT2RespondData lpRetData, string lppStr,
+            CT2UnPacker lppUnPacker, int nResult)
+        {
+            throw new NotImplementedException();
+            //lpConnection.
+        }
+
+        public override void OnReceivedBizMsg(CT2Connection lpConnection, int hSend, CT2BizMessage lpMsg)
+        {
+            throw new NotImplementedException();
         }
     }
     
@@ -141,7 +172,7 @@ namespace XlsxToJson
             func.UpdateDate = reader.GetValue(G).ToString();
             //第2行
             reader.Read();
-            func.Name = reader.GetString(C);
+            func.Name = ConvertToEn(reader.GetString(C));
             func.Version = reader.GetValue(E).ToString();
             func.HasDataSet = reader.GetString(G) == "Y";
             //第3行

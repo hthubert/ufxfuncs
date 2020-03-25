@@ -37,7 +37,7 @@ namespace QuantBox.XApi
         <#
         foreach (var item in items)
         {
-            var className = $"UfxPacker{item.Code}";
+            var className = $"Ufx{item.Code}";
             var (args, summary, init) = GetFunctionInitInfo(item);
 #>
         /// <summary>
