@@ -34,6 +34,13 @@ namespace QuantBox.XApi
     /// 功能名称: <#=function.Description#>
     /// 业务范围: <#=function.BusinessScope#>
     /// </summary>
+    <#
+        if (function.Status == "不维护")
+        {
+#>
+    [Obsolete("不维护")]
+<#
+        } #>
     public sealed class <#=className#> 
     {
         /// <summary>

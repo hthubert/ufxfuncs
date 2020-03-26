@@ -43,7 +43,14 @@ namespace QuantBox.XApi
         /// <summary>
         /// 功能名称: <#=item.Description#>
         /// </summary>
-        <#=summary#>public static <#=className#> Make<#=item.Code#>(<#=args#>)
+        <#=summary#><#
+        if (item.Status == "不维护")
+        {
+#>
+        [Obsolete("不维护")]
+<#
+        } #>
+        public static <#=className#> Make<#=item.Code#>(<#=args#>)
         {
             return new <#=className#>(<#=init#>);
         }
