@@ -13,7 +13,7 @@
 <#@ import namespace="Humanizer" #>
 <#@ import namespace="System.Text.RegularExpressions" #>
 <#
-    var jsonPath = Host.ResolveAssemblyReference("$(ProjectDir)") + @"\bin\Debug\netcoreapp3.1";
+    var jsonPath = Host.ResolveAssemblyReference("$(SolutionDir)") + @"XlsxToJson\bin\Debug\netcoreapp3.1";
     var functionPath = Path.Combine(jsonPath,"functions.json");
     var functions = JsonConvert.DeserializeObject<List<UfxFunction>>(File.ReadAllText(functionPath));
     functions.ForEach(n=>n.InArgs.ForEach(arg=>arg.TypeInfo = GetTypeInfo(arg.Type)));
@@ -41,8 +41,12 @@ namespace QuantBox.XApi
     [Obsolete("不维护")]
 <#
         } #>
-    public sealed class <#=className#> 
+    public sealed class <#=className#> : IUfxFunctionCall
     {
+        /// <summary>
+        /// 功能号
+        /// </summary>
+        public int FunctionId => <#=function.Code#>;
         /// <summary>
         /// 包含必选项的构造函数
         /// </summary>
@@ -80,7 +84,11 @@ namespace QuantBox.XApi
             }
         }
 #>
-        public (int function, CT2Packer packer) Pack()
+        /// <summary>
+        /// 创建功能请求数据包
+        /// </summary>
+        /// <returns></returns>
+        public CT2Packer Pack()
         {
             var packer = new CT2Packer(2);
             packer.BeginPack();
@@ -107,7 +115,7 @@ namespace QuantBox.XApi
         }
 #>
             packer.EndPack();
-            return (<#=function.Code#>, packer);
+            return packer;
         }
     }
 <#

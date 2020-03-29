@@ -13,7 +13,7 @@
 <#@ import namespace="Humanizer" #>
 <#@ import namespace="System.Text.RegularExpressions" #>
 <#
-    var jsonPath = Host.ResolveAssemblyReference("$(ProjectDir)") + @"\bin\Debug\netcoreapp3.1";
+    var jsonPath = Host.ResolveAssemblyReference("$(SolutionDir)") + @"XlsxToJson\bin\Debug\netcoreapp3.1";
     var functionPath = Path.Combine(jsonPath,"functions.json");
     var dictPath = Path.Combine(jsonPath,"dict.json");
     var errorPath = Path.Combine(jsonPath,"error.json");
@@ -36,8 +36,14 @@
 #>
 namespace QuantBox.XApi
 {
+    /// <summary>
+    /// UFX功能消息名称
+    /// </summary>
     public static class UfxNames
     {
+        /// <summary>
+        /// UFX功能名称
+        /// </summary>    
         public static string GetFunctionName(int functionId)
         {
             switch(functionId)
@@ -54,7 +60,9 @@ namespace QuantBox.XApi
                     return "未知功能号";
             }              
         }
-
+        /// <summary>
+        /// UFX消息名称
+        /// </summary>   
         public static string GetMessageName(sbyte msgType)
         {
             switch(msgType)
@@ -73,6 +81,9 @@ namespace QuantBox.XApi
         }
     }
 
+    /// <summary>
+    /// UFX消息类型
+    /// </summary>  
     public static class UfxMessageType
     {
 <#
@@ -95,7 +106,7 @@ namespace QuantBox.XApi
     /// <summary>
     /// <#=dataDict.Description#>
     /// </summary>
-    public static class Ufx<#=className#>
+    public sealed class Ufx<#=className#>
     {
     <#
         var index = 0;

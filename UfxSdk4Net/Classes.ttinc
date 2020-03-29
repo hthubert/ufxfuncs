@@ -89,17 +89,17 @@
                         new TypeInfo { CSharpType = "sbyte", FieldType = "(sbyte)'C'", Len = len } : 
                         new TypeInfo { CSharpType = "string", FieldType = "(sbyte)'S'", Len = int.Parse(match.Groups[2].Value) };
                 case "N":
-                    if (match.Groups.Count > 2)
+                    if (match.Groups[3].Success)
                     {
-                        return new TypeInfo { CSharpType = "int", FieldType = "(sbyte)'I'", Len = len };
+                        return new TypeInfo 
+                        { 
+                            CSharpType = "double", 
+                            Len = len, 
+                            FieldType = "(sbyte)'D'",
+                            DecimalPartLen = int.Parse(match.Groups[4].Value)
+                        };                        
                     }
-                    return new TypeInfo 
-                    { 
-                        CSharpType = "double", 
-                        Len = len, 
-                        FieldType = "(sbyte)'D'",
-                        DecimalPartLen = int.Parse(match.Groups[4].Value)
-                    };
+                    return new TypeInfo { CSharpType = "int", FieldType = "(sbyte)'I'", Len = len };
             }
         }
         return new TypeInfo { CSharpType = "string", FieldType = "(sbyte)'S'", Len = 256 };

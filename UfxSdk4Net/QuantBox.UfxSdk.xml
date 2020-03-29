@@ -574,6 +574,26 @@
             功能名称: 支持获取当前可用的委托批号
             </summary>
         </member>
+        <member name="T:QuantBox.XApi.UfxNames">
+            <summary>
+            UFX功能消息名称
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxNames.GetFunctionName(System.Int32)">
+            <summary>
+            UFX功能名称
+            </summary>    
+        </member>
+        <member name="M:QuantBox.XApi.UfxNames.GetMessageName(System.SByte)">
+            <summary>
+            UFX消息名称
+            </summary>   
+        </member>
+        <member name="T:QuantBox.XApi.UfxMessageType">
+            <summary>
+            UFX消息类型
+            </summary>  
+        </member>
         <member name="F:QuantBox.XApi.UfxMessageType.EntrustReceived">
             <summary>
             委托下达(委托下达成功后推送本条委托信息)
@@ -2309,11 +2329,65 @@
             债券借贷
             </summary>
         </member>
+        <member name="T:QuantBox.XApi.IUfxFunctionCall">
+            <summary>
+            功能调用包
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.IUfxFunctionCall.FunctionId">
+            <summary>
+            功能号
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.IUfxFunctionCall.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:QuantBox.XApi.UfxUnPackerExtension">
+            <summary>
+            数据包扩展函数
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxUnPackerExtension.GetErrCode(hundsun.t2sdk.CT2UnPacker)">
+            <summary>
+            从数据包中获取错误代码
+            </summary>
+            <param name="packer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuantBox.XApi.UfxUnPackerExtension.GetMsgDetail(hundsun.t2sdk.CT2UnPacker)">
+            <summary>
+            从数据包中获取错误细节
+            </summary>
+            <param name="packer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuantBox.XApi.UfxUnPackerExtension.GetErrMsg(hundsun.t2sdk.CT2UnPacker)">
+            <summary>
+            从数据包中获取错误信息
+            </summary>
+            <param name="packer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:QuantBox.XApi.UfxUnPackerExtension.GetPackContent(hundsun.t2sdk.CT2UnPacker)">
+            <summary>
+            获取数据包的内容
+            </summary>
+            <param name="result"></param>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx10000">
             <summary>
             功能号: 10000
             功能名称: 心跳功能,该功能用于刷新令牌活跃时间,以避免令牌过期.
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx10000.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx10000.#ctor(System.String)">
@@ -2327,11 +2401,22 @@
             令牌号(取登陆成功返回的令牌号.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx10000.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx10001">
             <summary>
             功能号: 10001
             功能名称: 建立与投资管理系统的连接,UFX系统中做其他操作前必须先进行登陆.
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx10001.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx10001.#ctor(System.String,System.String,System.String,System.String,System.String,System.String)">
@@ -2400,11 +2485,22 @@
             接入端口(仅对期货终端信息采集有效,接入程序的tcp端口)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx10001.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx10002">
             <summary>
             功能号: 10002
             功能名称: 断开与UFX服务器的连接,令牌号失效,释放连接数.
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx10002.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx10002.#ctor(System.String)">
@@ -2418,11 +2514,22 @@
             令牌号(取登陆成功返回的令牌号.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx10002.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx10003">
             <summary>
             功能号: 10003
             功能名称: 修改操作员密码
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx10003.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx10003.#ctor(System.String,System.String,System.String)">
@@ -2448,11 +2555,22 @@
             新密码
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx10003.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx30001">
             <summary>
             功能号: 30001
             功能名称: 支持查询登陆操作员有操作权限的有效账户列表
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx30001.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx30001.#ctor(System.String)">
@@ -2471,11 +2589,22 @@
             账户编号
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx30001.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx30002">
             <summary>
             功能号: 30002
             功能名称: 支持查询登陆操作员有操作权限的资产单元列表
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx30002.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx30002.#ctor(System.String)">
@@ -2509,11 +2638,22 @@
             资产单元编号
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx30002.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx30003">
             <summary>
             功能号: 30003
             功能名称: 支持查询登陆操作员有操作权限且状态为有效的组合列表
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx30003.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx30003.#ctor(System.String)">
@@ -2542,11 +2682,22 @@
             组合编号
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx30003.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx30004">
             <summary>
             功能号: 30004
             功能名称: 支持查询交易股东信息
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx30004.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx30004.#ctor(System.String)">
@@ -2590,11 +2741,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx30004.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx30005">
             <summary>
             功能号: 30005
             功能名称: 支持批量查询股东信息
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx30005.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx30005.#ctor(System.String,System.String)">
@@ -2634,11 +2796,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx30005.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx30007">
             <summary>
             功能号: 30007
             功能名称: 支持查询账户清算状态,期现货可以分开查询(OPLUS专用).
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx30007.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx30007.#ctor(System.String)">
@@ -2677,11 +2850,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx30007.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35003">
             <summary>
             功能号: 35003
             功能名称: 支持查询账户资产信息
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx35003.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx35003.#ctor(System.String,System.String)">
@@ -2706,11 +2890,22 @@
             币种(限定 <see cref="T:QuantBox.XApi.UfxCurrencyCode"/> 中定义的常量)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35003.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35010">
             <summary>
             功能号: 35010
             功能名称: 支持查询账户资产信息(本币汇总)
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx35010.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx35010.#ctor(System.String,System.String)">
@@ -2730,11 +2925,22 @@
             账户编号
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35010.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35011">
             <summary>
             功能号: 35011
             功能名称: 支持查询资产单元资产信息
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx35011.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx35011.#ctor(System.String)">
@@ -2768,11 +2974,22 @@
             币种(限定 <see cref="T:QuantBox.XApi.UfxCurrencyCode"/> 中定义的常量)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35011.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35024">
             <summary>
             功能号: 35024
             功能名称: 支持查询资产单元资产信息,查询结果为按照本币汇总后的数据
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx35024.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx35024.#ctor(System.String,System.String)">
@@ -2797,11 +3014,22 @@
             资产单元编号
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35024.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35025">
             <summary>
             功能号: 35025
             功能名称: 支持查询期货账户盈亏信息
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx35025.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx35025.#ctor(System.String,System.String,System.String)">
@@ -2827,11 +3055,22 @@
             资产单元编号
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35025.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35012">
             <summary>
             功能号: 35012
             功能名称: 支持查询当日清算流水
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx35012.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx35012.#ctor(System.String)">
@@ -2875,11 +3114,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35012.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx36012">
             <summary>
             功能号: 36012
             功能名称: 支持查询历史清算流水,只能查询一天的历史记录
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx36012.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx36012.#ctor(System.String,System.Int32)">
@@ -2929,11 +3179,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx36012.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35013">
             <summary>
             功能号: 35013
             功能名称: 支持查询可期货保证金比例信息
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx35013.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx35013.#ctor(System.String,System.String)">
@@ -2973,6 +3234,12 @@
             证券代码
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35013.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35015">
             <summary>
             功能号: 35015
@@ -2980,7 +3247,12 @@
             业务范围: 账户
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.Ufx35015.#ctor(System.String,System.String,System.String,System.SByte,System.Int32,System.Int32,System.String)">
+        <member name="P:QuantBox.XApi.Ufx35015.FunctionId">
+            <summary>
+            功能号
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.Ufx35015.#ctor(System.String,System.String,System.String,System.SByte,System.Double,System.Int32,System.String)">
             <summary>
             包含必选项的构造函数
             </summary>
@@ -3027,6 +3299,12 @@
             备注
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35015.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35017">
             <summary>
             功能号: 35017
@@ -3034,7 +3312,12 @@
             业务范围: 账户
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.Ufx35017.#ctor(System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Int32,System.Int32)">
+        <member name="P:QuantBox.XApi.Ufx35017.FunctionId">
+            <summary>
+            功能号
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.Ufx35017.#ctor(System.String,System.String,System.String,System.Int32,System.Double,System.String,System.Int32,System.Int32)">
             <summary>
             包含必选项的构造函数
             </summary>
@@ -3097,11 +3380,22 @@
             备注(当前仅64位有效,超过64位会进行截位处理.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35017.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35018">
             <summary>
             功能号: 35018
             功能名称: 支持取消资金冻结,取消资金解冻
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx35018.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx35018.#ctor(System.String,System.Int32)">
@@ -3126,11 +3420,22 @@
             备注(当前仅64位有效,超过64位会进行截位处理.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35018.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35019">
             <summary>
             功能号: 35019
             功能名称: 支持查询资金冻结解冻明细
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx35019.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx35019.#ctor(System.String,System.Int32,System.Int32)">
@@ -3201,6 +3506,12 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35019.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35021">
             <summary>
             功能号: 35021
@@ -3208,7 +3519,12 @@
             业务范围: 账户
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.Ufx35021.#ctor(System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+        <member name="P:QuantBox.XApi.Ufx35021.FunctionId">
+            <summary>
+            功能号
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.Ufx35021.#ctor(System.String,System.String,System.String,System.String,System.String,System.Double,System.Int32)">
             <summary>
             包含必选项的构造函数
             </summary>
@@ -3270,6 +3586,12 @@
             备注(当前仅64位有效,超过64位会进行截位处理.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35021.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35022">
             <summary>
             功能号: 35022
@@ -3277,7 +3599,12 @@
             业务范围: 账户
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.Ufx35022.#ctor(System.String,System.String,System.String,System.String,System.String,System.SByte,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32)">
+        <member name="P:QuantBox.XApi.Ufx35022.FunctionId">
+            <summary>
+            功能号
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.Ufx35022.#ctor(System.String,System.String,System.String,System.String,System.String,System.SByte,System.String,System.String,System.String,System.String,System.Double,System.Int32,System.Int32)">
             <summary>
             包含必选项的构造函数
             </summary>
@@ -3390,6 +3717,12 @@
             备注(当前仅64位有效,超过64位会进行截位处理.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35022.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91001">
             <summary>
             功能号: 91001
@@ -3397,7 +3730,12 @@
             业务范围: 证券
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.Ufx91001.#ctor(System.String,System.String,System.String,System.String,System.SByte,System.Int32,System.Int32)">
+        <member name="P:QuantBox.XApi.Ufx91001.FunctionId">
+            <summary>
+            功能号
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.Ufx91001.#ctor(System.String,System.String,System.String,System.String,System.SByte,System.Double,System.Int32)">
             <summary>
             包含必选项的构造函数
             </summary>
@@ -3509,11 +3847,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91001.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91011">
             <summary>
             功能号: 91011
             功能名称: 支持股转市场做市业务
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91011.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91011.#ctor(System.String,System.String)">
@@ -3613,11 +3962,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91011.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91115">
             <summary>
             功能号: 91115
             功能名称: 支持按委托序号撤销股转做市委托.
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91115.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91115.#ctor(System.String,System.String,System.String,System.Int32)">
@@ -3674,11 +4034,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91115.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91113">
             <summary>
             功能号: 91113
             功能名称: 支持按委托序号撤销股转做市委托.
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91113.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91113.#ctor(System.String,System.Int32)">
@@ -3723,6 +4094,12 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91113.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91090">
             <summary>
             功能号: 91090
@@ -3730,7 +4107,12 @@
             业务范围: 证券
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.Ufx91090.#ctor(System.String,System.String,System.String,System.String,System.SByte,System.Int32,System.Int32)">
+        <member name="P:QuantBox.XApi.Ufx91090.FunctionId">
+            <summary>
+            功能号
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.Ufx91090.#ctor(System.String,System.String,System.String,System.String,System.SByte,System.Double,System.Int32)">
             <summary>
             包含必选项的构造函数
             </summary>
@@ -3877,11 +4259,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91090.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91114">
             <summary>
             功能号: 91114
             功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91114.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91114.#ctor(System.String,System.String,System.String,System.Int32)">
@@ -3938,11 +4331,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91114.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91101">
             <summary>
             功能号: 91101
             功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91101.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91101.#ctor(System.String,System.Int32)">
@@ -3987,11 +4391,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91101.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91102">
             <summary>
             功能号: 91102
             功能名称: 支持按委托批号撤单,支持对证券\期货\期权\策略等业务按委托批号撤单
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91102.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91102.#ctor(System.String,System.Int32)">
@@ -4036,11 +4451,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91102.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx31001">
             <summary>
             功能号: 31001
             功能名称: 支持查询沪深及股转市场的股票\基金\债券的持仓信息
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx31001.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx31001.#ctor(System.String)">
@@ -4089,11 +4515,22 @@
             持仓席位
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx31001.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx31002">
             <summary>
             功能号: 31002
             功能名称: 支持查询提交\转回质押的质押券数量明细(OPLUS专用)
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx31002.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx31002.#ctor(System.String,System.String)">
@@ -4123,11 +4560,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx31002.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx30011">
             <summary>
             功能号: 30011
             功能名称: 支持查询现货,期货,期权的证券资料信息.
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx30011.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx30011.#ctor(System.String)">
@@ -4166,11 +4614,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx30011.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx32001">
             <summary>
             功能号: 32001
             功能名称: 支持查询当日普通买卖委托流水,包含沪深股票\基金买卖\债券买卖,新股申购\可转债申购\质押式回购\债转股\债回售\基金认购\配股认购\配债认购\债券认购\股转市场业务
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx32001.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx32001.#ctor(System.String)">
@@ -4254,11 +4713,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx32001.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx32101">
             <summary>
             功能号: 32101
             功能名称: 支持查询历史普通买卖委托流水
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx32101.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx32101.#ctor(System.String,System.Int32,System.Int32,System.String)">
@@ -4355,11 +4825,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx32101.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx32006">
             <summary>
             功能号: 32006
             功能名称: 支持查询当日股转做市委托
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx32006.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx32006.#ctor(System.String,System.String)">
@@ -4434,11 +4915,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx32006.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx33001">
             <summary>
             功能号: 33001
             功能名称: 支持查询当日普通买卖委托以及当日股转做市委托对应的成交流水
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx33001.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx33001.#ctor(System.String)">
@@ -4517,11 +5009,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx33001.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx33101">
             <summary>
             功能号: 33101
             功能名称: 支持查询历史普通买卖成交流水
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx33101.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx33101.#ctor(System.String,System.Int32,System.Int32,System.String)">
@@ -4613,11 +5116,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx33101.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx34001">
             <summary>
             功能号: 34001
             功能名称: 支持查询沪深A股及股转市场资金账户的资金可用,支持批量传入.
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx34001.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx34001.#ctor(System.String)">
@@ -4646,6 +5160,12 @@
             组合编号(资产单元组合二选一必传,如果传入的组合或资产单元不能确定唯一组合或资产单元,则返回错误.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx34001.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91051">
             <summary>
             功能号: 91051
@@ -4653,7 +5173,12 @@
             业务范围: 证券
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.Ufx91051.#ctor(System.String,System.String,System.String,System.SByte,System.Int32,System.Int32)">
+        <member name="P:QuantBox.XApi.Ufx91051.FunctionId">
+            <summary>
+            功能号
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.Ufx91051.#ctor(System.String,System.String,System.String,System.SByte,System.Double,System.Int32)">
             <summary>
             包含必选项的构造函数
             </summary>
@@ -4774,11 +5299,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91051.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91116">
             <summary>
             功能号: 91116
             功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91116.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91116.#ctor(System.String,System.String,System.String,System.Int32)">
@@ -4835,11 +5371,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91116.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91151">
             <summary>
             功能号: 91151
             功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
             业务范围: 证券
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91151.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91151.#ctor(System.String,System.Int32)">
@@ -4884,11 +5431,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91151.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91003">
             <summary>
             功能号: 91003
             功能名称: 支持沪深ETF\沪深跨市场ETF\沪深跨境ETF申赎业务
             业务范围: 基金
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91003.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91003.#ctor(System.String,System.String,System.String,System.String,System.Int32)">
@@ -4986,11 +5544,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91003.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91008">
             <summary>
             功能号: 91008
             功能名称: 支持ETF(股票型ETF\债券型ETF\华宝兴业交易型货币基金\沪深跨境ETF\沪深黄金ETF\深交所交易型货币基金)\场内开放式基金申赎(LOF)\LOF基金分拆合并\转托管.基金买卖委托请用91001接口
             业务范围: 基金
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91008.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91008.#ctor(System.String,System.String,System.String,System.String)">
@@ -5102,11 +5671,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91008.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx32002">
             <summary>
             功能号: 32002
             功能名称: 支持查询当日基金一级市场委托流水.
             业务范围: 基金
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx32002.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx32002.#ctor(System.String)">
@@ -5190,11 +5770,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx32002.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx32005">
             <summary>
             功能号: 32005
             功能名称: 支持查询ETF申赎时的成份股和资金代码委托明细信息.
             业务范围: 基金
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx32005.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx32005.#ctor(System.String,System.Int32)">
@@ -5224,11 +5815,22 @@
             证券代码(传入证券代码请同时传入交易市场)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx32005.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx33002">
             <summary>
             功能号: 33002
             功能名称: 支持查询当日基金一级市场委托成交流水
             业务范围: 基金
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx33002.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx33002.#ctor(System.String)">
@@ -5307,11 +5909,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx33002.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx33005">
             <summary>
             功能号: 33005
             功能名称: 支持查询ETF申赎时的成份股和资金代码成交明细信息.
             业务范围: 基金
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx33005.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx33005.#ctor(System.String,System.Int32)">
@@ -5341,11 +5954,22 @@
             证券代码(传入证券代码请同时传入交易市场)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx33005.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35014">
             <summary>
             功能号: 35014
             功能名称: 支持查询沪深ETF成份股信息
             业务范围: 基金
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx35014.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx35014.#ctor(System.String,System.String,System.String)">
@@ -5371,11 +5995,22 @@
             ETF代码（二级市场）()
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35014.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35020">
             <summary>
             功能号: 35020
             功能名称: 支持沪深查询ETF基础信息
             业务范围: 基金
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx35020.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx35020.#ctor(System.String)">
@@ -5404,11 +6039,22 @@
             ETF代码（二级市场）(传入证券代码请同时传入交易市场)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35020.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx30010">
             <summary>
             功能号: 30010
             功能名称: 支持查询期货市场未过期的期货信息.
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx30010.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx30010.#ctor(System.String)">
@@ -5432,6 +6078,12 @@
             证券代码(传入证券代码请同时传入交易市场)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx30010.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91004">
             <summary>
             功能号: 91004
@@ -5439,7 +6091,12 @@
             业务范围: 期货
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.Ufx91004.#ctor(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Int32,System.Int32)">
+        <member name="P:QuantBox.XApi.Ufx91004.FunctionId">
+            <summary>
+            功能号
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.Ufx91004.#ctor(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Double,System.Int32)">
             <summary>
             包含必选项的构造函数
             </summary>
@@ -5567,11 +6224,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91004.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91013">
             <summary>
             功能号: 91013
             功能名称: 支持商品期货标准套利单\互换单业务.
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91013.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91013.#ctor(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Int32)">
@@ -5696,11 +6364,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91013.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91119">
             <summary>
             功能号: 91119
             功能名称: 支持按委托序号撤单,支持多条委托批量撤单
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91119.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91119.#ctor(System.String,System.String,System.String,System.Int32)">
@@ -5757,11 +6436,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91119.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91105">
             <summary>
             功能号: 91105
             功能名称: 支持按委托序号撤单,支持多条委托批量撤单
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91105.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91105.#ctor(System.String,System.Int32)">
@@ -5806,11 +6496,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91105.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91121">
             <summary>
             功能号: 91121
             功能名称: 支持商品期货组合单撤单
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91121.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91121.#ctor(System.String,System.String,System.String,System.Int32)">
@@ -5867,11 +6568,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91121.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91107">
             <summary>
             功能号: 91107
             功能名称: 支持商品期货组合单撤单
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91107.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91107.#ctor(System.String,System.Int32)">
@@ -5916,11 +6628,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91107.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx31003">
             <summary>
             功能号: 31003
             功能名称: 支持查询期货持仓
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx31003.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx31003.#ctor(System.String)">
@@ -5979,11 +6702,22 @@
             多空标志(限定 <see cref="T:QuantBox.XApi.UfxPositionFlag"/> 中定义的常量)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx31003.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx31013">
             <summary>
             功能号: 31013
             功能名称: 支持查询期货持仓明细
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx31013.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx31013.#ctor(System.String)">
@@ -6037,11 +6771,22 @@
             多空标志(限定 <see cref="T:QuantBox.XApi.UfxPositionFlag"/> 中定义的常量)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx31013.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx32003">
             <summary>
             功能号: 32003
             功能名称: 支持查询当日期货委托流水
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx32003.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx32003.#ctor(System.String)">
@@ -6130,11 +6875,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx32003.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx32103">
             <summary>
             功能号: 32103
             功能名称: 支持查询期货历史普通买卖委托流水
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx32103.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx32103.#ctor(System.String,System.Int32,System.Int32,System.String)">
@@ -6236,11 +6992,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx32103.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx32008">
             <summary>
             功能号: 32008
             功能名称: 支持查询当日商品期货组合委托流水
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx32008.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx32008.#ctor(System.String)">
@@ -6334,11 +7101,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx32008.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx33003">
             <summary>
             功能号: 33003
             功能名称: 支持查询当日期货成交流水
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx33003.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx33003.#ctor(System.String)">
@@ -6427,11 +7205,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx33003.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx33103">
             <summary>
             功能号: 33103
             功能名称: 支持查询期货历史期货成交流水
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx33103.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx33103.#ctor(System.String,System.Int32,System.Int32,System.String)">
@@ -6528,11 +7317,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx33103.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx34003">
             <summary>
             功能号: 34003
             功能名称: 支持查询期货保证金账户的资金可用信息,可查询期货\股指期权\商品期权可用保证金,支持批量传入.
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx34003.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx34003.#ctor(System.String)">
@@ -6561,11 +7361,22 @@
             组合编号(资产单元组合二选一必传,如果传入的组合或资产单元不能确定唯一组合或资产单元,则返回错误.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx34003.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35023">
             <summary>
             功能号: 35023
             功能名称: 支持期货费率查询,支持中金所股指期货\国债期货和上期所\大商所\郑商所\能源交易所的商品期货业务
             业务范围: 期货
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx35023.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx35023.#ctor(System.String,System.String,System.String)">
@@ -6631,11 +7442,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35023.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx30012">
             <summary>
             功能号: 30012
             功能名称: 支持查询期权信息.
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx30012.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx30012.#ctor(System.String)">
@@ -6674,6 +7496,12 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx30012.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91005">
             <summary>
             功能号: 91005
@@ -6681,7 +7509,12 @@
             业务范围: 期权
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.Ufx91005.#ctor(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Int32,System.Int32)">
+        <member name="P:QuantBox.XApi.Ufx91005.FunctionId">
+            <summary>
+            功能号
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.Ufx91005.#ctor(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Double,System.Int32)">
             <summary>
             包含必选项的构造函数
             </summary>
@@ -6809,11 +7642,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91005.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91006">
             <summary>
             功能号: 91006
             功能名称: 支持上海股票期权保证券的锁定与解锁业务
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91006.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91006.#ctor(System.String,System.String,System.String,System.String,System.Int32)">
@@ -6916,11 +7760,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91006.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91007">
             <summary>
             功能号: 91007
             功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权业务
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91007.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91007.#ctor(System.String,System.String,System.String,System.String)">
@@ -7027,11 +7882,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91007.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91025">
             <summary>
             功能号: 91025
             功能名称: 支持上交所股票期权合并行权业务
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91025.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91025.#ctor(System.String,System.String,System.String,System.String,System.Int32)">
@@ -7129,11 +7995,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91025.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91126">
             <summary>
             功能号: 91126
             功能名称: 支持上交所期权合并行权撤单,可传入多条委托序号进行批量撤单.最多支持1000笔
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91126.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91126.#ctor(System.String,System.String,System.String,System.Int32)">
@@ -7190,11 +8067,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91126.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx32017">
             <summary>
             功能号: 32017
             功能名称: 支持查询当日上交所合并行权委托
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx32017.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx32017.#ctor(System.String,System.String)">
@@ -7274,11 +8162,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx32017.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91012">
             <summary>
             功能号: 91012
             功能名称: 支持股指期权做市业务
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91012.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91012.#ctor(System.String,System.String,System.String)">
@@ -7389,11 +8288,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91012.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91014">
             <summary>
             功能号: 91014
             功能名称: 支持深交所股票期权,中金所股指期权做市业务,支持批量传入
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91014.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91014.#ctor(System.String,System.String,System.String)">
@@ -7509,6 +8419,12 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91014.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91091">
             <summary>
             功能号: 91091
@@ -7516,7 +8432,12 @@
             业务范围: 期权
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.Ufx91091.#ctor(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Int32,System.Int32)">
+        <member name="P:QuantBox.XApi.Ufx91091.FunctionId">
+            <summary>
+            功能号
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.Ufx91091.#ctor(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Double,System.Int32)">
             <summary>
             包含必选项的构造函数
             </summary>
@@ -7634,11 +8555,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91091.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91016">
             <summary>
             功能号: 91016
             功能名称: 支持上交所股票期权询价
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91016.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91016.#ctor(System.String,System.String,System.String)">
@@ -7724,6 +8656,12 @@
             第三方系统自定义说明(供外部系统使用,格式及用法自定义.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91016.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91017">
             <summary>
             功能号: 91017
@@ -7731,7 +8669,12 @@
             业务范围: 期权
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.Ufx91017.#ctor(System.String,System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Int32)">
+        <member name="P:QuantBox.XApi.Ufx91017.FunctionId">
+            <summary>
+            功能号
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.Ufx91017.#ctor(System.String,System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Double)">
             <summary>
             包含必选项的构造函数
             </summary>
@@ -7854,11 +8797,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91017.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91120">
             <summary>
             功能号: 91120
             功能名称: 支持按委托序号撤销期权(股票期权\股指期权\商品期权)委托,可传入多个委托序号进行批量撤单
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91120.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91120.#ctor(System.String,System.String,System.String,System.Int32)">
@@ -7915,11 +8869,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91120.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91106">
             <summary>
             功能号: 91106
             功能名称: 支持按委托序号撤销期权(股票期权\股指期权\商品期权)委托,可传入多个委托序号进行批量撤单
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91106.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91106.#ctor(System.String,System.Int32)">
@@ -7964,11 +8929,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91106.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91108">
             <summary>
             功能号: 91108
             功能名称: 支持按委托批号撤销股指期权委托
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91108.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91108.#ctor(System.String,System.Int32)">
@@ -8013,11 +8989,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91108.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91122">
             <summary>
             功能号: 91122
             功能名称: 支持撤销深交所股票期权做市委托,中金所股指期权做市委托
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91122.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91122.#ctor(System.String,System.String,System.String,System.Int32)">
@@ -8074,11 +9061,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91122.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91109">
             <summary>
             功能号: 91109
             功能名称: 支持撤销深交所股票期权做市委托,中金所股指期权做市委托
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91109.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91109.#ctor(System.String,System.Int32)">
@@ -8123,11 +9121,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91109.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91123">
             <summary>
             功能号: 91123
             功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权撤单,可传入多条委托序号进行批量撤单.
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91123.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91123.#ctor(System.String,System.String,System.String,System.Int32)">
@@ -8184,11 +9193,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91123.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91111">
             <summary>
             功能号: 91111
             功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权撤单,可传入多条委托序号进行批量撤单.
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91111.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91111.#ctor(System.String,System.Int32)">
@@ -8233,11 +9253,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91111.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91112">
             <summary>
             功能号: 91112
             功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权按委托批号撤单.
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91112.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91112.#ctor(System.String,System.Int32)">
@@ -8282,11 +9313,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91112.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx31004">
             <summary>
             功能号: 31004
             功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权持仓信息
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx31004.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx31004.#ctor(System.String)">
@@ -8345,11 +9387,22 @@
             多空标志(限定 <see cref="T:QuantBox.XApi.UfxPositionFlag"/> 中定义的常量)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx31004.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx32004">
             <summary>
             功能号: 32004
             功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权当日委托流水(除备兑锁定解锁)
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx32004.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx32004.#ctor(System.String)">
@@ -8448,11 +9501,22 @@
             委托序号串(以逗号分隔的委托序号串,如果该字段外部没传,继续以委托序号为准,如果外部传了该字段,以该字段为准)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx32004.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx32007">
             <summary>
             功能号: 32007
             功能名称: 支持查询当日股指期权\深交所股票期权做市委托
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx32007.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx32007.#ctor(System.String,System.String)">
@@ -8532,11 +9596,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx32007.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx33004">
             <summary>
             功能号: 33004
             功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权当日成交流水
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx33004.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx33004.#ctor(System.String)">
@@ -8630,11 +9705,22 @@
             委托序号串(以逗号分隔的委托序号串,如果该字段外部没传,继续以委托序号为准,如果外部传了该字段,以该字段为准)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx33004.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx34004">
             <summary>
             功能号: 34004
             功能名称: 支持沪深衍生品保证金账户查询(股指期权,商品期权保证金账户请使用34003接口查询).
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx34004.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx34004.#ctor(System.String,System.String)">
@@ -8669,11 +9755,22 @@
             交易市场(限定 <see cref="T:QuantBox.XApi.UfxMarketNo"/> 中定义的常量)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx34004.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91015">
             <summary>
             功能号: 91015
             功能名称: 支持上交所股票期权组合策略保证金交易业务
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx91015.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx91015.#ctor(System.String,System.String,System.SByte,System.String,System.Int32)">
@@ -8801,11 +9898,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91015.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx31015">
             <summary>
             功能号: 31015
             功能名称: 支持查询上交所股票期权组合策略保证金持仓信息
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx31015.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx31015.#ctor(System.String)">
@@ -8874,11 +9982,22 @@
             持仓席位
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx31015.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx32015">
             <summary>
             功能号: 32015
             功能名称: 支持查询上交所股票期权组合策略保证金委托信息
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx32015.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx32015.#ctor(System.String)">
@@ -8982,11 +10101,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx32015.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx33015">
             <summary>
             功能号: 33015
             功能名称: 支持查询上交所股票期权组合策略保证金成交信息
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx33015.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx33015.#ctor(System.String)">
@@ -9080,6 +10210,12 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx33015.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx91018">
             <summary>
             功能号: 91018
@@ -9087,7 +10223,12 @@
             业务范围: 期权
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.Ufx91018.#ctor(System.String,System.SByte,System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Int32,System.Int32)">
+        <member name="P:QuantBox.XApi.Ufx91018.FunctionId">
+            <summary>
+            功能号
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.Ufx91018.#ctor(System.String,System.SByte,System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Double,System.Int32)">
             <summary>
             包含必选项的构造函数
             </summary>
@@ -9207,11 +10348,22 @@
             终端信息(传入时请按如下字段格式:;cpuid;内网ip;手机号;手机设备号;计算机名;GUID)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx91018.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx32016">
             <summary>
             功能号: 32016
             功能名称: 支持查询当日郑商所商品期权套利单委托
             业务范围: 期权
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx32016.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx32016.#ctor(System.String)">
@@ -9305,11 +10457,22 @@
             请求数(默认1000,最大为10000.)
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx32016.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx31005">
             <summary>
             功能号: 31005
             功能名称: 支持查询现货\期货\期权持仓信息
             业务范围: 标准
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx31005.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx31005.#ctor(System.String)">
@@ -9358,11 +10521,22 @@
             持仓席位
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx31005.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:QuantBox.XApi.Ufx35008">
             <summary>
             功能号: 35008
             功能名称: 支持获取当前可用的委托批号
             业务范围: 账户
+            </summary>
+        </member>
+        <member name="P:QuantBox.XApi.Ufx35008.FunctionId">
+            <summary>
+            功能号
             </summary>
         </member>
         <member name="M:QuantBox.XApi.Ufx35008.#ctor(System.String,System.String,System.String)">
@@ -9388,11 +10562,32 @@
             资产单元编号
             </summary>
         </member>
+        <member name="M:QuantBox.XApi.Ufx35008.Pack">
+            <summary>
+            创建功能请求数据包
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:QuantBox.XApi.UfxAccountFunction">
+            <summary>
+            Account功能类型
+            </summary>
+        </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F10000">
+            <summary>
+            功能名称: 心跳功能,该功能用于刷新令牌活跃时间,以避免令牌过期.
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make10000(System.String)">
             <summary>
             功能名称: 心跳功能,该功能用于刷新令牌活跃时间,以避免令牌过期.
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F10001">
+            <summary>
+            功能名称: 建立与投资管理系统的连接,UFX系统中做其他操作前必须先进行登陆.
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make10001(System.String,System.String,System.String,System.String,System.String,System.String)">
             <summary>
@@ -9405,11 +10600,21 @@
             <param name="opStation">登录站点</param>
             <param name="authorizationId">开发者授权编号(联系恒生获取.(注:现已经接入的系统请于2014年12月31号前获取授权并完成程序更新.联系方式:o3kffb@hundsun.com))</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F10002">
+            <summary>
+            功能名称: 断开与UFX服务器的连接,令牌号失效,释放连接数.
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make10002(System.String)">
             <summary>
             功能名称: 断开与UFX服务器的连接,令牌号失效,释放连接数.
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F10003">
+            <summary>
+            功能名称: 修改操作员密码
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make10003(System.String,System.String,System.String)">
             <summary>
@@ -9419,11 +10624,21 @@
             <param name="oldPassword">原密码</param>
             <param name="newPassword">新密码</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F30001">
+            <summary>
+            功能名称: 支持查询登陆操作员有操作权限的有效账户列表
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make30001(System.String)">
             <summary>
             功能名称: 支持查询登陆操作员有操作权限的有效账户列表
             </summary>
             <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F30002">
+            <summary>
+            功能名称: 支持查询登陆操作员有操作权限的资产单元列表
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make30002(System.String)">
             <summary>
@@ -9431,17 +10646,32 @@
             </summary>
             <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F30003">
+            <summary>
+            功能名称: 支持查询登陆操作员有操作权限且状态为有效的组合列表
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make30003(System.String)">
             <summary>
             功能名称: 支持查询登陆操作员有操作权限且状态为有效的组合列表
             </summary>
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F30004">
+            <summary>
+            功能名称: 支持查询交易股东信息
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make30004(System.String)">
             <summary>
             功能名称: 支持查询交易股东信息
             </summary>
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F30005">
+            <summary>
+            功能名称: 支持批量查询股东信息
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make30005(System.String,System.String)">
             <summary>
@@ -9450,11 +10680,21 @@
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="assetNoList">资产单元编号(如果传入资产单元不能确定唯一的资产单元,则返回错误,批量,逗号隔开,不超过300个)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F30007">
+            <summary>
+            功能名称: 支持查询账户清算状态,期现货可以分开查询(OPLUS专用).
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make30007(System.String)">
             <summary>
             功能名称: 支持查询账户清算状态,期现货可以分开查询(OPLUS专用).
             </summary>
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35003">
+            <summary>
+            功能名称: 支持查询账户资产信息
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make35003(System.String,System.String)">
             <summary>
@@ -9463,6 +10703,11 @@
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="accountCode">账户编号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35010">
+            <summary>
+            功能名称: 支持查询账户资产信息(本币汇总)
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make35010(System.String,System.String)">
             <summary>
             功能名称: 支持查询账户资产信息(本币汇总)
@@ -9470,11 +10715,21 @@
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="accountCode">账户编号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35011">
+            <summary>
+            功能名称: 支持查询资产单元资产信息
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make35011(System.String)">
             <summary>
             功能名称: 支持查询资产单元资产信息
             </summary>
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35024">
+            <summary>
+            功能名称: 支持查询资产单元资产信息,查询结果为按照本币汇总后的数据
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make35024(System.String,System.String)">
             <summary>
@@ -9482,6 +10737,11 @@
             </summary>
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="accountCode">账户编号</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35025">
+            <summary>
+            功能名称: 支持查询期货账户盈亏信息
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make35025(System.String,System.String,System.String)">
             <summary>
@@ -9491,11 +10751,21 @@
             <param name="accountCode">账户编号</param>
             <param name="assetNo">资产单元编号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35012">
+            <summary>
+            功能名称: 支持查询当日清算流水
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make35012(System.String)">
             <summary>
             功能名称: 支持查询当日清算流水
             </summary>
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F36012">
+            <summary>
+            功能名称: 支持查询历史清算流水,只能查询一天的历史记录
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make36012(System.String,System.Int32)">
             <summary>
@@ -9504,6 +10774,11 @@
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="startDate">起始日期(查询起始日期,仅能查询传入日期当天的记录)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35013">
+            <summary>
+            功能名称: 支持查询可期货保证金比例信息
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make35013(System.String,System.String)">
             <summary>
             功能名称: 支持查询可期货保证金比例信息
@@ -9511,7 +10786,12 @@
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="marketNo">交易市场(限定 <see cref="T:QuantBox.XApi.UfxMarketNo"/> 中定义的常量)</param>
         </member>
-        <member name="M:QuantBox.XApi.UfxAccountFunction.Make35015(System.String,System.String,System.String,System.SByte,System.Int32,System.Int32,System.String)">
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35015">
+            <summary>
+            功能名称: 支持资金调增\资金调减\保证金调增\保证金调减\资金投入\资金支取业务
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxAccountFunction.Make35015(System.String,System.String,System.String,System.SByte,System.Double,System.Int32,System.String)">
             <summary>
             功能名称: 支持资金调增\资金调减\保证金调增\保证金调减\资金投入\资金支取业务
             </summary>
@@ -9523,7 +10803,12 @@
             <param name="enableDate">生效时间</param>
             <param name="remark">备注</param>
         </member>
-        <member name="M:QuantBox.XApi.UfxAccountFunction.Make35017(System.String,System.String,System.String,System.Int32,System.Int32,System.String,System.Int32,System.Int32)">
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35017">
+            <summary>
+            功能名称: 支持资金冻结,资金解冻
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxAccountFunction.Make35017(System.String,System.String,System.String,System.Int32,System.Double,System.String,System.Int32,System.Int32)">
             <summary>
             功能名称: 支持资金冻结,资金解冻
             </summary>
@@ -9536,12 +10821,22 @@
             <param name="enableDate">生效日期(非远期传系统当日)</param>
             <param name="expireDate">到期日期(冻结到期日期,永久传入99991231.生效日期和到期日期可相等,表示当日日终失效)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35018">
+            <summary>
+            功能名称: 支持取消资金冻结,取消资金解冻
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make35018(System.String,System.Int32)">
             <summary>
             功能名称: 支持取消资金冻结,取消资金解冻
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
             <param name="frozenSerialNo">冻结解冻序号(该字段值可以从35019接口获取)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35019">
+            <summary>
+            功能名称: 支持查询资金冻结解冻明细
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make35019(System.String,System.Int32,System.Int32)">
             <summary>
@@ -9551,7 +10846,12 @@
             <param name="startDate">起始日期(查询起始日期,查询历史记录日期不能大于等于当前日期)</param>
             <param name="endDate">结束日期(查询结束日期,查询历史记录日期不能大于等于当前日期)</param>
         </member>
-        <member name="M:QuantBox.XApi.UfxAccountFunction.Make35021(System.String,System.String,System.String,System.String,System.String,System.Int32,System.Int32)">
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35021">
+            <summary>
+            功能名称: 支持资金划转,支持批量传入,最大1000条.
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxAccountFunction.Make35021(System.String,System.String,System.String,System.String,System.String,System.Double,System.Int32)">
             <summary>
             功能名称: 支持资金划转,支持批量传入,最大1000条.
             </summary>
@@ -9563,7 +10863,12 @@
             <param name="occurBalance">发生金额</param>
             <param name="enableDate">生效日期(非远期传系统当日)</param>
         </member>
-        <member name="M:QuantBox.XApi.UfxAccountFunction.Make35022(System.String,System.String,System.String,System.String,System.String,System.SByte,System.String,System.String,System.String,System.String,System.Int32,System.Int32,System.Int32)">
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35022">
+            <summary>
+            功能名称: 支持现货,期货划转,支持批量传入,最大1000条.不支持批量跨基金证券划转
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxAccountFunction.Make35022(System.String,System.String,System.String,System.String,System.String,System.SByte,System.String,System.String,System.String,System.String,System.Double,System.Int32,System.Int32)">
             <summary>
             功能名称: 支持现货,期货划转,支持批量传入,最大1000条.不支持批量跨基金证券划转
             </summary>
@@ -9581,11 +10886,21 @@
             <param name="secutransAmount">划转数量(单位为股(份\张).)</param>
             <param name="enableDate">生效日期(非远期传系统当日)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F31005">
+            <summary>
+            功能名称: 支持查询现货\期货\期权持仓信息
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make31005(System.String)">
             <summary>
             功能名称: 支持查询现货\期货\期权持仓信息
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxAccountFunction.F35008">
+            <summary>
+            功能名称: 支持获取当前可用的委托批号
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxAccountFunction.Make35008(System.String,System.String,System.String)">
             <summary>
@@ -9595,7 +10910,17 @@
             <param name="accountCode">账户编号</param>
             <param name="assetNo">资产单元编号</param>
         </member>
-        <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91001(System.String,System.String,System.String,System.String,System.SByte,System.Int32,System.Int32)">
+        <member name="T:QuantBox.XApi.UfxSecuritiesFunction">
+            <summary>
+            Securities功能类型
+            </summary>
+        </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F91001">
+            <summary>
+            功能名称: 支持沪深股票\基金买卖\债券买卖,新股申购\可转债申购\质押式回购\债转股\债回售\基金认购\配股认购\配债认购\债券认购业务.(不含固定收益和大宗交易).支持CDR存托凭证业务,支持沪伦通业务.
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91001(System.String,System.String,System.String,System.String,System.SByte,System.Double,System.Int32)">
             <summary>
             功能名称: 支持沪深股票\基金买卖\债券买卖,新股申购\可转债申购\质押式回购\债转股\债回售\基金认购\配股认购\配债认购\债券认购业务.(不含固定收益和大宗交易).支持CDR存托凭证业务,支持沪伦通业务.
             </summary>
@@ -9607,12 +10932,22 @@
             <param name="entrustPrice">委托价格(1,当价格类型为市价时,头寸和风控控制买入按涨停价控.;2,债券回购业务价格传回购利率,如3.5%填入3.5.;3,提交质押\回转质押\基金认购\债转股\配股认购业务,价格字段无效,系统自动按交易所规则申报)</param>
             <param name="entrustAmount">委托数量(单位为股(份\张).)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F91011">
+            <summary>
+            功能名称: 支持股转市场做市业务
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91011(System.String,System.String)">
             <summary>
             功能名称: 支持股转市场做市业务
             </summary>
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="stockCode">证券代码</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F91115">
+            <summary>
+            功能名称: 支持按委托序号撤销股转做市委托.
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91115(System.String,System.String,System.String,System.Int32)">
             <summary>
@@ -9623,6 +10958,11 @@
             <param name="combiNo">组合编号</param>
             <param name="entrustNo">委托序号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F91113">
+            <summary>
+            功能名称: 支持按委托序号撤销股转做市委托.
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91113(System.String,System.Int32)">
             <summary>
             功能名称: 支持按委托序号撤销股转做市委托.
@@ -9630,7 +10970,12 @@
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
             <param name="entrustNo">委托序号()</param>
         </member>
-        <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91090(System.String,System.String,System.String,System.String,System.SByte,System.Int32,System.Int32)">
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F91090">
+            <summary>
+            功能名称: 支持沪深股票\基金\债券买卖和股指期货\国债期货\商品期货\股票期权业务.支持CDR存托凭证业务,支持沪伦通业务
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91090(System.String,System.String,System.String,System.String,System.SByte,System.Double,System.Int32)">
             <summary>
             功能名称: 支持沪深股票\基金\债券买卖和股指期货\国债期货\商品期货\股票期权业务.支持CDR存托凭证业务,支持沪伦通业务
             </summary>
@@ -9642,6 +10987,11 @@
             <param name="entrustPrice">委托价格</param>
             <param name="entrustAmount">委托数量</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F91114">
+            <summary>
+            功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91114(System.String,System.String,System.String,System.Int32)">
             <summary>
             功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
@@ -9651,12 +11001,22 @@
             <param name="combiNo">组合编号</param>
             <param name="entrustNo">委托序号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F91101">
+            <summary>
+            功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91101(System.String,System.Int32)">
             <summary>
             功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
             <param name="entrustNo">委托序号()</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F91102">
+            <summary>
+            功能名称: 支持按委托批号撤单,支持对证券\期货\期权\策略等业务按委托批号撤单
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91102(System.String,System.Int32)">
             <summary>
@@ -9665,11 +11025,21 @@
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
             <param name="batchNo">委托批号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F31001">
+            <summary>
+            功能名称: 支持查询沪深及股转市场的股票\基金\债券的持仓信息
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make31001(System.String)">
             <summary>
             功能名称: 支持查询沪深及股转市场的股票\基金\债券的持仓信息
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F31002">
+            <summary>
+            功能名称: 支持查询提交\转回质押的质押券数量明细(OPLUS专用)
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make31002(System.String,System.String)">
             <summary>
@@ -9678,17 +11048,32 @@
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="assetNo">资产单元编号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F30011">
+            <summary>
+            功能名称: 支持查询现货,期货,期权的证券资料信息.
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make30011(System.String)">
             <summary>
             功能名称: 支持查询现货,期货,期权的证券资料信息.
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F32001">
+            <summary>
+            功能名称: 支持查询当日普通买卖委托流水,包含沪深股票\基金买卖\债券买卖,新股申购\可转债申购\质押式回购\债转股\债回售\基金认购\配股认购\配债认购\债券认购\股转市场业务
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make32001(System.String)">
             <summary>
             功能名称: 支持查询当日普通买卖委托流水,包含沪深股票\基金买卖\债券买卖,新股申购\可转债申购\质押式回购\债转股\债回售\基金认购\配股认购\配债认购\债券认购\股转市场业务
             </summary>
             <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F32101">
+            <summary>
+            功能名称: 支持查询历史普通买卖委托流水
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make32101(System.String,System.Int32,System.Int32,System.String)">
             <summary>
@@ -9699,6 +11084,11 @@
             <param name="endDate">结束日期(查询结束日期)</param>
             <param name="accountCode">账户编号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F32006">
+            <summary>
+            功能名称: 支持查询当日股转做市委托
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make32006(System.String,System.String)">
             <summary>
             功能名称: 支持查询当日股转做市委托
@@ -9706,11 +11096,21 @@
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="accountCode">账户编号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F33001">
+            <summary>
+            功能名称: 支持查询当日普通买卖委托以及当日股转做市委托对应的成交流水
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make33001(System.String)">
             <summary>
             功能名称: 支持查询当日普通买卖委托以及当日股转做市委托对应的成交流水
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F33101">
+            <summary>
+            功能名称: 支持查询历史普通买卖成交流水
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make33101(System.String,System.Int32,System.Int32,System.String)">
             <summary>
@@ -9721,13 +11121,23 @@
             <param name="endDate">结束日期(查询结束日期格式YYYYMMDD)</param>
             <param name="accountCode">账户编号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F34001">
+            <summary>
+            功能名称: 支持查询沪深A股及股转市场资金账户的资金可用,支持批量传入.
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make34001(System.String)">
             <summary>
             功能名称: 支持查询沪深A股及股转市场资金账户的资金可用,支持批量传入.
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
         </member>
-        <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91051(System.String,System.String,System.String,System.SByte,System.Int32,System.Int32)">
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F91051">
+            <summary>
+            功能名称: 支持股转市场协议转让交易业务.
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91051(System.String,System.String,System.String,System.SByte,System.Double,System.Int32)">
             <summary>
             功能名称: 支持股转市场协议转让交易业务.
             </summary>
@@ -9738,6 +11148,11 @@
             <param name="entrustPrice">委托价格(当价格类型为市价时,头寸和风控控制买入按涨停价控.)</param>
             <param name="entrustAmount">委托数量(单位为股.)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F91116">
+            <summary>
+            功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91116(System.String,System.String,System.String,System.Int32)">
             <summary>
             功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
@@ -9747,12 +11162,27 @@
             <param name="combiNo">组合编号</param>
             <param name="entrustNo">委托序号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxSecuritiesFunction.F91151">
+            <summary>
+            功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxSecuritiesFunction.Make91151(System.String,System.Int32)">
             <summary>
             功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
             <param name="entrustNo">委托序号</param>
+        </member>
+        <member name="T:QuantBox.XApi.UfxFundFunction">
+            <summary>
+            Fund功能类型
+            </summary>
+        </member>
+        <member name="F:QuantBox.XApi.UfxFundFunction.F91003">
+            <summary>
+            功能名称: 支持沪深ETF\沪深跨市场ETF\沪深跨境ETF申赎业务
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxFundFunction.Make91003(System.String,System.String,System.String,System.String,System.Int32)">
             <summary>
@@ -9764,6 +11194,11 @@
             <param name="entrustDirection">委托方向(限定 <see cref="T:QuantBox.XApi.UfxEntrustDirection"/> 中定义的常量)</param>
             <param name="entrustAmount">委托数量(申赎数量单位为篮子数.如最小申购单位是100万份,要申赎200万,该字段填2.)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxFundFunction.F91008">
+            <summary>
+            功能名称: 支持ETF(股票型ETF\债券型ETF\华宝兴业交易型货币基金\沪深跨境ETF\沪深黄金ETF\深交所交易型货币基金)\场内开放式基金申赎(LOF)\LOF基金分拆合并\转托管.基金买卖委托请用91001接口
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxFundFunction.Make91008(System.String,System.String,System.String,System.String)">
             <summary>
             功能名称: 支持ETF(股票型ETF\债券型ETF\华宝兴业交易型货币基金\沪深跨境ETF\沪深黄金ETF\深交所交易型货币基金)\场内开放式基金申赎(LOF)\LOF基金分拆合并\转托管.基金买卖委托请用91001接口
@@ -9773,11 +11208,21 @@
             <param name="stockCode">证券代码</param>
             <param name="entrustDirection">委托方向(限定 <see cref="T:QuantBox.XApi.UfxEntrustDirection"/> 中定义的常量)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxFundFunction.F32002">
+            <summary>
+            功能名称: 支持查询当日基金一级市场委托流水.
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxFundFunction.Make32002(System.String)">
             <summary>
             功能名称: 支持查询当日基金一级市场委托流水.
             </summary>
             <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxFundFunction.F32005">
+            <summary>
+            功能名称: 支持查询ETF申赎时的成份股和资金代码委托明细信息.
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxFundFunction.Make32005(System.String,System.Int32)">
             <summary>
@@ -9786,11 +11231,21 @@
             <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
             <param name="entrustNo">委托序号(按委托序号查询)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxFundFunction.F33002">
+            <summary>
+            功能名称: 支持查询当日基金一级市场委托成交流水
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxFundFunction.Make33002(System.String)">
             <summary>
             功能名称: 支持查询当日基金一级市场委托成交流水
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxFundFunction.F33005">
+            <summary>
+            功能名称: 支持查询ETF申赎时的成份股和资金代码成交明细信息.
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxFundFunction.Make33005(System.String,System.Int32)">
             <summary>
@@ -9798,6 +11253,11 @@
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
             <param name="entrustNo">委托序号()</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxFundFunction.F35014">
+            <summary>
+            功能名称: 支持查询沪深ETF成份股信息
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxFundFunction.Make35014(System.String,System.String,System.String)">
             <summary>
@@ -9807,11 +11267,26 @@
             <param name="marketNo">交易市场(限定 <see cref="T:QuantBox.XApi.UfxMarketNo"/> 中定义的常量)</param>
             <param name="etfCode">ETF代码（二级市场）()</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxFundFunction.F35020">
+            <summary>
+            功能名称: 支持沪深查询ETF基础信息
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxFundFunction.Make35020(System.String)">
             <summary>
             功能名称: 支持沪深查询ETF基础信息
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="T:QuantBox.XApi.UfxFuturesFunction">
+            <summary>
+            Futures功能类型
+            </summary>
+        </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F30010">
+            <summary>
+            功能名称: 支持查询期货市场未过期的期货信息.
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make30010(System.String)">
             <summary>
@@ -9819,7 +11294,12 @@
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
         </member>
-        <member name="M:QuantBox.XApi.UfxFuturesFunction.Make91004(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Int32,System.Int32)">
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F91004">
+            <summary>
+            功能名称: 支持中金所股指期货\国债期货和上期所\大商所\郑商所\能源交易所的商品期货业务
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxFuturesFunction.Make91004(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Double,System.Int32)">
             <summary>
             功能名称: 支持中金所股指期货\国债期货和上期所\大商所\郑商所\能源交易所的商品期货业务
             </summary>
@@ -9831,6 +11311,11 @@
             <param name="priceType">委托价格类型(限定 <see cref="T:QuantBox.XApi.UfxPriceType"/> 中定义的常量)</param>
             <param name="entrustPrice">委托价格(委托价格需要注意最小价差,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
             <param name="entrustAmount">委托数量(委托数量需要注意最小买卖单位,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F91013">
+            <summary>
+            功能名称: 支持商品期货标准套利单\互换单业务.
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make91013(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Int32)">
             <summary>
@@ -9844,6 +11329,11 @@
             <param name="priceType">委托价格类型(限定 <see cref="T:QuantBox.XApi.UfxPriceType"/> 中定义的常量)</param>
             <param name="entrustAmount">委托数量</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F91119">
+            <summary>
+            功能名称: 支持按委托序号撤单,支持多条委托批量撤单
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make91119(System.String,System.String,System.String,System.Int32)">
             <summary>
             功能名称: 支持按委托序号撤单,支持多条委托批量撤单
@@ -9853,12 +11343,22 @@
             <param name="combiNo">组合编号</param>
             <param name="entrustNo">委托序号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F91105">
+            <summary>
+            功能名称: 支持按委托序号撤单,支持多条委托批量撤单
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make91105(System.String,System.Int32)">
             <summary>
             功能名称: 支持按委托序号撤单,支持多条委托批量撤单
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
             <param name="entrustNo">委托序号()</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F91121">
+            <summary>
+            功能名称: 支持商品期货组合单撤单
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make91121(System.String,System.String,System.String,System.Int32)">
             <summary>
@@ -9869,6 +11369,11 @@
             <param name="combiNo">组合编号</param>
             <param name="entrustNo">委托序号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F91107">
+            <summary>
+            功能名称: 支持商品期货组合单撤单
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make91107(System.String,System.Int32)">
             <summary>
             功能名称: 支持商品期货组合单撤单
@@ -9876,11 +11381,21 @@
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="entrustNo">委托序号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F31003">
+            <summary>
+            功能名称: 支持查询期货持仓
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make31003(System.String)">
             <summary>
             功能名称: 支持查询期货持仓
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F31013">
+            <summary>
+            功能名称: 支持查询期货持仓明细
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make31013(System.String)">
             <summary>
@@ -9888,11 +11403,21 @@
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F32003">
+            <summary>
+            功能名称: 支持查询当日期货委托流水
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make32003(System.String)">
             <summary>
             功能名称: 支持查询当日期货委托流水
             </summary>
             <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F32103">
+            <summary>
+            功能名称: 支持查询期货历史普通买卖委托流水
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make32103(System.String,System.Int32,System.Int32,System.String)">
             <summary>
@@ -9903,17 +11428,32 @@
             <param name="endDate">结束日期(查询结束日期)</param>
             <param name="accountCode">账户编号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F32008">
+            <summary>
+            功能名称: 支持查询当日商品期货组合委托流水
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make32008(System.String)">
             <summary>
             功能名称: 支持查询当日商品期货组合委托流水
             </summary>
             <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F33003">
+            <summary>
+            功能名称: 支持查询当日期货成交流水
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make33003(System.String)">
             <summary>
             功能名称: 支持查询当日期货成交流水
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F33103">
+            <summary>
+            功能名称: 支持查询期货历史期货成交流水
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make33103(System.String,System.Int32,System.Int32,System.String)">
             <summary>
@@ -9924,11 +11464,21 @@
             <param name="endDate">结束日期(查询结束日期)</param>
             <param name="accountCode">账户编号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F34003">
+            <summary>
+            功能名称: 支持查询期货保证金账户的资金可用信息,可查询期货\股指期权\商品期权可用保证金,支持批量传入.
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make34003(System.String)">
             <summary>
             功能名称: 支持查询期货保证金账户的资金可用信息,可查询期货\股指期权\商品期权可用保证金,支持批量传入.
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxFuturesFunction.F35023">
+            <summary>
+            功能名称: 支持期货费率查询,支持中金所股指期货\国债期货和上期所\大商所\郑商所\能源交易所的商品期货业务
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxFuturesFunction.Make35023(System.String,System.String,System.String)">
             <summary>
@@ -9938,13 +11488,28 @@
             <param name="accountCode">账户编号</param>
             <param name="assetNo">资产单元编号</param>
         </member>
+        <member name="T:QuantBox.XApi.UfxOptionsFunction">
+            <summary>
+            Options功能类型
+            </summary>
+        </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F30012">
+            <summary>
+            功能名称: 支持查询期权信息.
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make30012(System.String)">
             <summary>
             功能名称: 支持查询期权信息.
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
         </member>
-        <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91005(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Int32,System.Int32)">
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91005">
+            <summary>
+            功能名称: 支持沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权交易业务
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91005(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Double,System.Int32)">
             <summary>
             功能名称: 支持沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权交易业务
             </summary>
@@ -9957,6 +11522,11 @@
             <param name="entrustPrice">委托价格(委托价格需要注意最小价差,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
             <param name="entrustAmount">委托数量(委托数量需要注意最小买卖单位,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91006">
+            <summary>
+            功能名称: 支持上海股票期权保证券的锁定与解锁业务
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91006(System.String,System.String,System.String,System.String,System.Int32)">
             <summary>
             功能名称: 支持上海股票期权保证券的锁定与解锁业务
@@ -9967,6 +11537,11 @@
             <param name="entrustDirection">委托方向(限定 <see cref="T:QuantBox.XApi.UfxEntrustDirection"/> 中定义的常量)</param>
             <param name="entrustAmount">委托数量(委托数量需要注意最小买卖单位,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91007">
+            <summary>
+            功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权业务
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91007(System.String,System.String,System.String,System.String)">
             <summary>
             功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权业务
@@ -9975,6 +11550,11 @@
             <param name="marketNo">交易市场(限定 <see cref="T:QuantBox.XApi.UfxMarketNo"/> 中定义的常量)</param>
             <param name="stockCode">证券代码</param>
             <param name="entrustDirection">委托方向(限定 <see cref="T:QuantBox.XApi.UfxEntrustDirection"/> 中定义的常量)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91025">
+            <summary>
+            功能名称: 支持上交所股票期权合并行权业务
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91025(System.String,System.String,System.String,System.String,System.Int32)">
             <summary>
@@ -9986,6 +11566,11 @@
             <param name="stockCode2">证券代码2(认沽期权合约代码)</param>
             <param name="entrustAmount">委托数量(行权数量)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91126">
+            <summary>
+            功能名称: 支持上交所期权合并行权撤单,可传入多条委托序号进行批量撤单.最多支持1000笔
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91126(System.String,System.String,System.String,System.Int32)">
             <summary>
             功能名称: 支持上交所期权合并行权撤单,可传入多条委托序号进行批量撤单.最多支持1000笔
@@ -9995,12 +11580,22 @@
             <param name="combiNo">组合编号</param>
             <param name="entrustNo">委托序号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F32017">
+            <summary>
+            功能名称: 支持查询当日上交所合并行权委托
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make32017(System.String,System.String)">
             <summary>
             功能名称: 支持查询当日上交所合并行权委托
             </summary>
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="accountCode">账户编号</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91012">
+            <summary>
+            功能名称: 支持股指期权做市业务
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91012(System.String,System.String,System.String)">
             <summary>
@@ -10010,6 +11605,11 @@
             <param name="marketNo">交易市场(限定 <see cref="T:QuantBox.XApi.UfxMarketNo"/> 中定义的常量)</param>
             <param name="stockCode">证券代码</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91014">
+            <summary>
+            功能名称: 支持深交所股票期权,中金所股指期权做市业务,支持批量传入
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91014(System.String,System.String,System.String)">
             <summary>
             功能名称: 支持深交所股票期权,中金所股指期权做市业务,支持批量传入
@@ -10018,7 +11618,12 @@
             <param name="marketNo">交易市场(限定 <see cref="T:QuantBox.XApi.UfxMarketNo"/> 中定义的常量)</param>
             <param name="stockCode">证券代码</param>
         </member>
-        <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91091(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Int32,System.Int32)">
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91091">
+            <summary>
+            功能名称: 支持上交所股票期权篮子委托业务,用于股票期权批量下单和做市委托.
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91091(System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Double,System.Int32)">
             <summary>
             功能名称: 支持上交所股票期权篮子委托业务,用于股票期权批量下单和做市委托.
             </summary>
@@ -10031,6 +11636,11 @@
             <param name="entrustPrice">委托价格(当价格类型为市价时,价格传0)</param>
             <param name="entrustAmount">委托数量</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91016">
+            <summary>
+            功能名称: 支持上交所股票期权询价
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91016(System.String,System.String,System.String)">
             <summary>
             功能名称: 支持上交所股票期权询价
@@ -10039,7 +11649,12 @@
             <param name="marketNo">交易市场(限定 <see cref="T:QuantBox.XApi.UfxMarketNo"/> 中定义的常量)</param>
             <param name="stockCode">证券代码</param>
         </member>
-        <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91017(System.String,System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Int32)">
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91017">
+            <summary>
+            功能名称: 支持上交所股票期权回应报价,回应报价修改,支持批量传入
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91017(System.String,System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Double)">
             <summary>
             功能名称: 支持上交所股票期权回应报价,回应报价修改,支持批量传入
             </summary>
@@ -10052,6 +11667,11 @@
             <param name="priceType">委托价格类型(只支持限价:0)</param>
             <param name="entrustPrice">委托价格(委托价格需要注意最小价差,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91120">
+            <summary>
+            功能名称: 支持按委托序号撤销期权(股票期权\股指期权\商品期权)委托,可传入多个委托序号进行批量撤单
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91120(System.String,System.String,System.String,System.Int32)">
             <summary>
             功能名称: 支持按委托序号撤销期权(股票期权\股指期权\商品期权)委托,可传入多个委托序号进行批量撤单
@@ -10061,6 +11681,11 @@
             <param name="combiNo">组合编号</param>
             <param name="entrustNo">委托序号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91106">
+            <summary>
+            功能名称: 支持按委托序号撤销期权(股票期权\股指期权\商品期权)委托,可传入多个委托序号进行批量撤单
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91106(System.String,System.Int32)">
             <summary>
             功能名称: 支持按委托序号撤销期权(股票期权\股指期权\商品期权)委托,可传入多个委托序号进行批量撤单
@@ -10068,12 +11693,22 @@
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
             <param name="entrustNo">委托序号()</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91108">
+            <summary>
+            功能名称: 支持按委托批号撤销股指期权委托
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91108(System.String,System.Int32)">
             <summary>
             功能名称: 支持按委托批号撤销股指期权委托
             </summary>
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="batchNo">委托批号</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91122">
+            <summary>
+            功能名称: 支持撤销深交所股票期权做市委托,中金所股指期权做市委托
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91122(System.String,System.String,System.String,System.Int32)">
             <summary>
@@ -10084,12 +11719,22 @@
             <param name="combiNo">组合编号</param>
             <param name="entrustNo">委托序号(注意:撤单将会撤掉与该委托所包括的期权代码的所有做市委托.详见下方业务说明.)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91109">
+            <summary>
+            功能名称: 支持撤销深交所股票期权做市委托,中金所股指期权做市委托
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91109(System.String,System.Int32)">
             <summary>
             功能名称: 支持撤销深交所股票期权做市委托,中金所股指期权做市委托
             </summary>
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="entrustNo">委托序号(注意:撤单将会撤掉与该委托所包括的期权代码的所有做市委托.详见下方业务说明.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91123">
+            <summary>
+            功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权撤单,可传入多条委托序号进行批量撤单.
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91123(System.String,System.String,System.String,System.Int32)">
             <summary>
@@ -10100,12 +11745,22 @@
             <param name="combiNo">组合编号</param>
             <param name="entrustNo">委托序号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91111">
+            <summary>
+            功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权撤单,可传入多条委托序号进行批量撤单.
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91111(System.String,System.Int32)">
             <summary>
             功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权撤单,可传入多条委托序号进行批量撤单.
             </summary>
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="entrustNo">委托序号</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91112">
+            <summary>
+            功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权按委托批号撤单.
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91112(System.String,System.Int32)">
             <summary>
@@ -10114,17 +11769,32 @@
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="batchNo">委托批号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F31004">
+            <summary>
+            功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权持仓信息
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make31004(System.String)">
             <summary>
             功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权持仓信息
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F32004">
+            <summary>
+            功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权当日委托流水(除备兑锁定解锁)
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make32004(System.String)">
             <summary>
             功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权当日委托流水(除备兑锁定解锁)
             </summary>
             <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F32007">
+            <summary>
+            功能名称: 支持查询当日股指期权\深交所股票期权做市委托
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make32007(System.String,System.String)">
             <summary>
@@ -10133,11 +11803,21 @@
             <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
             <param name="accountCode">账户编号</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F33004">
+            <summary>
+            功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权当日成交流水
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make33004(System.String)">
             <summary>
             功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权当日成交流水
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F34004">
+            <summary>
+            功能名称: 支持沪深衍生品保证金账户查询(股指期权,商品期权保证金账户请使用34003接口查询).
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make34004(System.String,System.String)">
             <summary>
@@ -10145,6 +11825,11 @@
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
             <param name="marketNo">交易市场(限定 <see cref="T:QuantBox.XApi.UfxMarketNo"/> 中定义的常量)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91015">
+            <summary>
+            功能名称: 支持上交所股票期权组合策略保证金交易业务
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91015(System.String,System.String,System.SByte,System.String,System.Int32)">
             <summary>
@@ -10156,11 +11841,21 @@
             <param name="marketNo">交易市场(限定 <see cref="T:QuantBox.XApi.UfxMarketNo"/> 中定义的常量)</param>
             <param name="entrustAmount">委托数量</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F31015">
+            <summary>
+            功能名称: 支持查询上交所股票期权组合策略保证金持仓信息
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make31015(System.String)">
             <summary>
             功能名称: 支持查询上交所股票期权组合策略保证金持仓信息
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F32015">
+            <summary>
+            功能名称: 支持查询上交所股票期权组合策略保证金委托信息
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make32015(System.String)">
             <summary>
@@ -10168,13 +11863,23 @@
             </summary>
             <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
         </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F33015">
+            <summary>
+            功能名称: 支持查询上交所股票期权组合策略保证金成交信息
+            </summary>
+        </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make33015(System.String)">
             <summary>
             功能名称: 支持查询上交所股票期权组合策略保证金成交信息
             </summary>
             <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
         </member>
-        <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91018(System.String,System.SByte,System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Int32,System.Int32)">
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F91018">
+            <summary>
+            功能名称: 支持郑商所商品期权套利单业务.
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxOptionsFunction.Make91018(System.String,System.SByte,System.String,System.String,System.String,System.String,System.SByte,System.SByte,System.Double,System.Int32)">
             <summary>
             功能名称: 支持郑商所商品期权套利单业务.
             </summary>
@@ -10188,6 +11893,11 @@
             <param name="priceType">委托价格类型(限定 <see cref="T:QuantBox.XApi.UfxPriceType"/> 中定义的常量)</param>
             <param name="entrustPrice">委托价格</param>
             <param name="entrustAmount">委托数量</param>
+        </member>
+        <member name="F:QuantBox.XApi.UfxOptionsFunction.F32016">
+            <summary>
+            功能名称: 支持查询当日郑商所商品期权套利单委托
+            </summary>
         </member>
         <member name="M:QuantBox.XApi.UfxOptionsFunction.Make32016(System.String)">
             <summary>

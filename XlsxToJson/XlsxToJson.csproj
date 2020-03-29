@@ -5,24 +5,6 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
-
-  <ItemGroup>
-    <None Include="UfxCallbackInterface.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UfxCallbackInterface.tt</DependentUpon>
-    </None>
-    <None Include="UfxDataDict.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UfxDataDict.tt</DependentUpon>
-    </None>
-    <None Include="UfxSubCallbackInterface.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UfxSubCallbackInterface.tt</DependentUpon>
-    </None>
-  </ItemGroup>
   
   <ItemGroup>
     <PackageReference Include="ExcelDataReader" Version="3.6.0" />
@@ -64,39 +46,6 @@
 
   <ItemGroup>
     <Service Include="{508349b6-6b84-4df5-91f0-309beebad82d}" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Compile Update="UfxCallbackInterface.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UfxCallbackInterface.tt</DependentUpon>
-    </Compile>
-    <Compile Update="UfxDataDict.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UfxDataDict.tt</DependentUpon>
-    </Compile>
-    <Compile Update="UfxFunctionPacker.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UfxFunctionPacker.tt</DependentUpon>
-    </Compile>
-    <Compile Update="UfxFunctions.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UfxFunctions.tt</DependentUpon>
-    </Compile>
-    <Compile Update="UfxFunctionUnPacker.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UfxFunctionUnPacker.tt</DependentUpon>
-    </Compile>
-    <Compile Update="UfxSubCallbackInterface.cs">
-      <DesignTime>True</DesignTime>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>UfxSubCallbackInterface.tt</DependentUpon>
-    </Compile>	
   </ItemGroup>
 
 </Project>

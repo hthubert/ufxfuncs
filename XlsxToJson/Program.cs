@@ -7,7 +7,6 @@ using ExcelDataReader;
 using hundsun.mcapi;
 using hundsun.t2sdk;
 using Newtonsoft.Json;
-using QuantBox.XApi;
 
 namespace XlsxToJson
 {
