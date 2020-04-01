@@ -4,571 +4,576 @@
         <name>QuantBox.UfxSdk</name>
     </assembly>
     <members>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived10001(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx10001Result[])">
+        <member name="T:QuantBox.XApi.UfxCallbackInterface">
+            <summary>
+            功能回报
+            </summary>
+        </member>
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived10001(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx10001Result[])">
             <summary>
             业务范围: 账户
             功能名称: 建立与投资管理系统的连接,UFX系统中做其他操作前必须先进行登陆.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30001(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx30001Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30001(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx30001Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持查询登陆操作员有操作权限的有效账户列表
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30002(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx30002Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30002(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx30002Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持查询登陆操作员有操作权限的资产单元列表
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30003(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx30003Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30003(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx30003Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持查询登陆操作员有操作权限且状态为有效的组合列表
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30004(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx30004Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30004(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx30004Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持查询交易股东信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30005(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx30005Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30005(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx30005Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持批量查询股东信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30007(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx30007Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30007(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx30007Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持查询账户清算状态,期现货可以分开查询(OPLUS专用).
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35003(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35003Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35003(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35003Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持查询账户资产信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35010(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35010Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35010(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35010Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持查询账户资产信息(本币汇总)
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35011(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35011Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35011(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35011Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持查询资产单元资产信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35024(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35024Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35024(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35024Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持查询资产单元资产信息,查询结果为按照本币汇总后的数据
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35025(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35025Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35025(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35025Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持查询期货账户盈亏信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35012(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35012Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35012(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35012Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持查询当日清算流水
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived36012(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx36012Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived36012(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx36012Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持查询历史清算流水,只能查询一天的历史记录
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35013(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35013Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35013(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35013Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持查询可期货保证金比例信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35015(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35015Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35015(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35015Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持资金调增\资金调减\保证金调增\保证金调减\资金投入\资金支取业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35021(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35021Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35021(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35021Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持资金划转,支持批量传入,最大1000条.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35022(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35022Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35022(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35022Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持现货,期货划转,支持批量传入,最大1000条.不支持批量跨基金证券划转
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91001(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91001Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91001(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91001Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持沪深股票\基金买卖\债券买卖,新股申购\可转债申购\质押式回购\债转股\债回售\基金认购\配股认购\配债认购\债券认购业务.(不含固定收益和大宗交易).支持CDR存托凭证业务,支持沪伦通业务.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91011(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91011Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91011(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91011Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持股转市场做市业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91115(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91115Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91115(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91115Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持按委托序号撤销股转做市委托.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91113(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91113Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91113(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91113Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持按委托序号撤销股转做市委托.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91090(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91090Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91090(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91090Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持沪深股票\基金\债券买卖和股指期货\国债期货\商品期货\股票期权业务.支持CDR存托凭证业务,支持沪伦通业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91114(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91114Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91114(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91114Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91101(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91101Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91101(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91101Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91102(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91102Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91102(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91102Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持按委托批号撤单,支持对证券\期货\期权\策略等业务按委托批号撤单
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31001(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx31001Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31001(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx31001Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持查询沪深及股转市场的股票\基金\债券的持仓信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31002(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx31002Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31002(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx31002Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持查询提交\转回质押的质押券数量明细(OPLUS专用)
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30011(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx30011Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30011(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx30011Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持查询现货,期货,期权的证券资料信息.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32001(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx32001Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32001(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx32001Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持查询当日普通买卖委托流水,包含沪深股票\基金买卖\债券买卖,新股申购\可转债申购\质押式回购\债转股\债回售\基金认购\配股认购\配债认购\债券认购\股转市场业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32101(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx32101Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32101(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx32101Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持查询历史普通买卖委托流水
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32006(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx32006Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32006(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx32006Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持查询当日股转做市委托
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33001(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx33001Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33001(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx33001Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持查询当日普通买卖委托以及当日股转做市委托对应的成交流水
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33101(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx33101Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33101(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx33101Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持查询历史普通买卖成交流水
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived34001(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx34001Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived34001(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx34001Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持查询沪深A股及股转市场资金账户的资金可用,支持批量传入.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91051(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91051Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91051(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91051Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持股转市场协议转让交易业务.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91116(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91116Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91116(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91116Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91151(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91151Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91151(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91151Result[])">
             <summary>
             业务范围: 证券
             功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91003(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91003Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91003(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91003Result[])">
             <summary>
             业务范围: 基金
             功能名称: 支持沪深ETF\沪深跨市场ETF\沪深跨境ETF申赎业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91008(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91008Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91008(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91008Result[])">
             <summary>
             业务范围: 基金
             功能名称: 支持ETF(股票型ETF\债券型ETF\华宝兴业交易型货币基金\沪深跨境ETF\沪深黄金ETF\深交所交易型货币基金)\场内开放式基金申赎(LOF)\LOF基金分拆合并\转托管.基金买卖委托请用91001接口
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32002(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx32002Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32002(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx32002Result[])">
             <summary>
             业务范围: 基金
             功能名称: 支持查询当日基金一级市场委托流水.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32005(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx32005Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32005(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx32005Result[])">
             <summary>
             业务范围: 基金
             功能名称: 支持查询ETF申赎时的成份股和资金代码委托明细信息.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33002(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx33002Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33002(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx33002Result[])">
             <summary>
             业务范围: 基金
             功能名称: 支持查询当日基金一级市场委托成交流水
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33005(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx33005Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33005(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx33005Result[])">
             <summary>
             业务范围: 基金
             功能名称: 支持查询ETF申赎时的成份股和资金代码成交明细信息.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35014(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35014Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35014(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35014Result[])">
             <summary>
             业务范围: 基金
             功能名称: 支持查询沪深ETF成份股信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35020(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35020Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35020(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35020Result[])">
             <summary>
             业务范围: 基金
             功能名称: 支持沪深查询ETF基础信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30010(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx30010Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30010(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx30010Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持查询期货市场未过期的期货信息.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91004(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91004Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91004(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91004Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持中金所股指期货\国债期货和上期所\大商所\郑商所\能源交易所的商品期货业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91013(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91013Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91013(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91013Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持商品期货标准套利单\互换单业务.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91119(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91119Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91119(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91119Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持按委托序号撤单,支持多条委托批量撤单
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91105(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91105Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91105(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91105Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持按委托序号撤单,支持多条委托批量撤单
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91121(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91121Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91121(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91121Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持商品期货组合单撤单
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91107(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91107Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91107(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91107Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持商品期货组合单撤单
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31003(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx31003Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31003(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx31003Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持查询期货持仓
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31013(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx31013Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31013(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx31013Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持查询期货持仓明细
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32003(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx32003Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32003(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx32003Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持查询当日期货委托流水
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32103(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx32103Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32103(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx32103Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持查询期货历史普通买卖委托流水
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32008(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx32008Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32008(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx32008Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持查询当日商品期货组合委托流水
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33003(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx33003Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33003(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx33003Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持查询当日期货成交流水
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33103(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx33103Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33103(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx33103Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持查询期货历史期货成交流水
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived34003(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx34003Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived34003(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx34003Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持查询期货保证金账户的资金可用信息,可查询期货\股指期权\商品期权可用保证金,支持批量传入.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35023(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35023Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35023(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35023Result[])">
             <summary>
             业务范围: 期货
             功能名称: 支持期货费率查询,支持中金所股指期货\国债期货和上期所\大商所\郑商所\能源交易所的商品期货业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30012(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx30012Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived30012(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx30012Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持查询期权信息.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91005(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91005Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91005(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91005Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权交易业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91006(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91006Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91006(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91006Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持上海股票期权保证券的锁定与解锁业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91007(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91007Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91007(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91007Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91025(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91025Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91025(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91025Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持上交所股票期权合并行权业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91126(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91126Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91126(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91126Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持上交所期权合并行权撤单,可传入多条委托序号进行批量撤单.最多支持1000笔
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32017(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx32017Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32017(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx32017Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持查询当日上交所合并行权委托
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91012(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91012Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91012(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91012Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持股指期权做市业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91014(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91014Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91014(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91014Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持深交所股票期权,中金所股指期权做市业务,支持批量传入
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91091(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91091Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91091(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91091Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持上交所股票期权篮子委托业务,用于股票期权批量下单和做市委托.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91016(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91016Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91016(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91016Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持上交所股票期权询价
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91017(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91017Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91017(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91017Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持上交所股票期权回应报价,回应报价修改,支持批量传入
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91120(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91120Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91120(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91120Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持按委托序号撤销期权(股票期权\股指期权\商品期权)委托,可传入多个委托序号进行批量撤单
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91106(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91106Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91106(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91106Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持按委托序号撤销期权(股票期权\股指期权\商品期权)委托,可传入多个委托序号进行批量撤单
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91108(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91108Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91108(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91108Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持按委托批号撤销股指期权委托
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91122(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91122Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91122(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91122Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持撤销深交所股票期权做市委托,中金所股指期权做市委托
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91109(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91109Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91109(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91109Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持撤销深交所股票期权做市委托,中金所股指期权做市委托
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91123(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91123Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91123(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91123Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权撤单,可传入多条委托序号进行批量撤单.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91111(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91111Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91111(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91111Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权撤单,可传入多条委托序号进行批量撤单.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91112(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91112Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91112(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91112Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权按委托批号撤单.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31004(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx31004Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31004(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx31004Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权持仓信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32004(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx32004Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32004(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx32004Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权当日委托流水(除备兑锁定解锁)
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32007(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx32007Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32007(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx32007Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持查询当日股指期权\深交所股票期权做市委托
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33004(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx33004Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33004(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx33004Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权当日成交流水
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived34004(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx34004Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived34004(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx34004Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持沪深衍生品保证金账户查询(股指期权,商品期权保证金账户请使用34003接口查询).
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91015(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91015Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91015(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91015Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持上交所股票期权组合策略保证金交易业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31015(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx31015Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31015(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx31015Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持查询上交所股票期权组合策略保证金持仓信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32015(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx32015Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32015(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx32015Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持查询上交所股票期权组合策略保证金委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33015(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx33015Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived33015(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx33015Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持查询上交所股票期权组合策略保证金成交信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91018(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx91018Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived91018(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx91018Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持郑商所商品期权套利单业务.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32016(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx32016Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived32016(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx32016Result[])">
             <summary>
             业务范围: 期权
             功能名称: 支持查询当日郑商所商品期权套利单委托
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31005(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx31005Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived31005(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx31005Result[])">
             <summary>
             业务范围: 标准
             功能名称: 支持查询现货\期货\期权持仓信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35008(hundsun.t2sdk.CT2Connection,System.Int32,QuantBox.XApi.Ufx35008Result[])">
+        <member name="M:QuantBox.XApi.UfxCallbackInterface.OnReceived35008(hundsun.t2sdk.CT2Connection,System.Int32,System.Int32,QuantBox.XApi.Ufx35008Result[])">
             <summary>
             业务范围: 账户
             功能名称: 支持获取当前可用的委托批号
@@ -21646,199 +21651,199 @@
             审批结果(2-审批拒绝;3-待审批)
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustReceived(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxEntrustReceived[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustReceived(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxEntrustReceived[])">
             <summary>
             业务范围: 公用
             功能名称: 委托下达成功后推送本条委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustConfirmed(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxEntrustConfirmed[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustConfirmed(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxEntrustConfirmed[])">
             <summary>
             业务范围: 公用
             功能名称: 委托确认后推送本条委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxEntrustRejected[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxEntrustRejected[])">
             <summary>
             业务范围: 公用
             功能名称: 
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustCancel(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxEntrustCancel[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustCancel(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxEntrustCancel[])">
             <summary>
             业务范围: 公用
             功能名称: 对某条委托进行撤单后推送该条委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustCancelled(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxEntrustCancelled[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustCancelled(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxEntrustCancelled[])">
             <summary>
             业务范围: 公用
             功能名称: 对某条委托进行撤单,撤单成功后推送该委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustCancelRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxEntrustCancelRejected[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustCancelRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxEntrustCancelRejected[])">
             <summary>
             业务范围: 公用
             功能名称: 对某条委托进行撤单,撤单失败后推送该委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustTrade(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxEntrustTrade[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustTrade(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxEntrustTrade[])">
             <summary>
             业务范围: 公用
             功能名称: 委托有成交,成交处理完成后推送成交信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiEntrustReceived(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiEntrustReceived[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiEntrustReceived(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiEntrustReceived[])">
             <summary>
             业务范围: 公用
             功能名称: 委托下达成功后推送本条委托信息(支持深圳股票期权做市\股转做市业务)
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiEntrustConfirmed(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiEntrustConfirmed[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiEntrustConfirmed(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiEntrustConfirmed[])">
             <summary>
             业务范围: 公用
             功能名称: 委托确认后推送本条委托信息(支持深圳股票期权做市\股转做市业务)
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiEntrustRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiEntrustRejected[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiEntrustRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiEntrustRejected[])">
             <summary>
             业务范围: 公用
             功能名称: 支持深圳股票期权做市\股转做市业务
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiEntrustCancel(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiEntrustCancel[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiEntrustCancel(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiEntrustCancel[])">
             <summary>
             业务范围: 公用
             功能名称: 对某条委托进行撤单后推送该条委托信息(支持深圳股票期权做市\股转做市业务)
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiEntrustCancelled(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiEntrustCancelled[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiEntrustCancelled(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiEntrustCancelled[])">
             <summary>
             业务范围: 公用
             功能名称: 对某条委托进行撤单,撤单成功后推送该委托信息(支持深圳股票期权做市\股转做市业务)
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiEntrustCancelRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiEntrustCancelRejected[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiEntrustCancelRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiEntrustCancelRejected[])">
             <summary>
             业务范围: 公用
             功能名称: 对某条委托进行撤单,撤单失败后推送该委托信息(支持深圳股票期权做市\股转做市业务)
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiOptionsEntrustReceived(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiOptionsEntrustReceived[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiOptionsEntrustReceived(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiOptionsEntrustReceived[])">
             <summary>
             业务范围: 公用
             功能名称: 上交所股票期权组合保证金委托下达成功后推送本条委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiOptionsEntrustConfirmed(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiOptionsEntrustConfirmed[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiOptionsEntrustConfirmed(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiOptionsEntrustConfirmed[])">
             <summary>
             业务范围: 公用
             功能名称: 上交所股票期权组合保证金委托确认成功后推送本条委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiOptionsEntrustRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiOptionsEntrustRejected[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiOptionsEntrustRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiOptionsEntrustRejected[])">
             <summary>
             业务范围: 公用
             功能名称: 上交所股票期权组合保证金委托废单
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiOptionsEntrustTrade(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiOptionsEntrustTrade[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiOptionsEntrustTrade(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiOptionsEntrustTrade[])">
             <summary>
             业务范围: 公用
             功能名称: 上交所股票期权组合委托有成交,成交处理完成后推送成交信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiOptionsEntrustCancelled(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiOptionsEntrustCancelled[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiOptionsEntrustCancelled(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiOptionsEntrustCancelled[])">
             <summary>
             业务范围: 公用
             功能名称: 上交所股票期权组合保证金委托撤成 
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustApproving(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxEntrustApproving[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustApproving(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxEntrustApproving[])">
             <summary>
             业务范围: 公用
             功能名称: 需要审批的委托,下达后状态为待审批,审批通过后状态为未报.支持审批拒绝.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustCancelApproving(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxEntrustCancelApproving[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnEntrustCancelApproving(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxEntrustCancelApproving[])">
             <summary>
             业务范围: 公用
             功能名称: 需要审批的撤单委托,下达后状态为待审批.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiFutureOptionsEntrustReceived(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiFutureOptionsEntrustReceived[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiFutureOptionsEntrustReceived(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiFutureOptionsEntrustReceived[])">
             <summary>
             业务范围: 期权
             功能名称: 委托下达成功后推送本条委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiFutureOptionsEntrustConfirmed(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiFutureOptionsEntrustConfirmed[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiFutureOptionsEntrustConfirmed(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiFutureOptionsEntrustConfirmed[])">
             <summary>
             业务范围: 期权
             功能名称: 委托确认后推送本条委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiFutureOptionsEntrustRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiFutureOptionsEntrustRejected[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiFutureOptionsEntrustRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiFutureOptionsEntrustRejected[])">
             <summary>
             业务范围: 期权
             功能名称: 委托废单后推送本条废单消息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiFutureOptionsEntrustCancelled(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiFutureOptionsEntrustCancelled[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiFutureOptionsEntrustCancelled(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiFutureOptionsEntrustCancelled[])">
             <summary>
             业务范围: 期权
             功能名称: 对某条委托进行撤单,撤单成功后推送该委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiFutureOptionsEntrustApproving(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxCombiFutureOptionsEntrustApproving[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnCombiFutureOptionsEntrustApproving(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxCombiFutureOptionsEntrustApproving[])">
             <summary>
             业务范围: 期权
             功能名称: 需要审批的委托,下达后状态为待审批,审批通过后状态为未报.支持审批拒绝.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustReceived(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxShCombiExerciseEntrustReceived[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustReceived(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxShCombiExerciseEntrustReceived[])">
             <summary>
             业务范围: 期权
             功能名称: 委托下达成功后推送本条委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustConfirmed(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxShCombiExerciseEntrustConfirmed[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustConfirmed(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxShCombiExerciseEntrustConfirmed[])">
             <summary>
             业务范围: 期权
             功能名称: 委托确认后推送本条委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxShCombiExerciseEntrustRejected[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxShCombiExerciseEntrustRejected[])">
             <summary>
             业务范围: 期权
             功能名称: 委托废单后推送本条废单消息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustCancelled(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxShCombiExerciseEntrustCancelled[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustCancelled(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxShCombiExerciseEntrustCancelled[])">
             <summary>
             业务范围: 期权
             功能名称: 对某条委托进行撤单,撤单成功后推送该委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustCancelRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxShCombiExerciseEntrustCancelRejected[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustCancelRejected(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxShCombiExerciseEntrustCancelRejected[])">
             <summary>
             业务范围: 期权
             功能名称: 对某条委托进行撤单,撤单失败后推送该委托信息
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustApproving(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxShCombiExerciseEntrustApproving[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustApproving(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxShCombiExerciseEntrustApproving[])">
             <summary>
             业务范围: 期权
             功能名称: 需要审批的委托,下达后状态为待审批,审批通过后状态为未报.支持审批拒绝.
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustCancel(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxShCombiExerciseEntrustCancel[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseEntrustCancel(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxShCombiExerciseEntrustCancel[])">
             <summary>
             业务范围: 期权
             功能名称: 委托撤单
             </summary>
         </member>
-        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseCancelApproving(hundsun.mcapi.CT2SubscribeInterface,System.Int32,QuantBox.XApi.UfxShCombiExerciseCancelApproving[])">
+        <member name="M:QuantBox.XApi.UfxSubCallbackInterface.OnShCombiExerciseCancelApproving(hundsun.mcapi.CT2SubscribeInterface,System.Int32,System.SByte,QuantBox.XApi.UfxShCombiExerciseCancelApproving[])">
             <summary>
             业务范围: 期权
             功能名称: 需要审批的撤单委托,下达后状态为待审批,审批通过后状态为未报.支持审批拒绝.

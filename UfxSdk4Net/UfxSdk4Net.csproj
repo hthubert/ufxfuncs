@@ -5,7 +5,7 @@
     <AssemblyName>QuantBox.UfxSdk</AssemblyName>
     <RootNamespace>QuantBox.XApi</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Version>1.0.12</Version>
+    <Version>1.0.14</Version>
     <Authors>hetao</Authors>
     <Product>QuantBox.UfxSdk for $(TargetFramework)</Product>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>

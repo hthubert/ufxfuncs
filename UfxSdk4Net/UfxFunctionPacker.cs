@@ -9,7 +9,7 @@ namespace QuantBox.XApi
     /// 功能名称: 心跳功能,该功能用于刷新令牌活跃时间,以避免令牌过期.
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx10000 : IUfxFunctionCall
+        public sealed class Ufx10000 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -19,10 +19,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx10000(string userToken)
+public Ufx10000(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -62,7 +62,7 @@ namespace QuantBox.XApi
     /// 功能名称: 建立与投资管理系统的连接,UFX系统中做其他操作前必须先进行登陆.
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx10001 : IUfxFunctionCall
+        public sealed class Ufx10001 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -72,20 +72,20 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="operatorNo">操作员编号(投资系统操作员编号,要求在投资系统的登陆模式或该操作员的登陆模式为操作员编号登陆.)</param>
-        /// <param name="password">操作员密码</param>
-        /// <param name="macAddress">登录机器MAC地址(MAC信息要输入标准的12位,否则站点控制不生效)</param>
-        /// <param name="ipAddress">登录机器IP地址</param>
-        /// <param name="opStation">登录站点</param>
-        /// <param name="authorizationId">开发者授权编号(联系恒生获取.(注:现已经接入的系统请于2014年12月31号前获取授权并完成程序更新.联系方式:o3kffb@hundsun.com))</param>
-        public Ufx10001(string operatorNo, string password, string macAddress, string ipAddress, string opStation, string authorizationId)
+/// <param name="password">操作员密码</param>
+/// <param name="macAddress">登录机器MAC地址(MAC信息要输入标准的12位,否则站点控制不生效)</param>
+/// <param name="ipAddress">登录机器IP地址</param>
+/// <param name="opStation">登录站点</param>
+/// <param name="authorizationId">开发者授权编号(联系恒生获取.(注:现已经接入的系统请于2014年12月31号前获取授权并完成程序更新.联系方式:o3kffb@hundsun.com))</param>
+public Ufx10001(string operatorNo, string password, string macAddress, string ipAddress, string opStation, string authorizationId)
         {
             OperatorNo = operatorNo;
-            Password = password;
-            MacAddress = macAddress;
-            IpAddress = ipAddress;
-            OpStation = opStation;
-            AuthorizationId = authorizationId;
-        }
+Password = password;
+MacAddress = macAddress;
+IpAddress = ipAddress;
+OpStation = opStation;
+AuthorizationId = authorizationId;
+}
 
         private string _operatorNo;
         private bool _operatorNoChanged;
@@ -370,7 +370,7 @@ namespace QuantBox.XApi
     /// 功能名称: 断开与UFX服务器的连接,令牌号失效,释放连接数.
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx10002 : IUfxFunctionCall
+        public sealed class Ufx10002 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -380,10 +380,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx10002(string userToken)
+public Ufx10002(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -423,7 +423,7 @@ namespace QuantBox.XApi
     /// 功能名称: 修改操作员密码
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx10003 : IUfxFunctionCall
+        public sealed class Ufx10003 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -433,14 +433,14 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="oldPassword">原密码</param>
-        /// <param name="newPassword">新密码</param>
-        public Ufx10003(string userToken, string oldPassword, string newPassword)
+/// <param name="oldPassword">原密码</param>
+/// <param name="newPassword">新密码</param>
+public Ufx10003(string userToken, string oldPassword, string newPassword)
         {
             UserToken = userToken;
-            OldPassword = oldPassword;
-            NewPassword = newPassword;
-        }
+OldPassword = oldPassword;
+NewPassword = newPassword;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -524,7 +524,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询登陆操作员有操作权限的有效账户列表
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx30001 : IUfxFunctionCall
+        public sealed class Ufx30001 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -534,10 +534,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        public Ufx30001(string userToken)
+public Ufx30001(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -604,7 +604,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询登陆操作员有操作权限的资产单元列表
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx30002 : IUfxFunctionCall
+        public sealed class Ufx30002 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -614,10 +614,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        public Ufx30002(string userToken)
+public Ufx30002(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -765,7 +765,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询登陆操作员有操作权限且状态为有效的组合列表
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx30003 : IUfxFunctionCall
+        public sealed class Ufx30003 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -775,10 +775,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        public Ufx30003(string userToken)
+public Ufx30003(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -899,7 +899,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询交易股东信息
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx30004 : IUfxFunctionCall
+        public sealed class Ufx30004 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -909,10 +909,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        public Ufx30004(string userToken)
+public Ufx30004(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -1114,7 +1114,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持批量查询股东信息
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx30005 : IUfxFunctionCall
+        public sealed class Ufx30005 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -1124,12 +1124,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="assetNoList">资产单元编号(如果传入资产单元不能确定唯一的资产单元,则返回错误,批量,逗号隔开,不超过300个)</param>
-        public Ufx30005(string userToken, string assetNoList)
+/// <param name="assetNoList">资产单元编号(如果传入资产单元不能确定唯一的资产单元,则返回错误,批量,逗号隔开,不超过300个)</param>
+public Ufx30005(string userToken, string assetNoList)
         {
             UserToken = userToken;
-            AssetNoList = assetNoList;
-        }
+AssetNoList = assetNoList;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -1299,7 +1299,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询账户清算状态,期现货可以分开查询(OPLUS专用).
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx30007 : IUfxFunctionCall
+        public sealed class Ufx30007 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -1309,10 +1309,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        public Ufx30007(string userToken)
+public Ufx30007(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -1487,7 +1487,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询账户资产信息
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx35003 : IUfxFunctionCall
+        public sealed class Ufx35003 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -1497,12 +1497,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="accountCode">账户编号</param>
-        public Ufx35003(string userToken, string accountCode)
+/// <param name="accountCode">账户编号</param>
+public Ufx35003(string userToken, string accountCode)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-        }
+AccountCode = accountCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -1591,7 +1591,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询账户资产信息(本币汇总)
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx35010 : IUfxFunctionCall
+        public sealed class Ufx35010 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -1601,12 +1601,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="accountCode">账户编号</param>
-        public Ufx35010(string userToken, string accountCode)
+/// <param name="accountCode">账户编号</param>
+public Ufx35010(string userToken, string accountCode)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-        }
+AccountCode = accountCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -1668,7 +1668,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询资产单元资产信息
     /// 业务范围: 账户
     /// </summary>
-    [Obsolete("不维护")]
+        [Obsolete("不维护")]
     public sealed class Ufx35011 : IUfxFunctionCall
     {
         /// <summary>
@@ -1679,10 +1679,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        public Ufx35011(string userToken)
+public Ufx35011(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -1830,7 +1830,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询资产单元资产信息,查询结果为按照本币汇总后的数据
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx35024 : IUfxFunctionCall
+        public sealed class Ufx35024 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -1840,12 +1840,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="accountCode">账户编号</param>
-        public Ufx35024(string userToken, string accountCode)
+/// <param name="accountCode">账户编号</param>
+public Ufx35024(string userToken, string accountCode)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-        }
+AccountCode = accountCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -1934,7 +1934,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询期货账户盈亏信息
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx35025 : IUfxFunctionCall
+        public sealed class Ufx35025 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -1944,14 +1944,14 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="assetNo">资产单元编号</param>
-        public Ufx35025(string userToken, string accountCode, string assetNo)
+/// <param name="accountCode">账户编号</param>
+/// <param name="assetNo">资产单元编号</param>
+public Ufx35025(string userToken, string accountCode, string assetNo)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            AssetNo = assetNo;
-        }
+AccountCode = accountCode;
+AssetNo = assetNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -2035,7 +2035,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询当日清算流水
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx35012 : IUfxFunctionCall
+        public sealed class Ufx35012 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -2045,10 +2045,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        public Ufx35012(string userToken)
+public Ufx35012(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -2250,7 +2250,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询历史清算流水,只能查询一天的历史记录
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx36012 : IUfxFunctionCall
+        public sealed class Ufx36012 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -2260,12 +2260,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="startDate">起始日期(查询起始日期,仅能查询传入日期当天的记录)</param>
-        public Ufx36012(string userToken, int startDate)
+/// <param name="startDate">起始日期(查询起始日期,仅能查询传入日期当天的记录)</param>
+public Ufx36012(string userToken, int startDate)
         {
             UserToken = userToken;
-            StartDate = startDate;
-        }
+StartDate = startDate;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -2489,7 +2489,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询可期货保证金比例信息
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx35013 : IUfxFunctionCall
+        public sealed class Ufx35013 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -2499,12 +2499,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        public Ufx35013(string userToken, string marketNo)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+public Ufx35013(string userToken, string marketNo)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-        }
+MarketNo = marketNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -2674,7 +2674,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持资金调增\资金调减\保证金调增\保证金调减\资金投入\资金支取业务
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx35015 : IUfxFunctionCall
+        public sealed class Ufx35015 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -2684,22 +2684,22 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="assetNo">资产单元编号</param>
-        /// <param name="adjustMode">调整类型(限定 <see cref="UfxAdjustMode"/> 中定义的常量)</param>
-        /// <param name="businessBalance">调整金额</param>
-        /// <param name="enableDate">生效时间</param>
-        /// <param name="remark">备注</param>
-        public Ufx35015(string userToken, string accountCode, string assetNo, sbyte adjustMode, double businessBalance, int enableDate, string remark)
+/// <param name="accountCode">账户编号</param>
+/// <param name="assetNo">资产单元编号</param>
+/// <param name="adjustMode">调整类型(限定 <see cref="UfxAdjustMode"/> 中定义的常量)</param>
+/// <param name="businessBalance">调整金额</param>
+/// <param name="enableDate">生效时间</param>
+/// <param name="remark">备注</param>
+public Ufx35015(string userToken, string accountCode, string assetNo, sbyte adjustMode, double businessBalance, int enableDate, string remark)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            AssetNo = assetNo;
-            AdjustMode = adjustMode;
-            BusinessBalance = businessBalance;
-            EnableDate = enableDate;
-            Remark = remark;
-        }
+AccountCode = accountCode;
+AssetNo = assetNo;
+AdjustMode = adjustMode;
+BusinessBalance = businessBalance;
+EnableDate = enableDate;
+Remark = remark;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -2871,7 +2871,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持资金冻结,资金解冻
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx35017 : IUfxFunctionCall
+        public sealed class Ufx35017 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -2881,24 +2881,24 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="assetNo">资产单元编号</param>
-        /// <param name="fundOpFlag">资金操作类型(1资金冻结;2资金解冻)</param>
-        /// <param name="occurBalance">发生金额</param>
-        /// <param name="currencyCode">币种代码(限定 <see cref="UfxCurrencyCode"/> 中定义的常量)</param>
-        /// <param name="enableDate">生效日期(非远期传系统当日)</param>
-        /// <param name="expireDate">到期日期(冻结到期日期,永久传入99991231.生效日期和到期日期可相等,表示当日日终失效)</param>
-        public Ufx35017(string userToken, string accountCode, string assetNo, int fundOpFlag, double occurBalance, string currencyCode, int enableDate, int expireDate)
+/// <param name="accountCode">账户编号</param>
+/// <param name="assetNo">资产单元编号</param>
+/// <param name="fundOpFlag">资金操作类型(1资金冻结;2资金解冻)</param>
+/// <param name="occurBalance">发生金额</param>
+/// <param name="currencyCode">币种代码(限定 <see cref="UfxCurrencyCode"/> 中定义的常量)</param>
+/// <param name="enableDate">生效日期(非远期传系统当日)</param>
+/// <param name="expireDate">到期日期(冻结到期日期,永久传入99991231.生效日期和到期日期可相等,表示当日日终失效)</param>
+public Ufx35017(string userToken, string accountCode, string assetNo, int fundOpFlag, double occurBalance, string currencyCode, int enableDate, int expireDate)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            AssetNo = assetNo;
-            FundOpFlag = fundOpFlag;
-            OccurBalance = occurBalance;
-            CurrencyCode = currencyCode;
-            EnableDate = enableDate;
-            ExpireDate = expireDate;
-        }
+AccountCode = accountCode;
+AssetNo = assetNo;
+FundOpFlag = fundOpFlag;
+OccurBalance = occurBalance;
+CurrencyCode = currencyCode;
+EnableDate = enableDate;
+ExpireDate = expireDate;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -3146,7 +3146,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持取消资金冻结,取消资金解冻
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx35018 : IUfxFunctionCall
+        public sealed class Ufx35018 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -3156,12 +3156,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="frozenSerialNo">冻结解冻序号(该字段值可以从35019接口获取)</param>
-        public Ufx35018(string userToken, int frozenSerialNo)
+/// <param name="frozenSerialNo">冻结解冻序号(该字段值可以从35019接口获取)</param>
+public Ufx35018(string userToken, int frozenSerialNo)
         {
             UserToken = userToken;
-            FrozenSerialNo = frozenSerialNo;
-        }
+FrozenSerialNo = frozenSerialNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -3250,7 +3250,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询资金冻结解冻明细
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx35019 : IUfxFunctionCall
+        public sealed class Ufx35019 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -3260,14 +3260,14 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="startDate">起始日期(查询起始日期,查询历史记录日期不能大于等于当前日期)</param>
-        /// <param name="endDate">结束日期(查询结束日期,查询历史记录日期不能大于等于当前日期)</param>
-        public Ufx35019(string userToken, int startDate, int endDate)
+/// <param name="startDate">起始日期(查询起始日期,查询历史记录日期不能大于等于当前日期)</param>
+/// <param name="endDate">结束日期(查询结束日期,查询历史记录日期不能大于等于当前日期)</param>
+public Ufx35019(string userToken, int startDate, int endDate)
         {
             UserToken = userToken;
-            StartDate = startDate;
-            EndDate = endDate;
-        }
+StartDate = startDate;
+EndDate = endDate;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -3594,7 +3594,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持资金划转,支持批量传入,最大1000条.
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx35021 : IUfxFunctionCall
+        public sealed class Ufx35021 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -3604,22 +3604,22 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="assetNo">资产单元编号</param>
-        /// <param name="targetAccountCode">目标账户编号</param>
-        /// <param name="targetAssetNo">目标资产单元编号</param>
-        /// <param name="occurBalance">发生金额</param>
-        /// <param name="enableDate">生效日期(非远期传系统当日)</param>
-        public Ufx35021(string userToken, string accountCode, string assetNo, string targetAccountCode, string targetAssetNo, double occurBalance, int enableDate)
+/// <param name="accountCode">账户编号</param>
+/// <param name="assetNo">资产单元编号</param>
+/// <param name="targetAccountCode">目标账户编号</param>
+/// <param name="targetAssetNo">目标资产单元编号</param>
+/// <param name="occurBalance">发生金额</param>
+/// <param name="enableDate">生效日期(非远期传系统当日)</param>
+public Ufx35021(string userToken, string accountCode, string assetNo, string targetAccountCode, string targetAssetNo, double occurBalance, int enableDate)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            AssetNo = assetNo;
-            TargetAccountCode = targetAccountCode;
-            TargetAssetNo = targetAssetNo;
-            OccurBalance = occurBalance;
-            EnableDate = enableDate;
-        }
+AccountCode = accountCode;
+AssetNo = assetNo;
+TargetAccountCode = targetAccountCode;
+TargetAssetNo = targetAssetNo;
+OccurBalance = occurBalance;
+EnableDate = enableDate;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -3872,7 +3872,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持现货,期货划转,支持批量传入,最大1000条.不支持批量跨基金证券划转
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx35022 : IUfxFunctionCall
+        public sealed class Ufx35022 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -3882,34 +3882,34 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="combiNo">组合编号</param>
-        /// <param name="stockholderId">股东代码(划转源和划转目标股东相同)</param>
-        /// <param name="holdSeat">持仓席位(划转源和划转目标席位相同)</param>
-        /// <param name="positionFlag">多空标志(限定 <see cref="UfxPositionFlag"/> 中定义的常量)</param>
-        /// <param name="marketNo">交易市场</param>
-        /// <param name="stockCode">证券代码</param>
-        /// <param name="targetAccountCode">目标账户编号</param>
-        /// <param name="targetCombiNo">目标组合编号</param>
-        /// <param name="secutransPrice">划转价格(港股通业务填港币价格)</param>
-        /// <param name="secutransAmount">划转数量(单位为股(份\张).)</param>
-        /// <param name="enableDate">生效日期(非远期传系统当日)</param>
-        public Ufx35022(string userToken, string accountCode, string combiNo, string stockholderId, string holdSeat, sbyte positionFlag, string marketNo, string stockCode, string targetAccountCode, string targetCombiNo, double secutransPrice, int secutransAmount, int enableDate)
+/// <param name="accountCode">账户编号</param>
+/// <param name="combiNo">组合编号</param>
+/// <param name="stockholderId">股东代码(划转源和划转目标股东相同)</param>
+/// <param name="holdSeat">持仓席位(划转源和划转目标席位相同)</param>
+/// <param name="positionFlag">多空标志(限定 <see cref="UfxPositionFlag"/> 中定义的常量)</param>
+/// <param name="marketNo">交易市场</param>
+/// <param name="stockCode">证券代码</param>
+/// <param name="targetAccountCode">目标账户编号</param>
+/// <param name="targetCombiNo">目标组合编号</param>
+/// <param name="secutransPrice">划转价格(港股通业务填港币价格)</param>
+/// <param name="secutransAmount">划转数量(单位为股(份\张).)</param>
+/// <param name="enableDate">生效日期(非远期传系统当日)</param>
+public Ufx35022(string userToken, string accountCode, string combiNo, string stockholderId, string holdSeat, sbyte positionFlag, string marketNo, string stockCode, string targetAccountCode, string targetCombiNo, double secutransPrice, int secutransAmount, int enableDate)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            CombiNo = combiNo;
-            StockholderId = stockholderId;
-            HoldSeat = holdSeat;
-            PositionFlag = positionFlag;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            TargetAccountCode = targetAccountCode;
-            TargetCombiNo = targetCombiNo;
-            SecutransPrice = secutransPrice;
-            SecutransAmount = secutransAmount;
-            EnableDate = enableDate;
-        }
+AccountCode = accountCode;
+CombiNo = combiNo;
+StockholderId = stockholderId;
+HoldSeat = holdSeat;
+PositionFlag = positionFlag;
+MarketNo = marketNo;
+StockCode = stockCode;
+TargetAccountCode = targetAccountCode;
+TargetCombiNo = targetCombiNo;
+SecutransPrice = secutransPrice;
+SecutransAmount = secutransAmount;
+EnableDate = enableDate;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -4375,7 +4375,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持沪深股票\基金买卖\债券买卖,新股申购\可转债申购\质押式回购\债转股\债回售\基金认购\配股认购\配债认购\债券认购业务.(不含固定收益和大宗交易).支持CDR存托凭证业务,支持沪伦通业务.
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx91001 : IUfxFunctionCall
+        public sealed class Ufx91001 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -4385,22 +4385,22 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码(对于质押式回购业务,传对应的挂单代码,如:上海出入库用质押券代码,深圳出入库用债券代码.)</param>
-        /// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
-        /// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
-        /// <param name="entrustPrice">委托价格(1,当价格类型为市价时,头寸和风控控制买入按涨停价控.;2,债券回购业务价格传回购利率,如3.5%填入3.5.;3,提交质押\回转质押\基金认购\债转股\配股认购业务,价格字段无效,系统自动按交易所规则申报)</param>
-        /// <param name="entrustAmount">委托数量(单位为股(份\张).)</param>
-        public Ufx91001(string userToken, string marketNo, string stockCode, string entrustDirection, sbyte priceType, double entrustPrice, int entrustAmount)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码(对于质押式回购业务,传对应的挂单代码,如:上海出入库用质押券代码,深圳出入库用债券代码.)</param>
+/// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
+/// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
+/// <param name="entrustPrice">委托价格(1,当价格类型为市价时,头寸和风控控制买入按涨停价控.;2,债券回购业务价格传回购利率,如3.5%填入3.5.;3,提交质押\回转质押\基金认购\债转股\配股认购业务,价格字段无效,系统自动按交易所规则申报)</param>
+/// <param name="entrustAmount">委托数量(单位为股(份\张).)</param>
+public Ufx91001(string userToken, string marketNo, string stockCode, string entrustDirection, sbyte priceType, double entrustPrice, int entrustAmount)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            EntrustDirection = entrustDirection;
-            PriceType = priceType;
-            EntrustPrice = entrustPrice;
-            EntrustAmount = entrustAmount;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+EntrustDirection = entrustDirection;
+PriceType = priceType;
+EntrustPrice = entrustPrice;
+EntrustAmount = entrustAmount;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -4923,7 +4923,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持股转市场做市业务
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx91011 : IUfxFunctionCall
+        public sealed class Ufx91011 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -4933,12 +4933,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="stockCode">证券代码</param>
-        public Ufx91011(string userToken, string stockCode)
+/// <param name="stockCode">证券代码</param>
+public Ufx91011(string userToken, string stockCode)
         {
             UserToken = userToken;
-            StockCode = stockCode;
-        }
+StockCode = stockCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -5432,7 +5432,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持按委托序号撤销股转做市委托.
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx91115 : IUfxFunctionCall
+        public sealed class Ufx91115 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -5442,16 +5442,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="combiNo">组合编号</param>
-        /// <param name="entrustNo">委托序号</param>
-        public Ufx91115(string userToken, string accountCode, string combiNo, int entrustNo)
+/// <param name="accountCode">账户编号</param>
+/// <param name="combiNo">组合编号</param>
+/// <param name="entrustNo">委托序号</param>
+public Ufx91115(string userToken, string accountCode, string combiNo, int entrustNo)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            CombiNo = combiNo;
-            EntrustNo = entrustNo;
-        }
+AccountCode = accountCode;
+CombiNo = combiNo;
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -5692,7 +5692,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持按委托序号撤销股转做市委托.
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx91113 : IUfxFunctionCall
+        public sealed class Ufx91113 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -5702,12 +5702,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="entrustNo">委托序号()</param>
-        public Ufx91113(string userToken, int entrustNo)
+/// <param name="entrustNo">委托序号()</param>
+public Ufx91113(string userToken, int entrustNo)
         {
             UserToken = userToken;
-            EntrustNo = entrustNo;
-        }
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -5904,7 +5904,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持沪深股票\基金\债券买卖和股指期货\国债期货\商品期货\股票期权业务.支持CDR存托凭证业务,支持沪伦通业务
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx91090 : IUfxFunctionCall
+        public sealed class Ufx91090 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -5914,22 +5914,22 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码</param>
-        /// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
-        /// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
-        /// <param name="entrustPrice">委托价格</param>
-        /// <param name="entrustAmount">委托数量</param>
-        public Ufx91090(string userToken, string marketNo, string stockCode, string entrustDirection, sbyte priceType, double entrustPrice, int entrustAmount)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码</param>
+/// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
+/// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
+/// <param name="entrustPrice">委托价格</param>
+/// <param name="entrustAmount">委托数量</param>
+public Ufx91090(string userToken, string marketNo, string stockCode, string entrustDirection, sbyte priceType, double entrustPrice, int entrustAmount)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            EntrustDirection = entrustDirection;
-            PriceType = priceType;
-            EntrustPrice = entrustPrice;
-            EntrustAmount = entrustAmount;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+EntrustDirection = entrustDirection;
+PriceType = priceType;
+EntrustPrice = entrustPrice;
+EntrustAmount = entrustAmount;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -6641,7 +6641,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx91114 : IUfxFunctionCall
+        public sealed class Ufx91114 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -6651,16 +6651,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="combiNo">组合编号</param>
-        /// <param name="entrustNo">委托序号</param>
-        public Ufx91114(string userToken, string accountCode, string combiNo, int entrustNo)
+/// <param name="accountCode">账户编号</param>
+/// <param name="combiNo">组合编号</param>
+/// <param name="entrustNo">委托序号</param>
+public Ufx91114(string userToken, string accountCode, string combiNo, int entrustNo)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            CombiNo = combiNo;
-            EntrustNo = entrustNo;
-        }
+AccountCode = accountCode;
+CombiNo = combiNo;
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -6901,7 +6901,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx91101 : IUfxFunctionCall
+        public sealed class Ufx91101 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -6911,12 +6911,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="entrustNo">委托序号()</param>
-        public Ufx91101(string userToken, int entrustNo)
+/// <param name="entrustNo">委托序号()</param>
+public Ufx91101(string userToken, int entrustNo)
         {
             UserToken = userToken;
-            EntrustNo = entrustNo;
-        }
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -7113,7 +7113,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持按委托批号撤单,支持对证券\期货\期权\策略等业务按委托批号撤单
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx91102 : IUfxFunctionCall
+        public sealed class Ufx91102 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -7123,12 +7123,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="batchNo">委托批号</param>
-        public Ufx91102(string userToken, int batchNo)
+/// <param name="batchNo">委托批号</param>
+public Ufx91102(string userToken, int batchNo)
         {
             UserToken = userToken;
-            BatchNo = batchNo;
-        }
+BatchNo = batchNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -7325,7 +7325,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询沪深及股转市场的股票\基金\债券的持仓信息
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx31001 : IUfxFunctionCall
+        public sealed class Ufx31001 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -7335,10 +7335,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx31001(string userToken)
+public Ufx31001(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -7567,7 +7567,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询提交\转回质押的质押券数量明细(OPLUS专用)
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx31002 : IUfxFunctionCall
+        public sealed class Ufx31002 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -7577,12 +7577,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="assetNo">资产单元编号</param>
-        public Ufx31002(string userToken, string assetNo)
+/// <param name="assetNo">资产单元编号</param>
+public Ufx31002(string userToken, string assetNo)
         {
             UserToken = userToken;
-            AssetNo = assetNo;
-        }
+AssetNo = assetNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -7698,7 +7698,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询现货,期货,期权的证券资料信息.
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx30011 : IUfxFunctionCall
+        public sealed class Ufx30011 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -7708,10 +7708,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx30011(string userToken)
+public Ufx30011(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -7886,7 +7886,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询当日普通买卖委托流水,包含沪深股票\基金买卖\债券买卖,新股申购\可转债申购\质押式回购\债转股\债回售\基金认购\配股认购\配债认购\债券认购\股转市场业务
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx32001 : IUfxFunctionCall
+        public sealed class Ufx32001 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -7896,10 +7896,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        public Ufx32001(string userToken)
+public Ufx32001(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -8317,7 +8317,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询历史普通买卖委托流水
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx32101 : IUfxFunctionCall
+        public sealed class Ufx32101 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -8327,16 +8327,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        /// <param name="startDate">起始日期(查询起始日期)</param>
-        /// <param name="endDate">结束日期(查询结束日期)</param>
-        /// <param name="accountCode">账户编号</param>
-        public Ufx32101(string userToken, int startDate, int endDate, string accountCode)
+/// <param name="startDate">起始日期(查询起始日期)</param>
+/// <param name="endDate">结束日期(查询结束日期)</param>
+/// <param name="accountCode">账户编号</param>
+public Ufx32101(string userToken, int startDate, int endDate, string accountCode)
         {
             UserToken = userToken;
-            StartDate = startDate;
-            EndDate = endDate;
-            AccountCode = accountCode;
-        }
+StartDate = startDate;
+EndDate = endDate;
+AccountCode = accountCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -8793,7 +8793,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询当日股转做市委托
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx32006 : IUfxFunctionCall
+        public sealed class Ufx32006 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -8803,12 +8803,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="accountCode">账户编号</param>
-        public Ufx32006(string userToken, string accountCode)
+/// <param name="accountCode">账户编号</param>
+public Ufx32006(string userToken, string accountCode)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-        }
+AccountCode = accountCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -9167,7 +9167,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询当日普通买卖委托以及当日股转做市委托对应的成交流水
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx33001 : IUfxFunctionCall
+        public sealed class Ufx33001 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -9177,10 +9177,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx33001(string userToken)
+public Ufx33001(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -9571,7 +9571,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询历史普通买卖成交流水
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx33101 : IUfxFunctionCall
+        public sealed class Ufx33101 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -9581,16 +9581,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        /// <param name="startDate">起始日期(查询起始日期格式YYYYMMDD)</param>
-        /// <param name="endDate">结束日期(查询结束日期格式YYYYMMDD)</param>
-        /// <param name="accountCode">账户编号</param>
-        public Ufx33101(string userToken, int startDate, int endDate, string accountCode)
+/// <param name="startDate">起始日期(查询起始日期格式YYYYMMDD)</param>
+/// <param name="endDate">结束日期(查询结束日期格式YYYYMMDD)</param>
+/// <param name="accountCode">账户编号</param>
+public Ufx33101(string userToken, int startDate, int endDate, string accountCode)
         {
             UserToken = userToken;
-            StartDate = startDate;
-            EndDate = endDate;
-            AccountCode = accountCode;
-        }
+StartDate = startDate;
+EndDate = endDate;
+AccountCode = accountCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -10020,7 +10020,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询沪深A股及股转市场资金账户的资金可用,支持批量传入.
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx34001 : IUfxFunctionCall
+        public sealed class Ufx34001 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -10030,10 +10030,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx34001(string userToken)
+public Ufx34001(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -10154,7 +10154,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持股转市场协议转让交易业务.
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx91051 : IUfxFunctionCall
+        public sealed class Ufx91051 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -10164,20 +10164,20 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="stockCode">证券代码</param>
-        /// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
-        /// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
-        /// <param name="entrustPrice">委托价格(当价格类型为市价时,头寸和风控控制买入按涨停价控.)</param>
-        /// <param name="entrustAmount">委托数量(单位为股.)</param>
-        public Ufx91051(string userToken, string stockCode, string entrustDirection, sbyte priceType, double entrustPrice, int entrustAmount)
+/// <param name="stockCode">证券代码</param>
+/// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
+/// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
+/// <param name="entrustPrice">委托价格(当价格类型为市价时,头寸和风控控制买入按涨停价控.)</param>
+/// <param name="entrustAmount">委托数量(单位为股.)</param>
+public Ufx91051(string userToken, string stockCode, string entrustDirection, sbyte priceType, double entrustPrice, int entrustAmount)
         {
             UserToken = userToken;
-            StockCode = stockCode;
-            EntrustDirection = entrustDirection;
-            PriceType = priceType;
-            EntrustPrice = entrustPrice;
-            EntrustAmount = entrustAmount;
-        }
+StockCode = stockCode;
+EntrustDirection = entrustDirection;
+PriceType = priceType;
+EntrustPrice = entrustPrice;
+EntrustAmount = entrustAmount;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -10759,7 +10759,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx91116 : IUfxFunctionCall
+        public sealed class Ufx91116 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -10769,16 +10769,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="combiNo">组合编号</param>
-        /// <param name="entrustNo">委托序号</param>
-        public Ufx91116(string userToken, string accountCode, string combiNo, int entrustNo)
+/// <param name="accountCode">账户编号</param>
+/// <param name="combiNo">组合编号</param>
+/// <param name="entrustNo">委托序号</param>
+public Ufx91116(string userToken, string accountCode, string combiNo, int entrustNo)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            CombiNo = combiNo;
-            EntrustNo = entrustNo;
-        }
+AccountCode = accountCode;
+CombiNo = combiNo;
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -11019,7 +11019,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持按委托序号撤单,可传入多个委托序号进行批量撤单
     /// 业务范围: 证券
     /// </summary>
-    public sealed class Ufx91151 : IUfxFunctionCall
+        public sealed class Ufx91151 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -11029,12 +11029,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="entrustNo">委托序号</param>
-        public Ufx91151(string userToken, int entrustNo)
+/// <param name="entrustNo">委托序号</param>
+public Ufx91151(string userToken, int entrustNo)
         {
             UserToken = userToken;
-            EntrustNo = entrustNo;
-        }
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -11231,7 +11231,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持沪深ETF\沪深跨市场ETF\沪深跨境ETF申赎业务
     /// 业务范围: 基金
     /// </summary>
-    [Obsolete("不维护")]
+        [Obsolete("不维护")]
     public sealed class Ufx91003 : IUfxFunctionCall
     {
         /// <summary>
@@ -11242,18 +11242,18 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码</param>
-        /// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
-        /// <param name="entrustAmount">委托数量(申赎数量单位为篮子数.如最小申购单位是100万份,要申赎200万,该字段填2.)</param>
-        public Ufx91003(string userToken, string marketNo, string stockCode, string entrustDirection, int entrustAmount)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码</param>
+/// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
+/// <param name="entrustAmount">委托数量(申赎数量单位为篮子数.如最小申购单位是100万份,要申赎200万,该字段填2.)</param>
+public Ufx91003(string userToken, string marketNo, string stockCode, string entrustDirection, int entrustAmount)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            EntrustDirection = entrustDirection;
-            EntrustAmount = entrustAmount;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+EntrustDirection = entrustDirection;
+EntrustAmount = entrustAmount;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -11705,7 +11705,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持ETF(股票型ETF\债券型ETF\华宝兴业交易型货币基金\沪深跨境ETF\沪深黄金ETF\深交所交易型货币基金)\场内开放式基金申赎(LOF)\LOF基金分拆合并\转托管.基金买卖委托请用91001接口
     /// 业务范围: 基金
     /// </summary>
-    public sealed class Ufx91008 : IUfxFunctionCall
+        public sealed class Ufx91008 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -11715,16 +11715,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码</param>
-        /// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
-        public Ufx91008(string userToken, string marketNo, string stockCode, string entrustDirection)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码</param>
+/// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
+public Ufx91008(string userToken, string marketNo, string stockCode, string entrustDirection)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            EntrustDirection = entrustDirection;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+EntrustDirection = entrustDirection;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -12262,7 +12262,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询当日基金一级市场委托流水.
     /// 业务范围: 基金
     /// </summary>
-    public sealed class Ufx32002 : IUfxFunctionCall
+        public sealed class Ufx32002 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -12272,10 +12272,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        public Ufx32002(string userToken)
+public Ufx32002(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -12693,7 +12693,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询ETF申赎时的成份股和资金代码委托明细信息.
     /// 业务范围: 基金
     /// </summary>
-    public sealed class Ufx32005 : IUfxFunctionCall
+        public sealed class Ufx32005 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -12703,12 +12703,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        /// <param name="entrustNo">委托序号(按委托序号查询)</param>
-        public Ufx32005(string userToken, int entrustNo)
+/// <param name="entrustNo">委托序号(按委托序号查询)</param>
+public Ufx32005(string userToken, int entrustNo)
         {
             UserToken = userToken;
-            EntrustNo = entrustNo;
-        }
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -12824,7 +12824,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询当日基金一级市场委托成交流水
     /// 业务范围: 基金
     /// </summary>
-    public sealed class Ufx33002 : IUfxFunctionCall
+        public sealed class Ufx33002 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -12834,10 +12834,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx33002(string userToken)
+public Ufx33002(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -13228,7 +13228,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询ETF申赎时的成份股和资金代码成交明细信息.
     /// 业务范围: 基金
     /// </summary>
-    public sealed class Ufx33005 : IUfxFunctionCall
+        public sealed class Ufx33005 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -13238,12 +13238,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="entrustNo">委托序号()</param>
-        public Ufx33005(string userToken, int entrustNo)
+/// <param name="entrustNo">委托序号()</param>
+public Ufx33005(string userToken, int entrustNo)
         {
             UserToken = userToken;
-            EntrustNo = entrustNo;
-        }
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -13359,7 +13359,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询沪深ETF成份股信息
     /// 业务范围: 基金
     /// </summary>
-    public sealed class Ufx35014 : IUfxFunctionCall
+        public sealed class Ufx35014 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -13369,14 +13369,14 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="etfCode">ETF代码（二级市场）()</param>
-        public Ufx35014(string userToken, string marketNo, string etfCode)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="etfCode">ETF代码（二级市场）()</param>
+public Ufx35014(string userToken, string marketNo, string etfCode)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            EtfCode = etfCode;
-        }
+MarketNo = marketNo;
+EtfCode = etfCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -13460,7 +13460,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持沪深查询ETF基础信息
     /// 业务范围: 基金
     /// </summary>
-    public sealed class Ufx35020 : IUfxFunctionCall
+        public sealed class Ufx35020 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -13470,10 +13470,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx35020(string userToken)
+public Ufx35020(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -13594,7 +13594,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询期货市场未过期的期货信息.
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx30010 : IUfxFunctionCall
+        public sealed class Ufx30010 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -13604,10 +13604,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx30010(string userToken)
+public Ufx30010(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -13701,7 +13701,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持中金所股指期货\国债期货和上期所\大商所\郑商所\能源交易所的商品期货业务
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx91004 : IUfxFunctionCall
+        public sealed class Ufx91004 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -13711,24 +13711,24 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码</param>
-        /// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
-        /// <param name="futuresDirection">开平方向('1'-开仓;'2'-平仓;对上期所,能源期货交易所平仓委托,优先平今仓,今仓不足,自动拆分成两笔委托.)</param>
-        /// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
-        /// <param name="entrustPrice">委托价格(委托价格需要注意最小价差,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
-        /// <param name="entrustAmount">委托数量(委托数量需要注意最小买卖单位,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
-        public Ufx91004(string userToken, string marketNo, string stockCode, string entrustDirection, sbyte futuresDirection, sbyte priceType, double entrustPrice, int entrustAmount)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码</param>
+/// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
+/// <param name="futuresDirection">开平方向('1'-开仓;'2'-平仓;对上期所,能源期货交易所平仓委托,优先平今仓,今仓不足,自动拆分成两笔委托.)</param>
+/// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
+/// <param name="entrustPrice">委托价格(委托价格需要注意最小价差,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
+/// <param name="entrustAmount">委托数量(委托数量需要注意最小买卖单位,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
+public Ufx91004(string userToken, string marketNo, string stockCode, string entrustDirection, sbyte futuresDirection, sbyte priceType, double entrustPrice, int entrustAmount)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            EntrustDirection = entrustDirection;
-            FuturesDirection = futuresDirection;
-            PriceType = priceType;
-            EntrustPrice = entrustPrice;
-            EntrustAmount = entrustAmount;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+EntrustDirection = entrustDirection;
+FuturesDirection = futuresDirection;
+PriceType = priceType;
+EntrustPrice = entrustPrice;
+EntrustAmount = entrustAmount;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -14327,7 +14327,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持商品期货标准套利单\互换单业务.
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx91013 : IUfxFunctionCall
+        public sealed class Ufx91013 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -14337,22 +14337,22 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码(商品期货组合代码.)</param>
-        /// <param name="entrustDirection">委托方向(控委托方向'1'-买入;'2'卖出)</param>
-        /// <param name="futuresDirection">开平方向('1'-开仓;'2'-平仓;对上期所平仓委托,优先平今仓,今仓不足,自动拆分成两笔委托.)</param>
-        /// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
-        /// <param name="entrustAmount">委托数量</param>
-        public Ufx91013(string userToken, string marketNo, string stockCode, string entrustDirection, sbyte futuresDirection, sbyte priceType, int entrustAmount)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码(商品期货组合代码.)</param>
+/// <param name="entrustDirection">委托方向(控委托方向'1'-买入;'2'卖出)</param>
+/// <param name="futuresDirection">开平方向('1'-开仓;'2'-平仓;对上期所平仓委托,优先平今仓,今仓不足,自动拆分成两笔委托.)</param>
+/// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
+/// <param name="entrustAmount">委托数量</param>
+public Ufx91013(string userToken, string marketNo, string stockCode, string entrustDirection, sbyte futuresDirection, sbyte priceType, int entrustAmount)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            EntrustDirection = entrustDirection;
-            FuturesDirection = futuresDirection;
-            PriceType = priceType;
-            EntrustAmount = entrustAmount;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+EntrustDirection = entrustDirection;
+FuturesDirection = futuresDirection;
+PriceType = priceType;
+EntrustAmount = entrustAmount;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -14929,7 +14929,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持按委托序号撤单,支持多条委托批量撤单
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx91119 : IUfxFunctionCall
+        public sealed class Ufx91119 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -14939,16 +14939,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="combiNo">组合编号</param>
-        /// <param name="entrustNo">委托序号</param>
-        public Ufx91119(string userToken, string accountCode, string combiNo, int entrustNo)
+/// <param name="accountCode">账户编号</param>
+/// <param name="combiNo">组合编号</param>
+/// <param name="entrustNo">委托序号</param>
+public Ufx91119(string userToken, string accountCode, string combiNo, int entrustNo)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            CombiNo = combiNo;
-            EntrustNo = entrustNo;
-        }
+AccountCode = accountCode;
+CombiNo = combiNo;
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -15189,7 +15189,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持按委托序号撤单,支持多条委托批量撤单
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx91105 : IUfxFunctionCall
+        public sealed class Ufx91105 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -15199,12 +15199,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="entrustNo">委托序号()</param>
-        public Ufx91105(string userToken, int entrustNo)
+/// <param name="entrustNo">委托序号()</param>
+public Ufx91105(string userToken, int entrustNo)
         {
             UserToken = userToken;
-            EntrustNo = entrustNo;
-        }
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -15401,7 +15401,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持商品期货组合单撤单
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx91121 : IUfxFunctionCall
+        public sealed class Ufx91121 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -15411,16 +15411,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="combiNo">组合编号</param>
-        /// <param name="entrustNo">委托序号</param>
-        public Ufx91121(string userToken, string accountCode, string combiNo, int entrustNo)
+/// <param name="accountCode">账户编号</param>
+/// <param name="combiNo">组合编号</param>
+/// <param name="entrustNo">委托序号</param>
+public Ufx91121(string userToken, string accountCode, string combiNo, int entrustNo)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            CombiNo = combiNo;
-            EntrustNo = entrustNo;
-        }
+AccountCode = accountCode;
+CombiNo = combiNo;
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -15661,7 +15661,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持商品期货组合单撤单
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx91107 : IUfxFunctionCall
+        public sealed class Ufx91107 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -15671,12 +15671,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="entrustNo">委托序号</param>
-        public Ufx91107(string userToken, int entrustNo)
+/// <param name="entrustNo">委托序号</param>
+public Ufx91107(string userToken, int entrustNo)
         {
             UserToken = userToken;
-            EntrustNo = entrustNo;
-        }
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -15873,7 +15873,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询期货持仓
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx31003 : IUfxFunctionCall
+        public sealed class Ufx31003 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -15883,10 +15883,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx31003(string userToken)
+public Ufx31003(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -16169,7 +16169,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询期货持仓明细
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx31013 : IUfxFunctionCall
+        public sealed class Ufx31013 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -16179,10 +16179,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx31013(string userToken)
+public Ufx31013(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -16438,7 +16438,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询当日期货委托流水
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx32003 : IUfxFunctionCall
+        public sealed class Ufx32003 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -16448,10 +16448,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        public Ufx32003(string userToken)
+public Ufx32003(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -16896,7 +16896,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询期货历史普通买卖委托流水
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx32103 : IUfxFunctionCall
+        public sealed class Ufx32103 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -16906,16 +16906,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        /// <param name="startDate">起始日期(查询起始日期)</param>
-        /// <param name="endDate">结束日期(查询结束日期)</param>
-        /// <param name="accountCode">账户编号</param>
-        public Ufx32103(string userToken, int startDate, int endDate, string accountCode)
+/// <param name="startDate">起始日期(查询起始日期)</param>
+/// <param name="endDate">结束日期(查询结束日期)</param>
+/// <param name="accountCode">账户编号</param>
+public Ufx32103(string userToken, int startDate, int endDate, string accountCode)
         {
             UserToken = userToken;
-            StartDate = startDate;
-            EndDate = endDate;
-            AccountCode = accountCode;
-        }
+StartDate = startDate;
+EndDate = endDate;
+AccountCode = accountCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -17399,7 +17399,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询当日商品期货组合委托流水
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx32008 : IUfxFunctionCall
+        public sealed class Ufx32008 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -17409,10 +17409,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        public Ufx32008(string userToken)
+public Ufx32008(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -17884,7 +17884,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询当日期货成交流水
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx33003 : IUfxFunctionCall
+        public sealed class Ufx33003 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -17894,10 +17894,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx33003(string userToken)
+public Ufx33003(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -18342,7 +18342,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询期货历史期货成交流水
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx33103 : IUfxFunctionCall
+        public sealed class Ufx33103 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -18352,16 +18352,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="startDate">起始日期(查询起始日期)</param>
-        /// <param name="endDate">结束日期(查询结束日期)</param>
-        /// <param name="accountCode">账户编号</param>
-        public Ufx33103(string userToken, int startDate, int endDate, string accountCode)
+/// <param name="startDate">起始日期(查询起始日期)</param>
+/// <param name="endDate">结束日期(查询结束日期)</param>
+/// <param name="accountCode">账户编号</param>
+public Ufx33103(string userToken, int startDate, int endDate, string accountCode)
         {
             UserToken = userToken;
-            StartDate = startDate;
-            EndDate = endDate;
-            AccountCode = accountCode;
-        }
+StartDate = startDate;
+EndDate = endDate;
+AccountCode = accountCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -18818,7 +18818,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询期货保证金账户的资金可用信息,可查询期货\股指期权\商品期权可用保证金,支持批量传入.
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx34003 : IUfxFunctionCall
+        public sealed class Ufx34003 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -18828,10 +18828,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx34003(string userToken)
+public Ufx34003(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -18952,7 +18952,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持期货费率查询,支持中金所股指期货\国债期货和上期所\大商所\郑商所\能源交易所的商品期货业务
     /// 业务范围: 期货
     /// </summary>
-    public sealed class Ufx35023 : IUfxFunctionCall
+        public sealed class Ufx35023 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -18962,14 +18962,14 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="assetNo">资产单元编号</param>
-        public Ufx35023(string userToken, string accountCode, string assetNo)
+/// <param name="accountCode">账户编号</param>
+/// <param name="assetNo">资产单元编号</param>
+public Ufx35023(string userToken, string accountCode, string assetNo)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            AssetNo = assetNo;
-        }
+AccountCode = accountCode;
+AssetNo = assetNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -19269,7 +19269,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询期权信息.
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx30012 : IUfxFunctionCall
+        public sealed class Ufx30012 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -19279,10 +19279,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx30012(string userToken)
+public Ufx30012(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -19457,7 +19457,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权交易业务
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91005 : IUfxFunctionCall
+        public sealed class Ufx91005 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -19467,24 +19467,24 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码</param>
-        /// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
-        /// <param name="futuresDirection">开平方向('1'-开仓;'2'-平仓.)</param>
-        /// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
-        /// <param name="entrustPrice">委托价格(委托价格需要注意最小价差,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
-        /// <param name="entrustAmount">委托数量(委托数量需要注意最小买卖单位,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
-        public Ufx91005(string userToken, string marketNo, string stockCode, string entrustDirection, sbyte futuresDirection, sbyte priceType, double entrustPrice, int entrustAmount)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码</param>
+/// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
+/// <param name="futuresDirection">开平方向('1'-开仓;'2'-平仓.)</param>
+/// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
+/// <param name="entrustPrice">委托价格(委托价格需要注意最小价差,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
+/// <param name="entrustAmount">委托数量(委托数量需要注意最小买卖单位,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
+public Ufx91005(string userToken, string marketNo, string stockCode, string entrustDirection, sbyte futuresDirection, sbyte priceType, double entrustPrice, int entrustAmount)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            EntrustDirection = entrustDirection;
-            FuturesDirection = futuresDirection;
-            PriceType = priceType;
-            EntrustPrice = entrustPrice;
-            EntrustAmount = entrustAmount;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+EntrustDirection = entrustDirection;
+FuturesDirection = futuresDirection;
+PriceType = priceType;
+EntrustPrice = entrustPrice;
+EntrustAmount = entrustAmount;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -20083,7 +20083,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持上海股票期权保证券的锁定与解锁业务
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91006 : IUfxFunctionCall
+        public sealed class Ufx91006 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -20093,18 +20093,18 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码</param>
-        /// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
-        /// <param name="entrustAmount">委托数量(委托数量需要注意最小买卖单位,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
-        public Ufx91006(string userToken, string marketNo, string stockCode, string entrustDirection, int entrustAmount)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码</param>
+/// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
+/// <param name="entrustAmount">委托数量(委托数量需要注意最小买卖单位,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
+public Ufx91006(string userToken, string marketNo, string stockCode, string entrustDirection, int entrustAmount)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            EntrustDirection = entrustDirection;
-            EntrustAmount = entrustAmount;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+EntrustDirection = entrustDirection;
+EntrustAmount = entrustAmount;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -20583,7 +20583,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权业务
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91007 : IUfxFunctionCall
+        public sealed class Ufx91007 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -20593,16 +20593,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码</param>
-        /// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
-        public Ufx91007(string userToken, string marketNo, string stockCode, string entrustDirection)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码</param>
+/// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
+public Ufx91007(string userToken, string marketNo, string stockCode, string entrustDirection)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            EntrustDirection = entrustDirection;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+EntrustDirection = entrustDirection;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -21113,7 +21113,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持上交所股票期权合并行权业务
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91025 : IUfxFunctionCall
+        public sealed class Ufx91025 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -21123,18 +21123,18 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码(认购期权合约代码)</param>
-        /// <param name="stockCode2">证券代码2(认沽期权合约代码)</param>
-        /// <param name="entrustAmount">委托数量(行权数量)</param>
-        public Ufx91025(string userToken, string marketNo, string stockCode, string stockCode2, int entrustAmount)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码(认购期权合约代码)</param>
+/// <param name="stockCode2">证券代码2(认沽期权合约代码)</param>
+/// <param name="entrustAmount">委托数量(行权数量)</param>
+public Ufx91025(string userToken, string marketNo, string stockCode, string stockCode2, int entrustAmount)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            StockCode2 = stockCode2;
-            EntrustAmount = entrustAmount;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+StockCode2 = stockCode2;
+EntrustAmount = entrustAmount;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -21586,7 +21586,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持上交所期权合并行权撤单,可传入多条委托序号进行批量撤单.最多支持1000笔
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91126 : IUfxFunctionCall
+        public sealed class Ufx91126 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -21596,16 +21596,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="combiNo">组合编号</param>
-        /// <param name="entrustNo">委托序号</param>
-        public Ufx91126(string userToken, string accountCode, string combiNo, int entrustNo)
+/// <param name="accountCode">账户编号</param>
+/// <param name="combiNo">组合编号</param>
+/// <param name="entrustNo">委托序号</param>
+public Ufx91126(string userToken, string accountCode, string combiNo, int entrustNo)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            CombiNo = combiNo;
-            EntrustNo = entrustNo;
-        }
+AccountCode = accountCode;
+CombiNo = combiNo;
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -21846,7 +21846,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询当日上交所合并行权委托
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx32017 : IUfxFunctionCall
+        public sealed class Ufx32017 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -21856,12 +21856,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="accountCode">账户编号</param>
-        public Ufx32017(string userToken, string accountCode)
+/// <param name="accountCode">账户编号</param>
+public Ufx32017(string userToken, string accountCode)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-        }
+AccountCode = accountCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -22247,7 +22247,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持股指期权做市业务
     /// 业务范围: 期权
     /// </summary>
-    [Obsolete("不维护")]
+        [Obsolete("不维护")]
     public sealed class Ufx91012 : IUfxFunctionCall
     {
         /// <summary>
@@ -22258,14 +22258,14 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码</param>
-        public Ufx91012(string userToken, string marketNo, string stockCode)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码</param>
+public Ufx91012(string userToken, string marketNo, string stockCode)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -22808,7 +22808,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持深交所股票期权,中金所股指期权做市业务,支持批量传入
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91014 : IUfxFunctionCall
+        public sealed class Ufx91014 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -22818,14 +22818,14 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码</param>
-        public Ufx91014(string userToken, string marketNo, string stockCode)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码</param>
+public Ufx91014(string userToken, string marketNo, string stockCode)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -23395,7 +23395,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持上交所股票期权篮子委托业务,用于股票期权批量下单和做市委托.
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91091 : IUfxFunctionCall
+        public sealed class Ufx91091 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -23405,24 +23405,24 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码</param>
-        /// <param name="entrustDirection">买卖方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
-        /// <param name="futuresDirection">开平方向('1'-开仓;'2'-平仓;仅对期权有效.)</param>
-        /// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
-        /// <param name="entrustPrice">委托价格(当价格类型为市价时,价格传0)</param>
-        /// <param name="entrustAmount">委托数量</param>
-        public Ufx91091(string userToken, string marketNo, string stockCode, string entrustDirection, sbyte futuresDirection, sbyte priceType, double entrustPrice, int entrustAmount)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码</param>
+/// <param name="entrustDirection">买卖方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
+/// <param name="futuresDirection">开平方向('1'-开仓;'2'-平仓;仅对期权有效.)</param>
+/// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
+/// <param name="entrustPrice">委托价格(当价格类型为市价时,价格传0)</param>
+/// <param name="entrustAmount">委托数量</param>
+public Ufx91091(string userToken, string marketNo, string stockCode, string entrustDirection, sbyte futuresDirection, sbyte priceType, double entrustPrice, int entrustAmount)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            EntrustDirection = entrustDirection;
-            FuturesDirection = futuresDirection;
-            PriceType = priceType;
-            EntrustPrice = entrustPrice;
-            EntrustAmount = entrustAmount;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+EntrustDirection = entrustDirection;
+FuturesDirection = futuresDirection;
+PriceType = priceType;
+EntrustPrice = entrustPrice;
+EntrustAmount = entrustAmount;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -23967,7 +23967,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持上交所股票期权询价
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91016 : IUfxFunctionCall
+        public sealed class Ufx91016 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -23977,14 +23977,14 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码</param>
-        public Ufx91016(string userToken, string marketNo, string stockCode)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码</param>
+public Ufx91016(string userToken, string marketNo, string stockCode)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -24392,7 +24392,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持上交所股票期权回应报价,回应报价修改,支持批量传入
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91017 : IUfxFunctionCall
+        public sealed class Ufx91017 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -24402,24 +24402,24 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码</param>
-        /// <param name="quoteMark">报价标识(上交所股票期权回应报价业务时必传,,'02'-回应报价,'03'-回应报价修改)</param>
-        /// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
-        /// <param name="futuresDirection">开平方向('1'-开仓;'2'-平仓.)</param>
-        /// <param name="priceType">委托价格类型(只支持限价:0)</param>
-        /// <param name="entrustPrice">委托价格(委托价格需要注意最小价差,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
-        public Ufx91017(string userToken, string marketNo, string stockCode, string quoteMark, string entrustDirection, sbyte futuresDirection, sbyte priceType, double entrustPrice)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码</param>
+/// <param name="quoteMark">报价标识(上交所股票期权回应报价业务时必传,,'02'-回应报价,'03'-回应报价修改)</param>
+/// <param name="entrustDirection">委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)</param>
+/// <param name="futuresDirection">开平方向('1'-开仓;'2'-平仓.)</param>
+/// <param name="priceType">委托价格类型(只支持限价:0)</param>
+/// <param name="entrustPrice">委托价格(委托价格需要注意最小价差,需要传入方自行控制,传入不符合规则要求,则返回失败.)</param>
+public Ufx91017(string userToken, string marketNo, string stockCode, string quoteMark, string entrustDirection, sbyte futuresDirection, sbyte priceType, double entrustPrice)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            QuoteMark = quoteMark;
-            EntrustDirection = entrustDirection;
-            FuturesDirection = futuresDirection;
-            PriceType = priceType;
-            EntrustPrice = entrustPrice;
-        }
+MarketNo = marketNo;
+StockCode = stockCode;
+QuoteMark = quoteMark;
+EntrustDirection = entrustDirection;
+FuturesDirection = futuresDirection;
+PriceType = priceType;
+EntrustPrice = entrustPrice;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -24991,7 +24991,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持按委托序号撤销期权(股票期权\股指期权\商品期权)委托,可传入多个委托序号进行批量撤单
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91120 : IUfxFunctionCall
+        public sealed class Ufx91120 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -25001,16 +25001,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="combiNo">组合编号</param>
-        /// <param name="entrustNo">委托序号</param>
-        public Ufx91120(string userToken, string accountCode, string combiNo, int entrustNo)
+/// <param name="accountCode">账户编号</param>
+/// <param name="combiNo">组合编号</param>
+/// <param name="entrustNo">委托序号</param>
+public Ufx91120(string userToken, string accountCode, string combiNo, int entrustNo)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            CombiNo = combiNo;
-            EntrustNo = entrustNo;
-        }
+AccountCode = accountCode;
+CombiNo = combiNo;
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -25251,7 +25251,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持按委托序号撤销期权(股票期权\股指期权\商品期权)委托,可传入多个委托序号进行批量撤单
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91106 : IUfxFunctionCall
+        public sealed class Ufx91106 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -25261,12 +25261,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="entrustNo">委托序号()</param>
-        public Ufx91106(string userToken, int entrustNo)
+/// <param name="entrustNo">委托序号()</param>
+public Ufx91106(string userToken, int entrustNo)
         {
             UserToken = userToken;
-            EntrustNo = entrustNo;
-        }
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -25463,7 +25463,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持按委托批号撤销股指期权委托
     /// 业务范围: 期权
     /// </summary>
-    [Obsolete("不维护")]
+        [Obsolete("不维护")]
     public sealed class Ufx91108 : IUfxFunctionCall
     {
         /// <summary>
@@ -25474,12 +25474,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="batchNo">委托批号</param>
-        public Ufx91108(string userToken, int batchNo)
+/// <param name="batchNo">委托批号</param>
+public Ufx91108(string userToken, int batchNo)
         {
             UserToken = userToken;
-            BatchNo = batchNo;
-        }
+BatchNo = batchNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -25676,7 +25676,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持撤销深交所股票期权做市委托,中金所股指期权做市委托
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91122 : IUfxFunctionCall
+        public sealed class Ufx91122 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -25686,16 +25686,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="combiNo">组合编号</param>
-        /// <param name="entrustNo">委托序号(注意:撤单将会撤掉与该委托所包括的期权代码的所有做市委托.详见下方业务说明.)</param>
-        public Ufx91122(string userToken, string accountCode, string combiNo, int entrustNo)
+/// <param name="accountCode">账户编号</param>
+/// <param name="combiNo">组合编号</param>
+/// <param name="entrustNo">委托序号(注意:撤单将会撤掉与该委托所包括的期权代码的所有做市委托.详见下方业务说明.)</param>
+public Ufx91122(string userToken, string accountCode, string combiNo, int entrustNo)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            CombiNo = combiNo;
-            EntrustNo = entrustNo;
-        }
+AccountCode = accountCode;
+CombiNo = combiNo;
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -25936,7 +25936,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持撤销深交所股票期权做市委托,中金所股指期权做市委托
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91109 : IUfxFunctionCall
+        public sealed class Ufx91109 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -25946,12 +25946,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="entrustNo">委托序号(注意:撤单将会撤掉与该委托所包括的期权代码的所有做市委托.详见下方业务说明.)</param>
-        public Ufx91109(string userToken, int entrustNo)
+/// <param name="entrustNo">委托序号(注意:撤单将会撤掉与该委托所包括的期权代码的所有做市委托.详见下方业务说明.)</param>
+public Ufx91109(string userToken, int entrustNo)
         {
             UserToken = userToken;
-            EntrustNo = entrustNo;
-        }
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -26148,7 +26148,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权撤单,可传入多条委托序号进行批量撤单.
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91123 : IUfxFunctionCall
+        public sealed class Ufx91123 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -26158,16 +26158,16 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="combiNo">组合编号</param>
-        /// <param name="entrustNo">委托序号</param>
-        public Ufx91123(string userToken, string accountCode, string combiNo, int entrustNo)
+/// <param name="accountCode">账户编号</param>
+/// <param name="combiNo">组合编号</param>
+/// <param name="entrustNo">委托序号</param>
+public Ufx91123(string userToken, string accountCode, string combiNo, int entrustNo)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            CombiNo = combiNo;
-            EntrustNo = entrustNo;
-        }
+AccountCode = accountCode;
+CombiNo = combiNo;
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -26408,7 +26408,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权撤单,可传入多条委托序号进行批量撤单.
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91111 : IUfxFunctionCall
+        public sealed class Ufx91111 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -26418,12 +26418,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="entrustNo">委托序号</param>
-        public Ufx91111(string userToken, int entrustNo)
+/// <param name="entrustNo">委托序号</param>
+public Ufx91111(string userToken, int entrustNo)
         {
             UserToken = userToken;
-            EntrustNo = entrustNo;
-        }
+EntrustNo = entrustNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -26620,7 +26620,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持沪深股票期权\大商所,郑商所,上期所商品期权行权按委托批号撤单.
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91112 : IUfxFunctionCall
+        public sealed class Ufx91112 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -26630,12 +26630,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="batchNo">委托批号</param>
-        public Ufx91112(string userToken, int batchNo)
+/// <param name="batchNo">委托批号</param>
+public Ufx91112(string userToken, int batchNo)
         {
             UserToken = userToken;
-            BatchNo = batchNo;
-        }
+BatchNo = batchNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -26832,7 +26832,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权持仓信息
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx31004 : IUfxFunctionCall
+        public sealed class Ufx31004 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -26842,10 +26842,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx31004(string userToken)
+public Ufx31004(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -27128,7 +27128,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权当日委托流水(除备兑锁定解锁)
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx32004 : IUfxFunctionCall
+        public sealed class Ufx32004 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -27138,10 +27138,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        public Ufx32004(string userToken)
+public Ufx32004(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -27640,7 +27640,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询当日股指期权\深交所股票期权做市委托
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx32007 : IUfxFunctionCall
+        public sealed class Ufx32007 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -27650,12 +27650,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        /// <param name="accountCode">账户编号</param>
-        public Ufx32007(string userToken, string accountCode)
+/// <param name="accountCode">账户编号</param>
+public Ufx32007(string userToken, string accountCode)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-        }
+AccountCode = accountCode;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -28041,7 +28041,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询沪深股票期权\中金所股指期权\大商所,郑商所,上期所商品期权当日成交流水
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx33004 : IUfxFunctionCall
+        public sealed class Ufx33004 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -28051,10 +28051,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx33004(string userToken)
+public Ufx33004(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -28526,7 +28526,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持沪深衍生品保证金账户查询(股指期权,商品期权保证金账户请使用34003接口查询).
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx34004 : IUfxFunctionCall
+        public sealed class Ufx34004 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -28536,12 +28536,12 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        public Ufx34004(string userToken, string marketNo)
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+public Ufx34004(string userToken, string marketNo)
         {
             UserToken = userToken;
-            MarketNo = marketNo;
-        }
+MarketNo = marketNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -28684,7 +28684,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持上交所股票期权组合策略保证金交易业务
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91015 : IUfxFunctionCall
+        public sealed class Ufx91015 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -28694,18 +28694,18 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="combistrategyCode">组合策略代码</param>
-        /// <param name="combiDirection">组合方向(B-组合,C-拆分,D-转备兑,E-备兑转保证金)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="entrustAmount">委托数量</param>
-        public Ufx91015(string userToken, string combistrategyCode, sbyte combiDirection, string marketNo, int entrustAmount)
+/// <param name="combistrategyCode">组合策略代码</param>
+/// <param name="combiDirection">组合方向(B-组合,C-拆分,D-转备兑,E-备兑转保证金)</param>
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="entrustAmount">委托数量</param>
+public Ufx91015(string userToken, string combistrategyCode, sbyte combiDirection, string marketNo, int entrustAmount)
         {
             UserToken = userToken;
-            CombistrategyCode = combistrategyCode;
-            CombiDirection = combiDirection;
-            MarketNo = marketNo;
-            EntrustAmount = entrustAmount;
-        }
+CombistrategyCode = combistrategyCode;
+CombiDirection = combiDirection;
+MarketNo = marketNo;
+EntrustAmount = entrustAmount;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -29319,7 +29319,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询上交所股票期权组合策略保证金持仓信息
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx31015 : IUfxFunctionCall
+        public sealed class Ufx31015 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -29329,10 +29329,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx31015(string userToken)
+public Ufx31015(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -29669,7 +29669,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询上交所股票期权组合策略保证金委托信息
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx32015 : IUfxFunctionCall
+        public sealed class Ufx32015 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -29679,10 +29679,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        public Ufx32015(string userToken)
+public Ufx32015(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -30208,7 +30208,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询上交所股票期权组合策略保证金成交信息
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx33015 : IUfxFunctionCall
+        public sealed class Ufx33015 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -30218,10 +30218,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx33015(string userToken)
+public Ufx33015(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -30693,7 +30693,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持郑商所商品期权套利单业务.
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx91018 : IUfxFunctionCall
+        public sealed class Ufx91018 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -30703,28 +30703,28 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        /// <param name="specialFlag">特殊业务标志('7'-郑商所跨式组合单;'8'-郑商所宽跨式组合单)</param>
-        /// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
-        /// <param name="stockCode">证券代码(一腿代码)</param>
-        /// <param name="stockCode2">证券代码2(二腿代码)</param>
-        /// <param name="entrustDirection">委托方向('1'-买入;'2'-卖出)</param>
-        /// <param name="futuresDirection">开平方向('1'-开仓;'2'-平仓)</param>
-        /// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
-        /// <param name="entrustPrice">委托价格</param>
-        /// <param name="entrustAmount">委托数量</param>
-        public Ufx91018(string userToken, sbyte specialFlag, string marketNo, string stockCode, string stockCode2, string entrustDirection, sbyte futuresDirection, sbyte priceType, double entrustPrice, int entrustAmount)
+/// <param name="specialFlag">特殊业务标志('7'-郑商所跨式组合单;'8'-郑商所宽跨式组合单)</param>
+/// <param name="marketNo">交易市场(限定 <see cref="UfxMarketNo"/> 中定义的常量)</param>
+/// <param name="stockCode">证券代码(一腿代码)</param>
+/// <param name="stockCode2">证券代码2(二腿代码)</param>
+/// <param name="entrustDirection">委托方向('1'-买入;'2'-卖出)</param>
+/// <param name="futuresDirection">开平方向('1'-开仓;'2'-平仓)</param>
+/// <param name="priceType">委托价格类型(限定 <see cref="UfxPriceType"/> 中定义的常量)</param>
+/// <param name="entrustPrice">委托价格</param>
+/// <param name="entrustAmount">委托数量</param>
+public Ufx91018(string userToken, sbyte specialFlag, string marketNo, string stockCode, string stockCode2, string entrustDirection, sbyte futuresDirection, sbyte priceType, double entrustPrice, int entrustAmount)
         {
             UserToken = userToken;
-            SpecialFlag = specialFlag;
-            MarketNo = marketNo;
-            StockCode = stockCode;
-            StockCode2 = stockCode2;
-            EntrustDirection = entrustDirection;
-            FuturesDirection = futuresDirection;
-            PriceType = priceType;
-            EntrustPrice = entrustPrice;
-            EntrustAmount = entrustAmount;
-        }
+SpecialFlag = specialFlag;
+MarketNo = marketNo;
+StockCode = stockCode;
+StockCode2 = stockCode2;
+EntrustDirection = entrustDirection;
+FuturesDirection = futuresDirection;
+PriceType = priceType;
+EntrustPrice = entrustPrice;
+EntrustAmount = entrustAmount;
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -31259,7 +31259,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询当日郑商所商品期权套利单委托
     /// 业务范围: 期权
     /// </summary>
-    public sealed class Ufx32016 : IUfxFunctionCall
+        public sealed class Ufx32016 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -31269,10 +31269,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(登录成功后,会返回会话令牌.后续调用其它接口函数都需要使用该令牌.)</param>
-        public Ufx32016(string userToken)
+public Ufx32016(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -31744,7 +31744,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持查询现货\期货\期权持仓信息
     /// 业务范围: 标准
     /// </summary>
-    public sealed class Ufx31005 : IUfxFunctionCall
+        public sealed class Ufx31005 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -31754,10 +31754,10 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">令牌号(取登陆成功返回的令牌号.)</param>
-        public Ufx31005(string userToken)
+public Ufx31005(string userToken)
         {
             UserToken = userToken;
-        }
+}
 
         private string _userToken;
         private bool _userTokenChanged;
@@ -31986,7 +31986,7 @@ namespace QuantBox.XApi
     /// 功能名称: 支持获取当前可用的委托批号
     /// 业务范围: 账户
     /// </summary>
-    public sealed class Ufx35008 : IUfxFunctionCall
+        public sealed class Ufx35008 : IUfxFunctionCall
     {
         /// <summary>
         /// 功能号
@@ -31996,14 +31996,14 @@ namespace QuantBox.XApi
         /// 包含必选项的构造函数
         /// </summary>
         /// <param name="userToken">用户口令(取登陆成功返回的令牌号.)</param>
-        /// <param name="accountCode">账户编号</param>
-        /// <param name="assetNo">资产单元编号</param>
-        public Ufx35008(string userToken, string accountCode, string assetNo)
+/// <param name="accountCode">账户编号</param>
+/// <param name="assetNo">资产单元编号</param>
+public Ufx35008(string userToken, string accountCode, string assetNo)
         {
             UserToken = userToken;
-            AccountCode = accountCode;
-            AssetNo = assetNo;
-        }
+AccountCode = accountCode;
+AssetNo = assetNo;
+}
 
         private string _userToken;
         private bool _userTokenChanged;

@@ -24,6 +24,9 @@ using hundsun.t2sdk;
 
 namespace QuantBox.XApi
 {
+    /// <summary>
+    /// 功能回报
+    /// </summary>
     public class UfxCallbackInterface : CT2CallbackInterface
     {
         public override void OnConnect(CT2Connection lpConnection)
@@ -77,7 +80,7 @@ namespace QuantBox.XApi
         var name = $"{function.Code}";
 #>
                 case <#=name#>:                    
-                    OnReceived<#=name#>(lpConnection, hSend, <#=className#>.ReadAll(unPacker, dataIndex));
+                    OnReceived<#=name#>(lpConnection, hSend, functionId, <#=className#>.ReadAll(unPacker, dataIndex));
                     break;
 <#
    }
@@ -95,7 +98,7 @@ namespace QuantBox.XApi
         /// 业务范围: <#=function.BusinessScope#>
         /// 功能名称: <#=function.Description#>
         /// </summary>
-        protected virtual void OnReceived<#=name#>(CT2Connection lpConnection, int hSend, <#=className#>[] data)
+        protected virtual void OnReceived<#=name#>(CT2Connection lpConnection, int hSend, int functionId, <#=className#>[] data)
         {
             
         }        
