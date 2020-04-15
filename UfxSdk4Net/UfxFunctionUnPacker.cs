@@ -24,7 +24,7 @@ namespace QuantBox.XApi
         /// 密码有效天数
         /// </summary>
         public int PrValidDays { get; private set; }
-        public static Ufx10001Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx10001Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -34,21 +34,23 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx10001Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx10001Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx10001Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx10001Result();
                     data.Add(item);
                     item.UserToken = result.GetStr("user_token");
                     item.VersionNo = result.GetStr("version_no");
                     item.PrValidDays = result.GetInt("pr_valid_days");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -73,7 +75,7 @@ namespace QuantBox.XApi
         /// 账户类型(限定 <see cref="UfxAccountType"/> 中定义的常量)
         /// </summary>
         public string AccountType { get; private set; }
-        public static Ufx30001Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx30001Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -83,21 +85,23 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx30001Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx30001Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx30001Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx30001Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
                     item.AccountName = result.GetStr("account_name");
                     item.AccountType = result.GetStr("account_type");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -130,7 +134,7 @@ namespace QuantBox.XApi
         /// 资产单元名称
         /// </summary>
         public string AssetName { get; private set; }
-        public static Ufx30002Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx30002Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -140,12 +144,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx30002Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx30002Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx30002Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx30002Result();
                     data.Add(item);
                     item.CapitalAccount = result.GetStr("capital_account");
@@ -153,10 +158,11 @@ namespace QuantBox.XApi
                     item.AccountCode = result.GetStr("account_code");
                     item.AssetNo = result.GetStr("asset_no");
                     item.AssetName = result.GetStr("asset_name");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -197,7 +203,7 @@ namespace QuantBox.XApi
         /// 允许的委托方向(限定 <see cref="UfxEntrustDirection"/> 中定义的常量)
         /// </summary>
         public string EntrustDirectionList { get; private set; }
-        public static Ufx30003Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx30003Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -207,12 +213,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx30003Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx30003Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx30003Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx30003Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -222,10 +229,11 @@ namespace QuantBox.XApi
                     item.MarketNoList = result.GetStr("market_no_list");
                     item.FutuInvestType = result.GetChar("futu_invest_type");
                     item.EntrustDirectionList = result.GetStr("entrust_direction_list");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -262,7 +270,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx30004Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx30004Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -272,12 +280,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx30004Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx30004Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx30004Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx30004Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -286,10 +295,11 @@ namespace QuantBox.XApi
                     item.StockholderId = result.GetStr("stockholder_id");
                     item.MarketNo = result.GetStr("market_no");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -338,7 +348,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx30005Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx30005Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -348,12 +358,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx30005Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx30005Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx30005Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx30005Result();
                     data.Add(item);
                     item.StockholderId = result.GetStr("stockholder_id");
@@ -365,10 +376,11 @@ namespace QuantBox.XApi
                     item.EquStockholder = result.GetStr("equ_stockholder");
                     item.InvestType = result.GetChar("invest_type");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -405,7 +417,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx30007Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx30007Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -415,12 +427,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx30007Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx30007Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx30007Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx30007Result();
                     data.Add(item);
                     item.SystemDate = result.GetInt("system_date");
@@ -429,10 +442,11 @@ namespace QuantBox.XApi
                     item.MarketGroupNo = result.GetInt("market_group_no");
                     item.FundLiquidateStatus = result.GetChar("fund_liquidate_status");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -525,7 +539,7 @@ namespace QuantBox.XApi
         /// 应收款
         /// </summary>
         public double ReceivableBalance { get; private set; }
-        public static Ufx35003Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35003Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -535,12 +549,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35003Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35003Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35003Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35003Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -563,10 +578,11 @@ namespace QuantBox.XApi
                     item.FundNetAsset = result.GetDouble("fund_net_asset");
                     item.PayableBalance = result.GetDouble("payable_balance");
                     item.ReceivableBalance = result.GetDouble("receivable_balance");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -659,7 +675,7 @@ namespace QuantBox.XApi
         /// 应收款
         /// </summary>
         public double ReceivableBalance { get; private set; }
-        public static Ufx35010Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35010Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -669,12 +685,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35010Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35010Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35010Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35010Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -697,10 +714,11 @@ namespace QuantBox.XApi
                     item.FundNetAsset = result.GetDouble("fund_net_asset");
                     item.PayableBalance = result.GetDouble("payable_balance");
                     item.ReceivableBalance = result.GetDouble("receivable_balance");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -797,7 +815,7 @@ namespace QuantBox.XApi
         /// 现货累计实现盈亏(现货包含(股票,基金,债券,回购))
         /// </summary>
         public double SpotAccumulateProfit { get; private set; }
-        public static Ufx35011Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35011Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -807,12 +825,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35011Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35011Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35011Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35011Result();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -836,10 +855,11 @@ namespace QuantBox.XApi
                     item.FutuCloseProfit = result.GetDouble("futu_close_profit");
                     item.FutuFee = result.GetDouble("futu_fee");
                     item.SpotAccumulateProfit = result.GetDouble("spot_accumulate_profit");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -912,7 +932,7 @@ namespace QuantBox.XApi
         /// 其他资产
         /// </summary>
         public double OtherAsset { get; private set; }
-        public static Ufx35024Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35024Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -922,12 +942,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35024Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35024Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35024Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35024Result();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -945,10 +966,11 @@ namespace QuantBox.XApi
                     item.RepoAsset = result.GetDouble("repo_asset");
                     item.OptionAsset = result.GetDouble("option_asset");
                     item.OtherAsset = result.GetDouble("other_asset");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -1009,7 +1031,7 @@ namespace QuantBox.XApi
         /// 期货买卖费用
         /// </summary>
         public double FutuFee { get; private set; }
-        public static Ufx35025Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35025Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -1019,12 +1041,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35025Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35025Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35025Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35025Result();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -1039,10 +1062,11 @@ namespace QuantBox.XApi
                     item.FutuFloatProfit = result.GetDouble("futu_float_profit");
                     item.FutuCloseProfit = result.GetDouble("futu_close_profit");
                     item.FutuFee = result.GetDouble("futu_fee");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -1211,7 +1235,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx35012Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35012Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -1221,12 +1245,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35012Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35012Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35012Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35012Result();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -1268,10 +1293,11 @@ namespace QuantBox.XApi
                     item.StockDirection = result.GetChar("stock_direction");
                     item.CloseType = result.GetChar("close_type");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -1440,7 +1466,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx36012Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx36012Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -1450,12 +1476,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx36012Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx36012Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx36012Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx36012Result();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -1497,10 +1524,11 @@ namespace QuantBox.XApi
                     item.StockDirection = result.GetChar("stock_direction");
                     item.CloseType = result.GetChar("close_type");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -1541,7 +1569,7 @@ namespace QuantBox.XApi
         /// 多头保证金比例
         /// </summary>
         public double LongDepositRatio { get; private set; }
-        public static Ufx35013Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35013Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -1551,12 +1579,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35013Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35013Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35013Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35013Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -1566,10 +1595,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.DepositRatio = result.GetDouble("deposit_ratio");
                     item.LongDepositRatio = result.GetDouble("long_deposit_ratio");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -1590,7 +1620,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx35015Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35015Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -1600,20 +1630,22 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35015Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35015Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35015Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35015Result();
                     data.Add(item);
                     item.AdjustResult = result.GetChar("adjust_result");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -1626,7 +1658,7 @@ namespace QuantBox.XApi
     /// </summary>
     public sealed class Ufx35021Result 
     {
-        public static Ufx35021Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35021Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -1636,18 +1668,20 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35021Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35021Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35021Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35021Result();
                     data.Add(item);
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -1660,7 +1694,7 @@ namespace QuantBox.XApi
     /// </summary>
     public sealed class Ufx35022Result 
     {
-        public static Ufx35022Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35022Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -1670,18 +1704,20 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35022Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35022Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35022Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35022Result();
                     data.Add(item);
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -1718,7 +1754,7 @@ namespace QuantBox.XApi
         /// 风控判断流水号(用于关联风控信息包中的风控信息条目)
         /// </summary>
         public int RiskSerialNo { get; private set; }
-        public static Ufx91001Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91001Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -1728,12 +1764,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91001Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91001Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91001Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91001Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -1742,10 +1779,11 @@ namespace QuantBox.XApi
                     item.EntrustFailCode = result.GetInt("entrust_fail_code");
                     item.FailCause = result.GetStr("fail_cause");
                     item.RiskSerialNo = result.GetInt("risk_serial_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -1782,7 +1820,7 @@ namespace QuantBox.XApi
         /// 风控判断流水号(用于关联风控信息包中的风控信息条目)
         /// </summary>
         public int RiskSerialNo { get; private set; }
-        public static Ufx91011Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91011Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -1792,12 +1830,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91011Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91011Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91011Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91011Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -1806,10 +1845,11 @@ namespace QuantBox.XApi
                     item.EntrustFailCode = result.GetInt("entrust_fail_code");
                     item.FailCause = result.GetStr("fail_cause");
                     item.RiskSerialNo = result.GetInt("risk_serial_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -1842,7 +1882,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91115Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91115Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -1852,12 +1892,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91115Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91115Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91115Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91115Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -1865,10 +1906,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -1901,7 +1943,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91113Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91113Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -1911,12 +1953,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91113Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91113Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91113Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91113Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -1924,10 +1967,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -1968,7 +2012,7 @@ namespace QuantBox.XApi
         /// 风控判断流水号(用于关联风控信息包中的风控信息条目)
         /// </summary>
         public int RiskSerialNo { get; private set; }
-        public static Ufx91090Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91090Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -1978,12 +2022,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91090Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91090Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91090Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91090Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -1993,10 +2038,11 @@ namespace QuantBox.XApi
                     item.EntrustFailCode = result.GetInt("entrust_fail_code");
                     item.FailCause = result.GetStr("fail_cause");
                     item.RiskSerialNo = result.GetInt("risk_serial_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -2029,7 +2075,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91114Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91114Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -2039,12 +2085,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91114Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91114Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91114Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91114Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -2052,10 +2099,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -2088,7 +2136,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91101Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91101Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -2098,12 +2146,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91101Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91101Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91101Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91101Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -2111,10 +2160,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -2147,7 +2197,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91102Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91102Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -2157,12 +2207,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91102Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91102Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91102Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91102Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -2170,10 +2221,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -2282,7 +2334,7 @@ namespace QuantBox.XApi
         /// 当日卖费用
         /// </summary>
         public double TodaySellFee { get; private set; }
-        public static Ufx31001Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx31001Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -2292,12 +2344,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx31001Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx31001Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx31001Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx31001Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -2324,10 +2377,11 @@ namespace QuantBox.XApi
                     item.TodaySellBalance = result.GetDouble("today_sell_balance");
                     item.TodayBuyFee = result.GetDouble("today_buy_fee");
                     item.TodaySellFee = result.GetDouble("today_sell_fee");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -2380,7 +2434,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx31002Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx31002Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -2390,12 +2444,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx31002Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx31002Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx31002Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx31002Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -2408,10 +2463,11 @@ namespace QuantBox.XApi
                     item.ImpawnAmount = result.GetInt("impawn_amount");
                     item.ReturnAmount = result.GetInt("return_amount");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -2484,7 +2540,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx30011Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx30011Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -2494,12 +2550,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx30011Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx30011Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx30011Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx30011Result();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -2517,10 +2574,11 @@ namespace QuantBox.XApi
                     item.YesterdayClosePrice = result.GetDouble("yesterday_close_price");
                     item.StopFlag = result.GetChar("stop_flag");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -2661,7 +2719,7 @@ namespace QuantBox.XApi
         /// 交易所申报编号(直连时为申报编号,分仓时为分仓申报编号)
         /// </summary>
         public string ExchangeReportNo { get; private set; }
-        public static Ufx32001Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx32001Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -2671,12 +2729,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx32001Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx32001Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx32001Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx32001Result();
                     data.Add(item);
                     item.EntrustDate = result.GetInt("entrust_date");
@@ -2711,10 +2770,11 @@ namespace QuantBox.XApi
                     item.WithdrawCause = result.GetStr("withdraw_cause");
                     item.PositionStr = result.GetStr("position_str");
                     item.ExchangeReportNo = result.GetStr("exchange_report_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -2843,7 +2903,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx32101Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx32101Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -2853,12 +2913,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx32101Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx32101Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx32101Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx32101Result();
                     data.Add(item);
                     item.EntrustDate = result.GetInt("entrust_date");
@@ -2890,10 +2951,11 @@ namespace QuantBox.XApi
                     item.WithdrawAmount = result.GetInt("withdraw_amount");
                     item.WithdrawCause = result.GetStr("withdraw_cause");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -3018,7 +3080,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx32006Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx32006Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -3028,12 +3090,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx32006Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx32006Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx32006Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx32006Result();
                     data.Add(item);
                     item.EntrustDate = result.GetInt("entrust_date");
@@ -3064,10 +3127,11 @@ namespace QuantBox.XApi
                     item.SellCancelAmount = result.GetInt("sell_cancel_amount");
                     item.WithdrawCause = result.GetStr("withdraw_cause");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -3156,7 +3220,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx33001Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx33001Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -3166,12 +3230,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx33001Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx33001Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx33001Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx33001Result();
                     data.Add(item);
                     item.DealDate = result.GetInt("deal_date");
@@ -3193,10 +3258,11 @@ namespace QuantBox.XApi
                     item.TotalFee = result.GetDouble("total_fee");
                     item.DealTime = result.GetInt("deal_time");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -3281,7 +3347,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx33101Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx33101Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -3291,12 +3357,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx33101Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx33101Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx33101Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx33101Result();
                     data.Add(item);
                     item.DealDate = result.GetInt("deal_date");
@@ -3317,10 +3384,11 @@ namespace QuantBox.XApi
                     item.TotalFee = result.GetDouble("total_fee");
                     item.DealTime = result.GetInt("deal_time");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -3353,7 +3421,7 @@ namespace QuantBox.XApi
         /// 当前资金余额(该余额不包含期货保证金)
         /// </summary>
         public double CurrentBalance { get; private set; }
-        public static Ufx34001Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx34001Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -3363,12 +3431,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx34001Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx34001Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx34001Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx34001Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -3376,10 +3445,11 @@ namespace QuantBox.XApi
                     item.EnableBalanceT0 = result.GetDouble("enable_balance_t0");
                     item.EnableBalanceT1 = result.GetDouble("enable_balance_t1");
                     item.CurrentBalance = result.GetDouble("current_balance");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -3416,7 +3486,7 @@ namespace QuantBox.XApi
         /// 风控判断流水号(用于关联风控信息包中的风控信息条目)
         /// </summary>
         public int RiskSerialNo { get; private set; }
-        public static Ufx91051Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91051Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -3426,12 +3496,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91051Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91051Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91051Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91051Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -3440,10 +3511,11 @@ namespace QuantBox.XApi
                     item.EntrustFailCode = result.GetInt("entrust_fail_code");
                     item.FailCause = result.GetStr("fail_cause");
                     item.RiskSerialNo = result.GetInt("risk_serial_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -3476,7 +3548,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91116Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91116Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -3486,12 +3558,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91116Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91116Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91116Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91116Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -3499,10 +3572,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -3535,7 +3609,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91151Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91151Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -3545,12 +3619,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91151Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91151Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91151Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91151Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -3558,10 +3633,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -3586,7 +3662,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义号
         /// </summary>
         public int ExtsystemId { get; private set; }
-        public static Ufx91003Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91003Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -3596,21 +3672,23 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91003Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91003Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91003Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91003Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
                     item.EntrustNo = result.GetInt("entrust_no");
                     item.ExtsystemId = result.GetInt("extsystem_id");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -3647,7 +3725,7 @@ namespace QuantBox.XApi
         /// 风控判断流水号(用于关联风控信息包中的风控信息条目)
         /// </summary>
         public int RiskSerialNo { get; private set; }
-        public static Ufx91008Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91008Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -3657,12 +3735,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91008Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91008Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91008Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91008Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -3671,10 +3750,11 @@ namespace QuantBox.XApi
                     item.EntrustFailCode = result.GetInt("entrust_fail_code");
                     item.FailCause = result.GetStr("fail_cause");
                     item.RiskSerialNo = result.GetInt("risk_serial_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -3811,7 +3891,7 @@ namespace QuantBox.XApi
         /// 交易所申报编号(直连时为申报编号,分仓时为分仓申报编号)
         /// </summary>
         public string ExchangeReportNo { get; private set; }
-        public static Ufx32002Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx32002Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -3821,12 +3901,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx32002Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx32002Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx32002Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx32002Result();
                     data.Add(item);
                     item.EntrustDate = result.GetInt("entrust_date");
@@ -3860,10 +3941,11 @@ namespace QuantBox.XApi
                     item.DealPrice = result.GetDouble("deal_price");
                     item.PositionStr = result.GetStr("position_str");
                     item.ExchangeReportNo = result.GetStr("exchange_report_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -3948,7 +4030,7 @@ namespace QuantBox.XApi
         /// 委托状态(限定 <see cref="UfxEntrustState"/> 中定义的常量)
         /// </summary>
         public sbyte EntrustState { get; private set; }
-        public static Ufx32005Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx32005Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -3958,12 +4040,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx32005Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx32005Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx32005Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx32005Result();
                     data.Add(item);
                     item.EntrustDate = result.GetInt("entrust_date");
@@ -3984,10 +4067,11 @@ namespace QuantBox.XApi
                     item.EntrustPrice = result.GetDouble("entrust_price");
                     item.EntrustAmount = result.GetInt("entrust_amount");
                     item.EntrustState = result.GetChar("entrust_state");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -4072,7 +4156,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx33002Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx33002Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -4082,12 +4166,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx33002Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx33002Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx33002Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx33002Result();
                     data.Add(item);
                     item.DealDate = result.GetInt("deal_date");
@@ -4108,10 +4193,11 @@ namespace QuantBox.XApi
                     item.TotalFee = result.GetDouble("total_fee");
                     item.DealTime = result.GetInt("deal_time");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -4196,7 +4282,7 @@ namespace QuantBox.XApi
         /// 申报方向(KB:实物成份股买;;KS:实物成份股卖;;ZB:现金替代买;;ZS:现金替代卖;;其他值无效)
         /// </summary>
         public string ReportDirection { get; private set; }
-        public static Ufx33005Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx33005Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -4206,12 +4292,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx33005Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx33005Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx33005Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx33005Result();
                     data.Add(item);
                     item.DealDate = result.GetInt("deal_date");
@@ -4232,10 +4319,11 @@ namespace QuantBox.XApi
                     item.DealBalance = result.GetDouble("deal_balance");
                     item.TotalFee = result.GetDouble("total_fee");
                     item.ReportDirection = result.GetStr("report_direction");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -4280,7 +4368,7 @@ namespace QuantBox.XApi
         /// 赎回替代金额(该字段仅对深圳跨市场ETF有效,对于单市场ETF,等同于替代金额字段.)
         /// </summary>
         public double RedeemReplaceBalance { get; private set; }
-        public static Ufx35014Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35014Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -4290,12 +4378,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35014Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35014Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35014Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35014Result();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -4306,10 +4395,11 @@ namespace QuantBox.XApi
                     item.ReplaceRatio = result.GetDouble("replace_ratio");
                     item.ReplaceBalance = result.GetDouble("replace_balance");
                     item.RedeemReplaceBalance = result.GetDouble("redeem_replace_balance");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -4386,7 +4476,7 @@ namespace QuantBox.XApi
         /// 拟合指数代码
         /// </summary>
         public string UnderlyingIndex { get; private set; }
-        public static Ufx35020Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35020Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -4396,12 +4486,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35020Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35020Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35020Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35020Result();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -4420,10 +4511,11 @@ namespace QuantBox.XApi
                     item.YesterdayNav = result.GetDouble("yesterday_nav");
                     item.EstimateCash = result.GetDouble("estimate_cash");
                     item.UnderlyingIndex = result.GetStr("underlying_index");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -4512,7 +4604,7 @@ namespace QuantBox.XApi
         /// 期货最小价差
         /// </summary>
         public double PriceInterval { get; private set; }
-        public static Ufx30010Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx30010Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -4522,12 +4614,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx30010Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx30010Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx30010Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx30010Result();
                     data.Add(item);
                     item.MarketNo = result.GetStr("market_no");
@@ -4549,10 +4642,11 @@ namespace QuantBox.XApi
                     item.UplimitedPrice = result.GetDouble("uplimited_price");
                     item.DownlimitedPrice = result.GetDouble("downlimited_price");
                     item.PriceInterval = result.GetDouble("price_interval");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -4589,7 +4683,7 @@ namespace QuantBox.XApi
         /// 风控判断流水号(用于关联风控信息包中的风控信息条目)
         /// </summary>
         public int RiskSerialNo { get; private set; }
-        public static Ufx91004Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91004Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -4599,12 +4693,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91004Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91004Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91004Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91004Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -4613,10 +4708,11 @@ namespace QuantBox.XApi
                     item.EntrustFailCode = result.GetInt("entrust_fail_code");
                     item.FailCause = result.GetStr("fail_cause");
                     item.RiskSerialNo = result.GetInt("risk_serial_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -4653,7 +4749,7 @@ namespace QuantBox.XApi
         /// 风控判断流水号(用于关联风控信息包中的风控信息条目)
         /// </summary>
         public int RiskSerialNo { get; private set; }
-        public static Ufx91013Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91013Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -4663,12 +4759,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91013Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91013Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91013Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91013Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -4677,10 +4774,11 @@ namespace QuantBox.XApi
                     item.EntrustFailCode = result.GetInt("entrust_fail_code");
                     item.FailCause = result.GetStr("fail_cause");
                     item.RiskSerialNo = result.GetInt("risk_serial_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -4713,7 +4811,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91119Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91119Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -4723,12 +4821,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91119Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91119Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91119Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91119Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -4736,10 +4835,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -4772,7 +4872,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91105Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91105Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -4782,12 +4882,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91105Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91105Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91105Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91105Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -4795,10 +4896,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -4831,7 +4933,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91121Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91121Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -4841,12 +4943,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91121Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91121Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91121Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91121Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -4854,10 +4957,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -4890,7 +4994,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91107Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91107Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -4900,12 +5004,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91107Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91107Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91107Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91107Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -4913,10 +5018,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -5045,7 +5151,7 @@ namespace QuantBox.XApi
         /// 当日卖费用
         /// </summary>
         public double TodaySellFee { get; private set; }
-        public static Ufx31003Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx31003Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -5055,12 +5161,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx31003Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx31003Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx31003Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx31003Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -5092,10 +5199,11 @@ namespace QuantBox.XApi
                     item.TodaySellBalance = result.GetDouble("today_sell_balance");
                     item.TodayBuyFee = result.GetDouble("today_buy_fee");
                     item.TodaySellFee = result.GetDouble("today_sell_fee");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -5184,7 +5292,7 @@ namespace QuantBox.XApi
         /// 合约乘数
         /// </summary>
         public int Multiple { get; private set; }
-        public static Ufx31013Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx31013Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -5194,12 +5302,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx31013Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx31013Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx31013Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx31013Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -5221,10 +5330,11 @@ namespace QuantBox.XApi
                     item.TotalFee = result.GetDouble("total_fee");
                     item.PreSettlementPrice = result.GetDouble("pre_settlement_price");
                     item.Multiple = result.GetInt("multiple");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -5377,7 +5487,7 @@ namespace QuantBox.XApi
         /// 投资类型(限定 <see cref="UfxInvestType"/> 中定义的常量)
         /// </summary>
         public sbyte InvestType { get; private set; }
-        public static Ufx32003Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx32003Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -5387,12 +5497,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx32003Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx32003Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx32003Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx32003Result();
                     data.Add(item);
                     item.EntrustDate = result.GetInt("entrust_date");
@@ -5430,10 +5541,11 @@ namespace QuantBox.XApi
                     item.PositionStr = result.GetStr("position_str");
                     item.ExchangeReportNo = result.GetStr("exchange_report_no");
                     item.InvestType = result.GetChar("invest_type");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -5574,7 +5686,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx32103Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx32103Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -5584,12 +5696,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx32103Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx32103Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx32103Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx32103Result();
                     data.Add(item);
                     item.EntrustDate = result.GetInt("entrust_date");
@@ -5624,10 +5737,11 @@ namespace QuantBox.XApi
                     item.WithdrawAmount = result.GetInt("withdraw_amount");
                     item.WithdrawCause = result.GetStr("withdraw_cause");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -5772,7 +5886,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx32008Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx32008Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -5782,12 +5896,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx32008Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx32008Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx32008Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx32008Result();
                     data.Add(item);
                     item.EntrustDate = result.GetInt("entrust_date");
@@ -5823,10 +5938,11 @@ namespace QuantBox.XApi
                     item.WithdrawAmount = result.GetInt("withdraw_amount");
                     item.WithdrawCause = result.GetStr("withdraw_cause");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -5927,7 +6043,7 @@ namespace QuantBox.XApi
         /// 投资类型(限定 <see cref="UfxInvestType"/> 中定义的常量)
         /// </summary>
         public sbyte InvestType { get; private set; }
-        public static Ufx33003Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx33003Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -5937,12 +6053,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx33003Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx33003Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx33003Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx33003Result();
                     data.Add(item);
                     item.DealDate = result.GetInt("deal_date");
@@ -5967,10 +6084,11 @@ namespace QuantBox.XApi
                     item.CloseType = result.GetChar("close_type");
                     item.PositionStr = result.GetStr("position_str");
                     item.InvestType = result.GetChar("invest_type");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6063,7 +6181,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx33103Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx33103Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -6073,12 +6191,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx33103Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx33103Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx33103Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx33103Result();
                     data.Add(item);
                     item.DealDate = result.GetInt("deal_date");
@@ -6101,10 +6220,11 @@ namespace QuantBox.XApi
                     item.TotalFee = result.GetDouble("total_fee");
                     item.DealTime = result.GetInt("deal_time");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6141,7 +6261,7 @@ namespace QuantBox.XApi
         /// 期货挂单占用保证金
         /// </summary>
         public double FutuTempOccupyDeposit { get; private set; }
-        public static Ufx34003Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx34003Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -6151,12 +6271,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx34003Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx34003Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx34003Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx34003Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -6165,10 +6286,11 @@ namespace QuantBox.XApi
                     item.EnableDepositBalance = result.GetDouble("enable_deposit_balance");
                     item.FutuDepositBalance = result.GetDouble("futu_deposit_balance");
                     item.FutuTempOccupyDeposit = result.GetDouble("futu_temp_occupy_deposit");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6229,7 +6351,7 @@ namespace QuantBox.XApi
         /// 定位串(返回本条记录的定位串,下次查询时可取本次查询返回的最大定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx35023Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35023Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -6239,12 +6361,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35023Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35023Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35023Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35023Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -6259,10 +6382,11 @@ namespace QuantBox.XApi
                     item.FeeRatio = result.GetDouble("fee_ratio");
                     item.FeeRatioShort = result.GetDouble("fee_ratio_short");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6355,7 +6479,7 @@ namespace QuantBox.XApi
         /// 最小价差
         /// </summary>
         public double PriceInterval { get; private set; }
-        public static Ufx30012Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx30012Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -6365,12 +6489,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx30012Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx30012Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx30012Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx30012Result();
                     data.Add(item);
                     item.MarketNo = result.GetStr("market_no");
@@ -6393,10 +6518,11 @@ namespace QuantBox.XApi
                     item.DownlimitedPrice = result.GetDouble("downlimited_price");
                     item.PositionStr = result.GetStr("position_str");
                     item.PriceInterval = result.GetDouble("price_interval");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6433,7 +6559,7 @@ namespace QuantBox.XApi
         /// 风控判断流水号(用于关联风控信息包中的风控信息条目)
         /// </summary>
         public int RiskSerialNo { get; private set; }
-        public static Ufx91005Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91005Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -6443,12 +6569,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91005Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91005Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91005Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91005Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -6457,10 +6584,11 @@ namespace QuantBox.XApi
                     item.EntrustFailCode = result.GetInt("entrust_fail_code");
                     item.FailCause = result.GetStr("fail_cause");
                     item.RiskSerialNo = result.GetInt("risk_serial_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6485,7 +6613,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义号
         /// </summary>
         public int ExtsystemId { get; private set; }
-        public static Ufx91006Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91006Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -6495,21 +6623,23 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91006Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91006Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91006Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91006Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
                     item.EntrustNo = result.GetInt("entrust_no");
                     item.ExtsystemId = result.GetInt("extsystem_id");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6534,7 +6664,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义号
         /// </summary>
         public int ExtsystemId { get; private set; }
-        public static Ufx91007Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91007Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -6544,21 +6674,23 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91007Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91007Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91007Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91007Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
                     item.EntrustNo = result.GetInt("entrust_no");
                     item.ExtsystemId = result.GetInt("extsystem_id");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6583,7 +6715,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义号
         /// </summary>
         public int ExtsystemId { get; private set; }
-        public static Ufx91025Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91025Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -6593,21 +6725,23 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91025Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91025Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91025Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91025Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
                     item.EntrustNo = result.GetInt("entrust_no");
                     item.ExtsystemId = result.GetInt("extsystem_id");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6644,7 +6778,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91126Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91126Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -6654,12 +6788,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91126Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91126Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91126Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91126Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -6668,10 +6803,11 @@ namespace QuantBox.XApi
                     item.StockCode2 = result.GetStr("stock_code2");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6768,7 +6904,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx32017Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx32017Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -6778,12 +6914,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx32017Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx32017Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx32017Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx32017Result();
                     data.Add(item);
                     item.EntrustDate = result.GetInt("entrust_date");
@@ -6807,10 +6944,11 @@ namespace QuantBox.XApi
                     item.EntrustState = result.GetChar("entrust_state");
                     item.WithdrawCause = result.GetStr("withdraw_cause");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6827,7 +6965,7 @@ namespace QuantBox.XApi
         /// 委托批号
         /// </summary>
         public int BatchNo { get; private set; }
-        public static Ufx91012Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91012Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -6837,19 +6975,21 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91012Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91012Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91012Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91012Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6886,7 +7026,7 @@ namespace QuantBox.XApi
         /// 风控判断流水号(用于关联风控信息包中的风控信息条目)
         /// </summary>
         public int RiskSerialNo { get; private set; }
-        public static Ufx91014Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91014Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -6896,12 +7036,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91014Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91014Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91014Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91014Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -6910,10 +7051,11 @@ namespace QuantBox.XApi
                     item.EntrustFailCode = result.GetInt("entrust_fail_code");
                     item.FailCause = result.GetStr("fail_cause");
                     item.RiskSerialNo = result.GetInt("risk_serial_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6938,7 +7080,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义号
         /// </summary>
         public int ExtsystemId { get; private set; }
-        public static Ufx91091Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91091Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -6948,21 +7090,23 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91091Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91091Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91091Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91091Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
                     item.EntrustNo = result.GetInt("entrust_no");
                     item.ExtsystemId = result.GetInt("extsystem_id");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -6991,7 +7135,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义号
         /// </summary>
         public int ExtsystemId { get; private set; }
-        public static Ufx91016Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91016Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -7001,22 +7145,24 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91016Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91016Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91016Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91016Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
                     item.EntrustFailCode = result.GetInt("entrust_fail_code");
                     item.FailCause = result.GetStr("fail_cause");
                     item.ExtsystemId = result.GetInt("extsystem_id");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -7053,7 +7199,7 @@ namespace QuantBox.XApi
         /// 风控判断流水号(用于关联风控信息包中的风控信息条目)
         /// </summary>
         public int RiskSerialNo { get; private set; }
-        public static Ufx91017Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91017Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -7063,12 +7209,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91017Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91017Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91017Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91017Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -7077,10 +7224,11 @@ namespace QuantBox.XApi
                     item.EntrustFailCode = result.GetInt("entrust_fail_code");
                     item.FailCause = result.GetStr("fail_cause");
                     item.RiskSerialNo = result.GetInt("risk_serial_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -7113,7 +7261,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91120Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91120Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -7123,12 +7271,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91120Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91120Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91120Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91120Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -7136,10 +7285,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -7172,7 +7322,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91106Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91106Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -7182,12 +7332,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91106Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91106Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91106Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91106Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -7195,10 +7346,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -7219,7 +7371,7 @@ namespace QuantBox.XApi
         /// 撤单失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91108Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91108Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -7229,20 +7381,22 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91108Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91108Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91108Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91108Result();
                     data.Add(item);
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -7275,7 +7429,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91122Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91122Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -7285,12 +7439,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91122Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91122Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91122Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91122Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -7298,10 +7453,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -7334,7 +7490,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91109Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91109Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -7344,12 +7500,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91109Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91109Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91109Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91109Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -7357,10 +7514,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -7393,7 +7551,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91123Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91123Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -7403,12 +7561,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91123Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91123Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91123Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91123Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -7416,10 +7575,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -7452,7 +7612,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91111Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91111Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -7462,12 +7622,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91111Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91111Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91111Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91111Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -7475,10 +7636,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -7511,7 +7673,7 @@ namespace QuantBox.XApi
         /// 失败原因
         /// </summary>
         public string FailCause { get; private set; }
-        public static Ufx91112Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91112Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -7521,12 +7683,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91112Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91112Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91112Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91112Result();
                     data.Add(item);
                     item.EntrustNo = result.GetInt("entrust_no");
@@ -7534,10 +7697,11 @@ namespace QuantBox.XApi
                     item.StockCode = result.GetStr("stock_code");
                     item.SuccessFlag = result.GetChar("success_flag");
                     item.FailCause = result.GetStr("fail_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -7658,7 +7822,7 @@ namespace QuantBox.XApi
         /// 当日平仓费用
         /// </summary>
         public double TodaySellFee { get; private set; }
-        public static Ufx31004Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx31004Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -7668,12 +7832,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx31004Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx31004Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx31004Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx31004Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -7703,10 +7868,11 @@ namespace QuantBox.XApi
                     item.TodaySellBalance = result.GetDouble("today_sell_balance");
                     item.TodayBuyFee = result.GetDouble("today_buy_fee");
                     item.TodaySellFee = result.GetDouble("today_sell_fee");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -7871,7 +8037,7 @@ namespace QuantBox.XApi
         /// 平仓类型(0:不区分方向1:平今2:平昨)
         /// </summary>
         public sbyte CloseDirection { get; private set; }
-        public static Ufx32004Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx32004Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -7881,12 +8047,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx32004Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx32004Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx32004Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx32004Result();
                     data.Add(item);
                     item.EntrustDate = result.GetInt("entrust_date");
@@ -7927,10 +8094,11 @@ namespace QuantBox.XApi
                     item.ExchangeReportNo = result.GetStr("exchange_report_no");
                     item.MktQuote = result.GetChar("mkt_quote");
                     item.CloseDirection = result.GetChar("close_direction");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -8071,7 +8239,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx32007Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx32007Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -8081,12 +8249,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx32007Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx32007Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx32007Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx32007Result();
                     data.Add(item);
                     item.EntrustDate = result.GetInt("entrust_date");
@@ -8121,10 +8290,11 @@ namespace QuantBox.XApi
                     item.SellCancelAmount = result.GetInt("sell_cancel_amount");
                     item.WithdrawCause = result.GetStr("withdraw_cause");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -8221,7 +8391,7 @@ namespace QuantBox.XApi
         /// 平仓类型(用于期权的平仓业务;0:开仓;1:普通平仓;2:强制平仓;3:到期交割;4:平昨仓;5:平今仓)
         /// </summary>
         public sbyte CloseType { get; private set; }
-        public static Ufx33004Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx33004Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -8231,12 +8401,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx33004Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx33004Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx33004Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx33004Result();
                     data.Add(item);
                     item.DealDate = result.GetInt("deal_date");
@@ -8260,10 +8431,11 @@ namespace QuantBox.XApi
                     item.DealTime = result.GetInt("deal_time");
                     item.PositionStr = result.GetStr("position_str");
                     item.CloseType = result.GetChar("close_type");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -8296,7 +8468,7 @@ namespace QuantBox.XApi
         /// 期权保证金账户余额
         /// </summary>
         public double OptionDepositBalance { get; private set; }
-        public static Ufx34004Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx34004Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -8306,12 +8478,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx34004Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx34004Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx34004Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx34004Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -8319,10 +8492,11 @@ namespace QuantBox.XApi
                     item.OccupyDepositBalance = result.GetDouble("occupy_deposit_balance");
                     item.EnableDepositBalance = result.GetDouble("enable_deposit_balance");
                     item.OptionDepositBalance = result.GetDouble("option_deposit_balance");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -8359,7 +8533,7 @@ namespace QuantBox.XApi
         /// 风控判断流水号(用于关联风控信息包中的风控信息条目)
         /// </summary>
         public int RiskSerialNo { get; private set; }
-        public static Ufx91015Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91015Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -8369,12 +8543,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91015Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91015Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91015Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91015Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -8383,10 +8558,11 @@ namespace QuantBox.XApi
                     item.EntrustFailCode = result.GetInt("entrust_fail_code");
                     item.FailCause = result.GetStr("fail_cause");
                     item.RiskSerialNo = result.GetInt("risk_serial_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -8479,7 +8655,7 @@ namespace QuantBox.XApi
         /// 组合后占用保证金
         /// </summary>
         public double CombiDepositNow { get; private set; }
-        public static Ufx31015Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx31015Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -8489,12 +8665,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx31015Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx31015Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx31015Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx31015Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -8517,10 +8694,11 @@ namespace QuantBox.XApi
                     item.FrozenAmount = result.GetInt("frozen_amount");
                     item.CombiDepositPre = result.GetDouble("combi_deposit_pre");
                     item.CombiDepositNow = result.GetDouble("combi_deposit_now");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -8637,7 +8815,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx32015Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx32015Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -8647,12 +8825,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx32015Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx32015Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx32015Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx32015Result();
                     data.Add(item);
                     item.EntrustDate = result.GetInt("entrust_date");
@@ -8681,10 +8860,11 @@ namespace QuantBox.XApi
                     item.EntrustState = result.GetChar("entrust_state");
                     item.WithdrawCause = result.GetStr("withdraw_cause");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -8773,7 +8953,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx33015Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx33015Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -8783,12 +8963,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx33015Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx33015Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx33015Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx33015Result();
                     data.Add(item);
                     item.DealDate = result.GetInt("deal_date");
@@ -8810,10 +8991,11 @@ namespace QuantBox.XApi
                     item.DealAmount = result.GetInt("deal_amount");
                     item.DealTime = result.GetInt("deal_time");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -8850,7 +9032,7 @@ namespace QuantBox.XApi
         /// 风控判断流水号(用于关联风控信息包中的风控信息条目)
         /// </summary>
         public int RiskSerialNo { get; private set; }
-        public static Ufx91018Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx91018Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -8860,12 +9042,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx91018Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx91018Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx91018Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx91018Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -8874,10 +9057,11 @@ namespace QuantBox.XApi
                     item.EntrustFailCode = result.GetInt("entrust_fail_code");
                     item.FailCause = result.GetStr("fail_cause");
                     item.RiskSerialNo = result.GetInt("risk_serial_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -8998,7 +9182,7 @@ namespace QuantBox.XApi
         /// 定位串(返回记录中值最大的定位串,做为所有记录的定位串,下;次查询时可取本次查询返回的定位串作为查询条件传入.)
         /// </summary>
         public string PositionStr { get; private set; }
-        public static Ufx32016Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx32016Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -9008,12 +9192,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx32016Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx32016Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx32016Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx32016Result();
                     data.Add(item);
                     item.EntrustDate = result.GetInt("entrust_date");
@@ -9043,10 +9228,11 @@ namespace QuantBox.XApi
                     item.DealBalance = result.GetDouble("deal_balance");
                     item.WithdrawCause = result.GetStr("withdraw_cause");
                     item.PositionStr = result.GetStr("position_str");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -9107,7 +9293,7 @@ namespace QuantBox.XApi
         /// 当前成本
         /// </summary>
         public double CurrentCost { get; private set; }
-        public static Ufx31005Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx31005Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -9117,12 +9303,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx31005Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx31005Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx31005Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx31005Result();
                     data.Add(item);
                     item.AccountCode = result.GetStr("account_code");
@@ -9137,10 +9324,11 @@ namespace QuantBox.XApi
                     item.CurrentAmount = result.GetInt("current_amount");
                     item.EnableAmount = result.GetInt("enable_amount");
                     item.CurrentCost = result.GetDouble("current_cost");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -9157,7 +9345,7 @@ namespace QuantBox.XApi
         /// 委托批号
         /// </summary>
         public int BatchNo { get; private set; }
-        public static Ufx35008Result ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static Ufx35008Result ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -9167,19 +9355,21 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static Ufx35008Result[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static Ufx35008Result[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<Ufx35008Result>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new Ufx35008Result();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -9292,7 +9482,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义说明
         /// </summary>
         public string ThirdReff { get; private set; }
-        public static UfxEntrustReceived ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxEntrustReceived ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -9302,12 +9492,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxEntrustReceived[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxEntrustReceived[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxEntrustReceived>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxEntrustReceived();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -9335,10 +9526,11 @@ namespace QuantBox.XApi
                     item.EntrustStatus = result.GetChar("entrust_status");
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -9443,7 +9635,7 @@ namespace QuantBox.XApi
         /// 委托确认号
         /// </summary>
         public string ConfirmNo { get; private set; }
-        public static UfxEntrustConfirmed ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxEntrustConfirmed ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -9453,12 +9645,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxEntrustConfirmed[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxEntrustConfirmed[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxEntrustConfirmed>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxEntrustConfirmed();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -9484,10 +9677,11 @@ namespace QuantBox.XApi
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
                     item.ConfirmNo = result.GetStr("confirm_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -9552,7 +9746,7 @@ namespace QuantBox.XApi
         /// 委托数量
         /// </summary>
         public int EntrustAmount { get; private set; }
-        public static UfxEntrustRejected ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxEntrustRejected ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -9562,12 +9756,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxEntrustRejected[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxEntrustRejected[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxEntrustRejected>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxEntrustRejected();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -9583,10 +9778,11 @@ namespace QuantBox.XApi
                     item.EntrustDirection = result.GetStr("entrust_direction");
                     item.FuturesDirection = result.GetChar("futures_direction");
                     item.EntrustAmount = result.GetInt("entrust_amount");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -9643,7 +9839,7 @@ namespace QuantBox.XApi
         /// 证券代码
         /// </summary>
         public string StockCode { get; private set; }
-        public static UfxEntrustCancel ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxEntrustCancel ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -9653,12 +9849,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxEntrustCancel[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxEntrustCancel[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxEntrustCancel>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxEntrustCancel();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -9672,10 +9869,11 @@ namespace QuantBox.XApi
                     item.RevokeCause = result.GetStr("revoke_cause");
                     item.MarketNo = result.GetStr("market_no");
                     item.StockCode = result.GetStr("stock_code");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -9772,7 +9970,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义说明
         /// </summary>
         public string ThirdReff { get; private set; }
-        public static UfxEntrustCancelled ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxEntrustCancelled ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -9782,12 +9980,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxEntrustCancelled[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxEntrustCancelled[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxEntrustCancelled>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxEntrustCancelled();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -9811,10 +10010,11 @@ namespace QuantBox.XApi
                     item.EntrustStatus = result.GetChar("entrust_status");
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -9867,7 +10067,7 @@ namespace QuantBox.XApi
         /// 证券代码
         /// </summary>
         public string StockCode { get; private set; }
-        public static UfxEntrustCancelRejected ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxEntrustCancelRejected ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -9877,12 +10077,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxEntrustCancelRejected[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxEntrustCancelRejected[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxEntrustCancelRejected>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxEntrustCancelRejected();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -9895,10 +10096,11 @@ namespace QuantBox.XApi
                     item.RevokeCause = result.GetStr("revoke_cause");
                     item.MarketNo = result.GetStr("market_no");
                     item.StockCode = result.GetStr("stock_code");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -10027,7 +10229,7 @@ namespace QuantBox.XApi
         /// 投资类型(限定 <see cref="UfxInvestType"/> 中定义的常量)
         /// </summary>
         public sbyte InvestType { get; private set; }
-        public static UfxEntrustTrade ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxEntrustTrade ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -10037,12 +10239,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxEntrustTrade[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxEntrustTrade[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxEntrustTrade>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxEntrustTrade();
                     data.Add(item);
                     item.DealDate = result.GetInt("deal_date");
@@ -10074,10 +10277,11 @@ namespace QuantBox.XApi
                     item.CloseType = result.GetChar("close_type");
                     item.ReportDirection = result.GetStr("report_direction");
                     item.InvestType = result.GetChar("invest_type");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -10174,7 +10378,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义说明
         /// </summary>
         public string ThirdReff { get; private set; }
-        public static UfxCombiEntrustReceived ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiEntrustReceived ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -10184,12 +10388,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiEntrustReceived[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiEntrustReceived[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiEntrustReceived>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiEntrustReceived();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -10213,10 +10418,11 @@ namespace QuantBox.XApi
                     item.EntrustState = result.GetChar("entrust_state");
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -10317,7 +10523,7 @@ namespace QuantBox.XApi
         /// 委托确认号
         /// </summary>
         public string ConfirmNo { get; private set; }
-        public static UfxCombiEntrustConfirmed ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiEntrustConfirmed ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -10327,12 +10533,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiEntrustConfirmed[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiEntrustConfirmed[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiEntrustConfirmed>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiEntrustConfirmed();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -10357,10 +10564,11 @@ namespace QuantBox.XApi
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
                     item.ConfirmNo = result.GetStr("confirm_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -10401,7 +10609,7 @@ namespace QuantBox.XApi
         /// 废单原因
         /// </summary>
         public string RevokeCause { get; private set; }
-        public static UfxCombiEntrustRejected ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiEntrustRejected ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -10411,12 +10619,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiEntrustRejected[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiEntrustRejected[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiEntrustRejected>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiEntrustRejected();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -10426,10 +10635,11 @@ namespace QuantBox.XApi
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
                     item.RevokeCause = result.GetStr("revoke_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -10474,7 +10684,7 @@ namespace QuantBox.XApi
         /// 撤单原因
         /// </summary>
         public string RevokeCause { get; private set; }
-        public static UfxCombiEntrustCancel ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiEntrustCancel ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -10484,12 +10694,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiEntrustCancel[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiEntrustCancel[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiEntrustCancel>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiEntrustCancel();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -10500,10 +10711,11 @@ namespace QuantBox.XApi
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
                     item.RevokeCause = result.GetStr("revoke_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -10596,7 +10808,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义说明
         /// </summary>
         public string ThirdReff { get; private set; }
-        public static UfxCombiEntrustCancelled ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiEntrustCancelled ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -10606,12 +10818,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiEntrustCancelled[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiEntrustCancelled[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiEntrustCancelled>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiEntrustCancelled();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -10634,10 +10847,11 @@ namespace QuantBox.XApi
                     item.EntrustState = result.GetChar("entrust_state");
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -10678,7 +10892,7 @@ namespace QuantBox.XApi
         /// 废单原因
         /// </summary>
         public string RevokeCause { get; private set; }
-        public static UfxCombiEntrustCancelRejected ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiEntrustCancelRejected ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -10688,12 +10902,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiEntrustCancelRejected[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiEntrustCancelRejected[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiEntrustCancelRejected>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiEntrustCancelRejected();
                     data.Add(item);
                     item.BatchNo = result.GetInt("batch_no");
@@ -10703,10 +10918,11 @@ namespace QuantBox.XApi
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
                     item.RevokeCause = result.GetStr("revoke_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -10807,7 +11023,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义说明
         /// </summary>
         public string ThirdReff { get; private set; }
-        public static UfxCombiOptionsEntrustReceived ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiOptionsEntrustReceived ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -10817,12 +11033,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiOptionsEntrustReceived[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiOptionsEntrustReceived[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiOptionsEntrustReceived>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiOptionsEntrustReceived();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -10847,10 +11064,11 @@ namespace QuantBox.XApi
                     item.EntrustState = result.GetChar("entrust_state");
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -10951,7 +11169,7 @@ namespace QuantBox.XApi
         /// 委托确认号
         /// </summary>
         public string ConfirmNo { get; private set; }
-        public static UfxCombiOptionsEntrustConfirmed ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiOptionsEntrustConfirmed ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -10961,12 +11179,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiOptionsEntrustConfirmed[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiOptionsEntrustConfirmed[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiOptionsEntrustConfirmed>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiOptionsEntrustConfirmed();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -10991,10 +11210,11 @@ namespace QuantBox.XApi
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
                     item.ConfirmNo = result.GetStr("confirm_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -11035,7 +11255,7 @@ namespace QuantBox.XApi
         /// 废单原因
         /// </summary>
         public string RevokeCause { get; private set; }
-        public static UfxCombiOptionsEntrustRejected ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiOptionsEntrustRejected ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -11045,12 +11265,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiOptionsEntrustRejected[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiOptionsEntrustRejected[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiOptionsEntrustRejected>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiOptionsEntrustRejected();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -11060,10 +11281,11 @@ namespace QuantBox.XApi
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
                     item.RevokeCause = result.GetStr("revoke_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -11160,7 +11382,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义说明
         /// </summary>
         public string ThirdReff { get; private set; }
-        public static UfxCombiOptionsEntrustTrade ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiOptionsEntrustTrade ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -11170,12 +11392,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiOptionsEntrustTrade[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiOptionsEntrustTrade[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiOptionsEntrustTrade>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiOptionsEntrustTrade();
                     data.Add(item);
                     item.DealDate = result.GetInt("deal_date");
@@ -11199,10 +11422,11 @@ namespace QuantBox.XApi
                     item.DealAmount = result.GetInt("deal_amount");
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -11303,7 +11527,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义说明
         /// </summary>
         public string ThirdReff { get; private set; }
-        public static UfxCombiOptionsEntrustCancelled ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiOptionsEntrustCancelled ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -11313,12 +11537,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiOptionsEntrustCancelled[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiOptionsEntrustCancelled[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiOptionsEntrustCancelled>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiOptionsEntrustCancelled();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -11343,10 +11568,11 @@ namespace QuantBox.XApi
                     item.EntrustState = result.GetChar("entrust_state");
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -11447,7 +11673,7 @@ namespace QuantBox.XApi
         /// 审批结果(2-审批拒绝;3-待审批)
         /// </summary>
         public sbyte ApproveResult { get; private set; }
-        public static UfxEntrustApproving ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxEntrustApproving ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -11457,12 +11683,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxEntrustApproving[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxEntrustApproving[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxEntrustApproving>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxEntrustApproving();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -11487,10 +11714,11 @@ namespace QuantBox.XApi
                     item.ThirdReff = result.GetStr("third_reff");
                     item.ApproveOrder = result.GetInt("approve_order");
                     item.ApproveResult = result.GetChar("approve_result");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -11583,7 +11811,7 @@ namespace QuantBox.XApi
         /// 审批结果(2-审批拒绝;3-待审批)
         /// </summary>
         public sbyte ApproveResult { get; private set; }
-        public static UfxEntrustCancelApproving ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxEntrustCancelApproving ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -11593,12 +11821,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxEntrustCancelApproving[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxEntrustCancelApproving[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxEntrustCancelApproving>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxEntrustCancelApproving();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -11621,10 +11850,11 @@ namespace QuantBox.XApi
                     item.ThirdReff = result.GetStr("third_reff");
                     item.ApproveOrder = result.GetInt("approve_order");
                     item.ApproveResult = result.GetChar("approve_result");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -11721,7 +11951,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义说明
         /// </summary>
         public string ThirdReff { get; private set; }
-        public static UfxCombiFutureOptionsEntrustReceived ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiFutureOptionsEntrustReceived ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -11731,12 +11961,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiFutureOptionsEntrustReceived[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiFutureOptionsEntrustReceived[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiFutureOptionsEntrustReceived>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiFutureOptionsEntrustReceived();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -11760,10 +11991,11 @@ namespace QuantBox.XApi
                     item.SpecialFlag = result.GetChar("special_flag");
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -11864,7 +12096,7 @@ namespace QuantBox.XApi
         /// 委托确认号
         /// </summary>
         public string ConfirmNo { get; private set; }
-        public static UfxCombiFutureOptionsEntrustConfirmed ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiFutureOptionsEntrustConfirmed ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -11874,12 +12106,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiFutureOptionsEntrustConfirmed[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiFutureOptionsEntrustConfirmed[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiFutureOptionsEntrustConfirmed>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiFutureOptionsEntrustConfirmed();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -11904,10 +12137,11 @@ namespace QuantBox.XApi
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
                     item.ConfirmNo = result.GetStr("confirm_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -11960,7 +12194,7 @@ namespace QuantBox.XApi
         /// 撤单原因(废单原因)
         /// </summary>
         public string WithdrawCause { get; private set; }
-        public static UfxCombiFutureOptionsEntrustRejected ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiFutureOptionsEntrustRejected ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -11970,12 +12204,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiFutureOptionsEntrustRejected[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiFutureOptionsEntrustRejected[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiFutureOptionsEntrustRejected>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiFutureOptionsEntrustRejected();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -11988,10 +12223,11 @@ namespace QuantBox.XApi
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
                     item.WithdrawCause = result.GetStr("withdraw_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -12080,7 +12316,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义说明
         /// </summary>
         public string ThirdReff { get; private set; }
-        public static UfxCombiFutureOptionsEntrustCancelled ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiFutureOptionsEntrustCancelled ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -12090,12 +12326,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiFutureOptionsEntrustCancelled[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiFutureOptionsEntrustCancelled[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiFutureOptionsEntrustCancelled>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiFutureOptionsEntrustCancelled();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -12117,10 +12354,11 @@ namespace QuantBox.XApi
                     item.SpecialFlag = result.GetChar("special_flag");
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -12229,7 +12467,7 @@ namespace QuantBox.XApi
         /// 特殊业务标志('7'-郑商所跨式组合单;'8'-郑商所宽跨式组合单)
         /// </summary>
         public sbyte SpecialFlag { get; private set; }
-        public static UfxCombiFutureOptionsEntrustApproving ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxCombiFutureOptionsEntrustApproving ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -12239,12 +12477,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxCombiFutureOptionsEntrustApproving[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxCombiFutureOptionsEntrustApproving[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxCombiFutureOptionsEntrustApproving>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxCombiFutureOptionsEntrustApproving();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -12271,10 +12510,11 @@ namespace QuantBox.XApi
                     item.ApproveOrder = result.GetInt("approve_order");
                     item.ApproveResult = result.GetChar("approve_result");
                     item.SpecialFlag = result.GetChar("special_flag");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -12359,7 +12599,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义说明
         /// </summary>
         public string ThirdReff { get; private set; }
-        public static UfxShCombiExerciseEntrustReceived ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxShCombiExerciseEntrustReceived ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -12369,12 +12609,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxShCombiExerciseEntrustReceived[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxShCombiExerciseEntrustReceived[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxShCombiExerciseEntrustReceived>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxShCombiExerciseEntrustReceived();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -12395,10 +12636,11 @@ namespace QuantBox.XApi
                     item.EntrustState = result.GetChar("entrust_state");
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -12487,7 +12729,7 @@ namespace QuantBox.XApi
         /// 委托确认号
         /// </summary>
         public string ConfirmNo { get; private set; }
-        public static UfxShCombiExerciseEntrustConfirmed ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxShCombiExerciseEntrustConfirmed ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -12497,12 +12739,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxShCombiExerciseEntrustConfirmed[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxShCombiExerciseEntrustConfirmed[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxShCombiExerciseEntrustConfirmed>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxShCombiExerciseEntrustConfirmed();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -12524,10 +12767,11 @@ namespace QuantBox.XApi
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
                     item.ConfirmNo = result.GetStr("confirm_no");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -12580,7 +12824,7 @@ namespace QuantBox.XApi
         /// 撤单原因(废单原因)
         /// </summary>
         public string WithdrawCause { get; private set; }
-        public static UfxShCombiExerciseEntrustRejected ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxShCombiExerciseEntrustRejected ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -12590,12 +12834,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxShCombiExerciseEntrustRejected[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxShCombiExerciseEntrustRejected[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxShCombiExerciseEntrustRejected>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxShCombiExerciseEntrustRejected();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -12608,10 +12853,11 @@ namespace QuantBox.XApi
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
                     item.WithdrawCause = result.GetStr("withdraw_cause");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -12692,7 +12938,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义说明
         /// </summary>
         public string ThirdReff { get; private set; }
-        public static UfxShCombiExerciseEntrustCancelled ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxShCombiExerciseEntrustCancelled ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -12702,12 +12948,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxShCombiExerciseEntrustCancelled[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxShCombiExerciseEntrustCancelled[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxShCombiExerciseEntrustCancelled>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxShCombiExerciseEntrustCancelled();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -12727,10 +12974,11 @@ namespace QuantBox.XApi
                     item.EntrustState = result.GetChar("entrust_state");
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -12803,7 +13051,7 @@ namespace QuantBox.XApi
         /// 第三方系统自定义说明
         /// </summary>
         public string ThirdReff { get; private set; }
-        public static UfxShCombiExerciseEntrustCancelRejected ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxShCombiExerciseEntrustCancelRejected ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -12813,12 +13061,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxShCombiExerciseEntrustCancelRejected[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxShCombiExerciseEntrustCancelRejected[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxShCombiExerciseEntrustCancelRejected>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxShCombiExerciseEntrustCancelRejected();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -12836,10 +13085,11 @@ namespace QuantBox.XApi
                     item.EntrustState = result.GetChar("entrust_state");
                     item.ExtsystemId = result.GetInt("extsystem_id");
                     item.ThirdReff = result.GetStr("third_reff");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -12936,7 +13186,7 @@ namespace QuantBox.XApi
         /// 审批结果(2-审批拒绝;3-待审批)
         /// </summary>
         public sbyte ApproveResult { get; private set; }
-        public static UfxShCombiExerciseEntrustApproving ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxShCombiExerciseEntrustApproving ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -12946,12 +13196,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxShCombiExerciseEntrustApproving[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxShCombiExerciseEntrustApproving[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxShCombiExerciseEntrustApproving>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxShCombiExerciseEntrustApproving();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -12975,10 +13226,11 @@ namespace QuantBox.XApi
                     item.ThirdReff = result.GetStr("third_reff");
                     item.ApproveOrder = result.GetInt("approve_order");
                     item.ApproveResult = result.GetChar("approve_result");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -13035,7 +13287,7 @@ namespace QuantBox.XApi
         /// 证券代码2
         /// </summary>
         public string StockCode2 { get; private set; }
-        public static UfxShCombiExerciseEntrustCancel ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxShCombiExerciseEntrustCancel ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -13045,12 +13297,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxShCombiExerciseEntrustCancel[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxShCombiExerciseEntrustCancel[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxShCombiExerciseEntrustCancel>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxShCombiExerciseEntrustCancel();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -13064,10 +13317,11 @@ namespace QuantBox.XApi
                     item.MarketNo = result.GetStr("market_no");
                     item.StockCode = result.GetStr("stock_code");
                     item.StockCode2 = result.GetStr("stock_code2");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();
@@ -13156,7 +13410,7 @@ namespace QuantBox.XApi
         /// 审批结果(2-审批拒绝;3-待审批)
         /// </summary>
         public sbyte ApproveResult { get; private set; }
-        public static UfxShCombiExerciseCancelApproving ReadOne(CT2UnPacker result, int dataIndex = 0)
+        public static UfxShCombiExerciseCancelApproving ReadOne(CT2UnPacker result, int dataIndex = 1)
         {
             var data = ReadAll(result, dataIndex, true);
             if (data != null && data.Length > 0)
@@ -13166,12 +13420,13 @@ namespace QuantBox.XApi
             return null;
         }
 
-        public static UfxShCombiExerciseCancelApproving[] ReadAll(CT2UnPacker result, int dataIndex = 0, bool firstOnly = false)
+        public static UfxShCombiExerciseCancelApproving[] ReadAll(CT2UnPacker result, int dataIndex = 1, bool firstOnly = false)
         {
             var data = new List<UfxShCombiExerciseCancelApproving>();
             if (result != null){
                 result.SetCurrentDatasetByIndex(dataIndex);
-                while (result.IsEOF() == 0) {
+                result.First();
+                while (result.IsEOF() == 0) {                    
                     var item = new UfxShCombiExerciseCancelApproving();
                     data.Add(item);
                     item.BusinessDate = result.GetInt("business_date");
@@ -13193,10 +13448,11 @@ namespace QuantBox.XApi
                     item.ThirdReff = result.GetStr("third_reff");
                     item.ApproveOrder = result.GetInt("approve_order");
                     item.ApproveResult = result.GetChar("approve_result");
-                        if (firstOnly)
+                    if (firstOnly)
                     {
                         break;
                     }
+                    result.Next();
                 }
             }
             return data.ToArray();

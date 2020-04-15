@@ -50,7 +50,7 @@ namespace QuantBox.XApi
 
         }
 
-        public virtual void OnCallback(CT2Connection lpConnection, int hSend, int functionId, CT2UnPacker unPacker, int dataIndex = 0)
+        public virtual void OnCallback(CT2Connection lpConnection, int hSend, int functionId, CT2UnPacker unPacker, int dataIndex = 1)
         {
             switch (functionId)
             {

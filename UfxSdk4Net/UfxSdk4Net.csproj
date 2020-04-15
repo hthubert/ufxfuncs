@@ -5,7 +5,7 @@
     <AssemblyName>QuantBox.UfxSdk</AssemblyName>
     <RootNamespace>QuantBox.XApi</RootNamespace>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <Version>1.0.14</Version>
+    <Version>1.0.19</Version>
     <Authors>hetao</Authors>
     <Product>QuantBox.UfxSdk for $(TargetFramework)</Product>
     <AssemblyVersion>1.0.0.0</AssemblyVersion>
@@ -14,7 +14,7 @@
 
   <PropertyGroup>
     <DocumentationFile>D:\hetao\github\ufxfuncs\UfxSdk4Net\QuantBox.UfxSdk.xml</DocumentationFile>
-    <SignAssembly>true</SignAssembly>
+    <SignAssembly>false</SignAssembly>
     <AssemblyOriginatorKeyFile>quantbox_user.pfx</AssemblyOriginatorKeyFile>
   </PropertyGroup>
 
