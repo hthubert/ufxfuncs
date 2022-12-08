@@ -10,7 +10,7 @@
     <PackageReference Include="ExcelDataReader" Version="3.6.0" />
     <PackageReference Include="Humanizer" Version="2.7.9" />
     <PackageReference Include="HundSunT2Sdk_x64" Version="1.1.6688.27425" />
-    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.2" />
     <PackageReference Include="System.Text.Encoding.CodePages" Version="4.7.0" />
   </ItemGroup>
 
